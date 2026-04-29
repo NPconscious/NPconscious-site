@@ -195,58 +195,30 @@ footer a {
 /* 🔥 MOBILE */
 @media (max-width: 768px) {
 
-  header {
-    padding: 12px 8px;
-  }
-
-  header h1 {
-    font-size: 19px;
-  }
-
-  .tagline {
-    font-size: 12px;
-  }
-
-  /* NAV (better than stacking vertically) */
-  nav {
-    gap: 6px;
-  }
-
-  nav a {
-    font-size: 12.5px;
-    padding: 5px 8px;
-    background: rgba(255,255,255,0.1);
-  }
-
-  .container {
-    width: 94%;
-  }
-
-  /* remove heavy left border */
   .box {
     border-left: none;
     border-radius: 12px;
   }
 
-  h2 {
-    font-size: 20px;
+  /* ADD TOP BORDER INSTEAD (mobile-friendly) */
+  .box-blue {
+    border-top: 4px solid #3498db;
   }
 
-  p {
-    font-size: 14px;
+  .box-green {
+    border-top: 4px solid #27ae60;
   }
 
-  .card {
-    padding: 12px;
+  .box-orange {
+    border-top: 4px solid #e67e22;
   }
 
-  .card-header h3 {
-    font-size: 14.5px;
+  .box-red {
+    border-top: 4px solid #e74c3c;
   }
 
-  footer {
-    font-size: 12px;
-    padding: 14px;
+  .box-purple {
+    border-top: 4px solid #8e44ad;
   }
 }
 
