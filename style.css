@@ -1,45 +1,125 @@
+/* Reset */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f4f6f8;
+  background: linear-gradient(to bottom, #f4f6f8, #eef1f5);
+  color: #333;
 }
 
 /* Header */
 header {
-  background: #2c3e50;
+  background: linear-gradient(135deg, #2c3e50, #1a252f);
   color: white;
   text-align: center;
-  padding: 30px 10px;
+  padding: 18px;
+
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  margin: 5px;
 }
 
 .tagline {
-  font-size: 18px;
+  font-size: 14px;
   opacity: 0.8;
+}
+
+/* Nav */
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 /* Container */
 .container {
-  width: 85%;
+  width: 90%;
+  max-width: 900px;
   margin: auto;
   padding: 20px 0;
+}
+
+/* Boxes */
+.box {
+  background: white;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 4px solid #2c3e50;
+  border-radius: 6px;
 }
 
 /* Cards */
 .card {
   background: white;
-  padding: 15px;
   margin: 15px 0;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Info boxes */
-.box {
-  background: #ffffff;
-  padding: 15px;
-  border-left: 5px solid #2c3e50;
-  margin: 10px 0 20px 0;
+.card:hover {
+  transform: translateY(-3px);
 }
+
+/* Card header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Arrow */
+.arrow {
+  transition: 0.3s;
+}
+
+/* Hidden content */
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.card.active .card-content {
+  max-height: 200px;
+}
+
+.card.active .arrow {
+  transform: rotate(90deg);
+}
+
+/* Featured card highlight */
+.featured {
+  border: 2px solid #e67e22;
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #fff7f0);
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: #e67e22;
+  color: white;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
 
 /* Footer */
 footer {
@@ -47,15 +127,13 @@ footer {
   padding: 20px;
   background: #2c3e50;
   color: white;
-  margin-top: 30px;
+  margin-top: 40px;
+}
+footer a {
+  color: #f39c12;
+  font-weight: 500;
 }
 
-a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
+footer a:hover {
   text-decoration: underline;
 }
