@@ -1,4 +1,8 @@
 /* Reset */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -11,31 +15,36 @@ header {
   background: linear-gradient(135deg, #2c3e50, #1a252f);
   color: white;
   text-align: center;
-  padding: 18px;
-
+  padding: 16px 10px;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 header h1 {
-  margin: 5px;
+  margin: 5px 0;
+  font-size: 22px;
 }
 
 .tagline {
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 13px;
+  opacity: 0.85;
 }
 
 /* Nav */
 nav {
-  margin-top: 10px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: white;
-  margin: 0 10px;
   text-decoration: none;
   font-size: 14px;
+  padding: 4px 6px;
 }
 
 nav a:hover {
@@ -44,33 +53,40 @@ nav a:hover {
 
 /* Container */
 .container {
-  width: 90%;
+  width: 92%;
   max-width: 900px;
   margin: auto;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 /* Boxes */
 .box {
-  background: white;
-  padding: 15px;
-  margin: 15px 0;
+  background: #ffffff;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   border-left: 4px solid #2c3e50;
-  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.box:hover {
+  transform: translateY(-1px);
 }
 
 /* Cards */
 .card {
   background: white;
-  margin: 15px 0;
-  border-radius: 10px;
-  padding: 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  padding: 14px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 /* Card header */
@@ -78,6 +94,11 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  margin: 0;
 }
 
 /* Arrow */
@@ -93,17 +114,16 @@ nav a:hover {
 }
 
 .card.active .card-content {
-  max-height: 200px;
+  max-height: 250px;
 }
 
 .card.active .arrow {
   transform: rotate(90deg);
 }
 
-/* Featured card highlight */
+/* Featured card */
 .featured {
   border: 2px solid #e67e22;
-  position: relative;
   background: linear-gradient(145deg, #ffffff, #fff7f0);
 }
 
@@ -115,59 +135,65 @@ nav a:hover {
   background: #e67e22;
   color: white;
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 20px;
   font-weight: bold;
 }
 
-
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 18px;
   background: #2c3e50;
   color: white;
-  margin-top: 40px;
+  margin-top: 30px;
+  font-size: 13px;
 }
+
 footer a {
   color: #f39c12;
   font-weight: 500;
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-/* 🔹 Mobile Optimization */
+/* 🔥 MOBILE FIXES (THIS IS WHERE MAGIC HAPPENS) */
 @media (max-width: 768px) {
 
-  /* Container spacing */
-  .container {
-    width: 92%;
-    padding: 15px 0;
+  /* Header tighter */
+  header {
+    padding: 14px 8px;
   }
 
-  /* Header */
   header h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .tagline {
-    font-size: 13px;
+    font-size: 12px;
   }
 
-  /* Navigation (stack nicely) */
+  /* NAV → stacked clean */
   nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
   }
 
   nav a {
-    margin: 5px 8px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
-  /* Cards */
+  /* Container */
+  .container {
+    width: 94%;
+  }
+
+  /* BOX → remove heavy border */
+  .box {
+    border-left: none;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* CARD */
   .card {
     padding: 12px;
   }
@@ -176,15 +202,19 @@ footer a:hover {
     font-size: 15px;
   }
 
-  /* Boxes */
-  .box {
-    padding: 12px;
+  /* Text readability */
+  p {
     font-size: 14px;
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: 20px;
   }
 
   /* Footer */
   footer {
-    font-size: 13px;
-    padding: 15px;
+    font-size: 12px;
+    padding: 14px;
   }
 }
