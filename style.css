@@ -290,10 +290,11 @@ nav a:hover {
 /* MOBILE FIX */
 @media (max-width: 768px) {
 
+
   /* NAVBAR */
   .nav-inner {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 8px;
   }
 
@@ -316,7 +317,8 @@ nav a:hover {
   }
 
   .btn.small {
-    width: 100%;
+    padding: 4px 8px;
+    font-size: 11px;
     text-align: center;
   }
 
