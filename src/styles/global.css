@@ -40,7 +40,7 @@
       #f3f4f6;
   }
 
-  /* Professional image card: consistent radius, cover, and subtle shadow */
+  /* Professional image card: consistent radius, cover, and subtle shadow .*/
   img.img-card {
     @apply rounded-[1.25rem] object-cover block w-full h-auto;
     background-color: #f8fafc;
