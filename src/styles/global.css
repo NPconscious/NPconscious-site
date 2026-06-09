@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-950 antialiased;
+    font-family: 'Poppins', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  button,
+  a {
+    @apply transition duration-200 ease-out;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-amber-400 ring-offset-2 ring-offset-white;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  }
+  .bg-hero {
+    background: radial-gradient(circle at top left, rgba(107, 114, 128, 0.12), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(156, 163, 175, 0.10), transparent 35%),
+      #f3f4f6;
+  }
+
+  /* Professional image card: consistent radius, cover, and subtle shadow */
+  img.img-card {
+    @apply rounded-[1.25rem] object-cover block w-full h-auto;
+    background-color: #f8fafc;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  }
+
+  /* Responsive hero/feature images should fill their wrapper */
+  .img-fill {
+    @apply w-full h-full object-cover;
+  }
+}

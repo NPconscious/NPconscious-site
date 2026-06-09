@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "astro",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2020",
+    "lib": ["DOM", "ES2020"],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "types": ["astro/client"]
+  },
+  "include": ["src/**/*", "astro.config.mjs"]
+}

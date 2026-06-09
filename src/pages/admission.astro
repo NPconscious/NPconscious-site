@@ -1,0 +1,119 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout title="Admission">
+  <section class="bg-hero px-6 py-20 lg:px-8">
+    <div class="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div class="space-y-8">
+        <span class="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">Admission Process</span>
+        <h1 class="text-5xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-6xl">Start Your<br />Learning Journey.</h1>
+        <p class="max-w-2xl text-lg leading-8 text-slate-600">
+          Every student learns differently. Our admission assessment helps us create a personalized learning path.
+        </p>
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+          <a href="https://wa.me/918088276492" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-400 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5">Book Admission Test</a>
+          <a href="#test-details" class="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-50">Explore Details</a>
+        </div>
+      </div>
+      <div class="rounded-[2rem] bg-white p-4 shadow-soft">
+        <div class="relative aspect-square overflow-hidden rounded-[2rem] sm:aspect-[4/3]">
+          <img src="/3.png" class="slide img-fill absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700" alt="Admission graphic 1" />
+          <img src="/21.png" class="contain-slide img-fill absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-700" alt="Admission graphic 2" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-4xl rounded-[2rem] bg-white p-10 shadow-soft">
+      <p class="text-lg leading-8 text-slate-600">
+        Our assessment process helps us understand each student’s strengths, learning style, and areas for improvement.
+      </p>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        To begin the admission process, please share the student’s name, grade/class, and selected program.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-8" id="test-details">
+    <div class="mx-auto max-w-6xl space-y-10">
+      <div class="text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Test Details</p>
+        <h2 class="mt-4 text-4xl font-semibold text-slate-950">Assessment Structure</h2>
+      </div>
+      <div class="grid gap-6 xl:grid-cols-3">
+        <article class="rounded-[2rem] bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold text-slate-950">Classes 1–5</h3>
+          <p class="mt-4 text-slate-600">Live Test • 30 mins</p>
+          <p class="mt-4 text-sm text-slate-500">Parent Required</p>
+          <p class="text-sm text-slate-500">Calculator Not Allowed</p>
+        </article>
+        <article class="rounded-[2rem] bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold text-slate-950">Classes 6–10</h3>
+          <p class="mt-4 text-slate-600">Live Test • 30 mins</p>
+          <p class="mt-4 text-sm text-slate-500">Parent Optional</p>
+          <p class="text-sm text-slate-500">Calculator Not Allowed</p>
+        </article>
+        <article class="rounded-[2rem] bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold text-slate-950">Classes 11–12</h3>
+          <p class="mt-4 text-slate-600">Live Test • 30 mins</p>
+          <p class="mt-4 text-sm text-slate-500">Parent Optional</p>
+          <p class="text-sm text-slate-500">Calculator Not Allowed</p>
+        </article>
+        <article class="rounded-[2rem] bg-white p-8 shadow-soft">
+          <h3 class="text-xl font-semibold text-slate-950">Engineering</h3>
+          <p class="mt-4 text-slate-600">Written Test • 1 Hour</p>
+        </article>
+        <article class="relative rounded-[2rem] bg-gradient-to-br from-amber-50 via-amber-100 to-slate-50 p-8 pt-14 shadow-soft">
+          <div class="absolute right-4 top-4 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-950 shadow-sm">Popular</div>
+          <h3 class="text-xl font-semibold text-slate-950">Money & Mathematics</h3>
+          <p class="mt-4 text-slate-600">MSQ-Based Assessment</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-12 lg:px-8">
+    <div class="mx-auto max-w-4xl text-center text-slate-700">
+      <p class="text-lg">⏰ Please be available at least 5 minutes before your scheduled test time.</p>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-8">
+    <div class="rounded-[2rem] bg-slate-950 p-16 text-center text-white shadow-soft sm:p-12">
+      <h2 class="text-4xl font-semibold">Book Your Admission Test</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">Send your details and begin your learning journey with NPconscious.</p>
+      <a href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20admission%20test.%0A%0AStudent%20Name%3A%20%0AGrade%2FClass%3A%20%0AProgram%20Name%3A%20" class="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-slate-950 transition hover:bg-slate-100">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-4xl rounded-[2rem] bg-white p-10 shadow-soft">
+      <div class="mb-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Important Notice</p>
+        <h2 class="mt-4 text-3xl font-semibold text-slate-950">Transparency & Trust</h2>
+      </div>
+      <p class="text-lg leading-8 text-slate-600">
+        At NPconscious, transparency and trust always come first. We do not charge any fees outside officially communicated programs.
+      </p>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        There are no hidden charges. Anyone asking for money without authorization is not associated with NPconscious.
+      </p>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        Please verify all communication at: <strong>npconscious@gmail.com</strong>
+      </p>
+    </div>
+  </section>
+
+  <script is:inline>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('opacity-100');
+      slides[index].classList.add('opacity-0');
+      index = (index + 1) % slides.length;
+      slides[index].classList.remove('opacity-0');
+      slides[index].classList.add('opacity-100');
+    }, 5000);
+  </script>
+</MainLayout>
