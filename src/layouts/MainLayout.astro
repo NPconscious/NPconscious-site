@@ -206,14 +206,3 @@ const { title } = Astro.props;
     </script>
   </body>
 </html>
-<script>
-  // Mailto fallback: open Gmail compose if native handler fails
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest('a[href^="mailto:"]');
-    if (!link) return;
-    e.preventDefault();
-    const email = link.getAttribute("href").replace("mailto:", "");
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
-    window.open(gmailUrl, "_blank");
-  });
-</script>
