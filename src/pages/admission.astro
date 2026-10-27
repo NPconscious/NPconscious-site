@@ -4,30 +4,30 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Admission">
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-hero px-6 pt-12 pb-20 lg:px-8 lg:pt-16 lg:pb-28">
+  <section class="relative overflow-hidden bg-hero px-4 pt-8 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:px-8 lg:pt-16 lg:pb-28">
     <div class="mx-auto max-w-[1360px]">
-      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
         <!-- Left Hero Content -->
-        <div class="space-y-6 lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-4 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-sm backdrop-blur">
+        <div class="space-y-5 lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-3.5 py-1 text-xs sm:text-sm font-semibold text-amber-900 shadow-sm backdrop-blur">
             <span class="flex h-2 w-2 rounded-full bg-amber-500"></span>
             <span>Simple 3-Step Process</span>
           </div>
 
-          <h1 class="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.15]">
+          <h1 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-tight">
             Start Your Child's<br />
             <span class="bg-gradient-to-r from-orange-600 via-amber-500 to-amber-600 bg-clip-text text-transparent">Learning Journey.</span>
           </h1>
 
-          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
+          <p class="max-w-2xl text-sm sm:text-lg leading-relaxed text-slate-600">
             Every learner thinks differently. Our 30-minute diagnostic is completely stress-free — we focus on understanding their innate logic, curiosity, and learning style rather than just marks.
           </p>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20admission%20test.%0A%0AStudent%20Name%3A%20%0AGrade%2FClass%3A%20%0AProgram%20Name%3A%20"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-amber-400 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-amber-400 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Book Assessment on WhatsApp</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             </a>
             <a
               href="#test-details"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/80 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50"
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/80 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50"
             >
               <span>View Structure</span>
               <svg class="h-4 w-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,17 +46,18 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
 
           <!-- Stencil-inspired friendly badges -->
-          <div class="flex flex-wrap items-center gap-3 pt-4 text-xs font-medium text-slate-600">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200 shadow-sm">
+          <div class="flex flex-wrap items-center gap-2 pt-2 text-[11px] sm:text-xs font-medium text-slate-600">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 border border-slate-200 shadow-sm">
               <span class="text-emerald-500 font-bold">&#10003;</span> Zero Pressure
             </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200 shadow-sm">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 border border-slate-200 shadow-sm">
               <span class="text-emerald-500 font-bold">&#10003;</span> Detailed Qualitative Feedback
             </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200 shadow-sm">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 border border-slate-200 shadow-sm">
               <span class="text-emerald-500 font-bold">&#10003;</span> Customized Recommendations
             </span>
           </div>
+        </div>
         </div>
 
         <!-- Right Visual with Slideshow -->
@@ -367,11 +368,11 @@ import MainLayout from "../layouts/MainLayout.astro";
       <p class="mt-4 text-base leading-relaxed text-slate-600">
         Any official communication or payment link is provided exclusively through our verified channels. If you have any doubts, reach out directly to us at:
       </p>
-      <div class="mt-6 inline-flex items-center gap-2 rounded-2xl bg-slate-50 border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900">
+      <div class="mt-6 flex w-full flex-col items-start gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold text-slate-900 sm:w-fit sm:flex-row sm:items-center sm:gap-2 sm:px-5 sm:text-sm">
         <span>✉️</span>
-        <a href="mailto:npconscious@gmail.com" class="text-amber-600 hover:underline">npconscious@gmail.com</a>
-        <span class="text-slate-400">&bull;</span>
-        <a href="tel:+918088276492" class="text-slate-700 hover:underline">+91 80882 76492</a>
+        <a href="mailto:npconscious@gmail.com" class="break-all text-amber-600 hover:underline">npconscious@gmail.com</a>
+        <span class="hidden text-slate-400 sm:inline">&bull;</span>
+        <a href="tel:+918088276492" class="whitespace-nowrap text-slate-700 hover:underline">+91 80882 76492</a>
       </div>
     </div>
   </section>
@@ -410,4 +411,3 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
   </script>
 </MainLayout>
-

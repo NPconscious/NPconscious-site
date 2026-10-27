@@ -4,30 +4,30 @@ import MainLayout from '../layouts/MainLayout.astro';
 
 <MainLayout title="Home">
   <!-- Hero Section with Stencil-inspired Floating Curiosity Elements -->
-  <section class="relative overflow-hidden bg-hero px-6 pt-12 pb-20 lg:px-8 lg:pt-16 lg:pb-28">
+  <section class="relative overflow-hidden bg-hero px-4 pt-8 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:px-8 lg:pt-16 lg:pb-28">
     <div class="mx-auto max-w-[1360px]">
-      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
         <!-- Left Hero Content -->
-        <div class="space-y-6 lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-4 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-sm backdrop-blur">
+        <div class="space-y-5 lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-3.5 py-1 text-xs sm:text-sm font-semibold text-amber-900 shadow-sm backdrop-blur">
             <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-ping"></span>
             <span>Curiosity-Driven Learning</span>
           </div>
 
-          <h1 class="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.15]">
+          <h1 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-tight">
             Making <span class="bg-gradient-to-r from-orange-600 via-amber-500 to-amber-600 bg-clip-text text-transparent">Mathematics</span><br />
             Natural Again.
           </h1>
 
-          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
+          <p class="max-w-2xl text-sm sm:text-lg leading-relaxed text-slate-600">
             At NPconscious, we help students build unbreakable fundamentals through curiosity, questioning, and visual exploration — instead of stressful rote memorization.
           </p>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session%20for%20my%20child."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-amber-400 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-amber-400 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Book Free Demo</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ import MainLayout from '../layouts/MainLayout.astro';
             </a>
             <a
               href="#programs"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/80 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 hover:border-slate-400"
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300/80 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 hover:border-slate-400"
             >
               <span>Explore Programs</span>
               <svg class="h-4 w-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,46 +45,46 @@ import MainLayout from '../layouts/MainLayout.astro';
             </a>
           </div>
 
-          <!-- Stencil-inspired Playful Curiosity Bubbles -->
-          <div class="pt-6">
-            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Thinking In Questions</p>
-            <div class="flex flex-wrap items-center gap-3">
-              <div class="animate-float-slow inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50/90 px-4 py-2 text-xs font-medium text-purple-900 shadow-sm">
-                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-purple-200 text-purple-800 font-bold text-[10px]">?</span>
+          <!-- Stencil-inspired Playful Curiosity Bubbles (Clean swipeable row on mobile) -->
+          <div class="pt-3 sm:pt-6">
+            <p class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Thinking In Questions</p>
+            <div class="flex gap-2 overflow-x-auto pb-1.5 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible">
+              <div class="shrink-0 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-purple-200 bg-purple-50/90 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-medium text-purple-900 shadow-sm sm:animate-float-slow">
+                <span class="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-purple-200 text-purple-800 font-bold text-[9px] sm:text-[10px]">?</span>
                 <span><strong>Why?</strong> Why does the formula work?</span>
               </div>
-              <div class="animate-float-reverse inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/90 px-4 py-2 text-xs font-medium text-emerald-900 shadow-sm">
-                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-200 text-emerald-800 font-bold text-[10px]">&#8734;</span>
+              <div class="shrink-0 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-emerald-200 bg-emerald-50/90 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-medium text-emerald-900 shadow-sm sm:animate-float-reverse">
+                <span class="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-emerald-200 text-emerald-800 font-bold text-[9px] sm:text-[10px]">&#8734;</span>
                 <span><strong>How?</strong> Connect concepts to real life</span>
               </div>
-              <div class="animate-float-slow inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-4 py-2 text-xs font-medium text-amber-900 shadow-sm">
-                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-amber-200 text-amber-800 font-bold text-[10px]">&Sigma;</span>
-                <span><strong>Discover!</strong> Build mathematical confidence</span>
+              <div class="shrink-0 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-medium text-amber-900 shadow-sm sm:animate-float-slow">
+                <span class="flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-amber-200 text-amber-800 font-bold text-[9px] sm:text-[10px]">&Sigma;</span>
+                <span><strong>Discover!</strong> Build confidence</span>
               </div>
             </div>
           </div>
 
           <!-- Highlight Metric Pills -->
-          <div class="grid grid-cols-3 gap-3 pt-4 sm:gap-4">
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-4 text-center shadow-soft">
-              <span class="text-2xl sm:text-3xl font-bold text-slate-900">160+</span>
-              <p class="mt-1 text-xs font-medium text-slate-500">Learners Guided</p>
+          <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-2 sm:pt-4">
+            <div class="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white/95 p-3 sm:p-4 text-center shadow-soft">
+              <span class="text-xl sm:text-3xl font-bold text-slate-900">160+</span>
+              <p class="mt-0.5 sm:mt-1 text-[11px] sm:text-xs font-medium text-slate-500">Learners</p>
             </div>
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-4 text-center shadow-soft">
-              <span class="text-2xl sm:text-3xl font-bold text-amber-600">1-on-1</span>
-              <p class="mt-1 text-xs font-medium text-slate-500">Personal Mentorship</p>
+            <div class="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white/95 p-3 sm:p-4 text-center shadow-soft">
+              <span class="text-xl sm:text-3xl font-bold text-amber-600">1-on-1</span>
+              <p class="mt-0.5 sm:mt-1 text-[11px] sm:text-xs font-medium text-slate-500">Mentorship</p>
             </div>
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-4 text-center shadow-soft">
-              <span class="text-2xl sm:text-3xl font-bold text-emerald-600">100%</span>
-              <p class="mt-1 text-xs font-medium text-slate-500">Student-First Care</p>
+            <div class="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white/95 p-3 sm:p-4 text-center shadow-soft">
+              <span class="text-xl sm:text-3xl font-bold text-emerald-600">100%</span>
+              <p class="mt-0.5 sm:mt-1 text-[11px] sm:text-xs font-medium text-slate-500">Student-First</p>
             </div>
           </div>
         </div>
 
         <!-- Right Hero Visual Card -->
-        <div class="relative lg:col-span-5">
-          <div class="relative rounded-[2.5rem] border border-slate-200/80 bg-white p-4 shadow-soft">
-            <div class="overflow-hidden rounded-[2rem] bg-slate-50">
+        <div class="relative lg:col-span-5 pt-2 lg:pt-0">
+          <div class="relative rounded-2xl sm:rounded-[2.5rem] border border-slate-200/80 bg-white p-3 sm:p-4 shadow-soft">
+            <div class="overflow-hidden rounded-xl sm:rounded-[2rem] bg-slate-50">
               <img
                 src="/site-format.png"
                 alt="NPconscious dynamic learning framework"
@@ -92,9 +92,9 @@ import MainLayout from '../layouts/MainLayout.astro';
               />
             </div>
 
-            <!-- Floating mini-card inspired by Stencil -->
-            <div class="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-amber-200 bg-white p-4 shadow-xl flex items-center gap-3 max-w-[240px]">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 text-xl">
+            <!-- Floating mini-card on desktop, inline neat indicators on mobile -->
+            <div class="hidden sm:flex absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 rounded-2xl border border-amber-200 bg-white p-3.5 sm:p-4 shadow-xl items-center gap-3 max-w-[240px]">
+              <div class="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700 text-lg sm:text-xl">
                 💡
               </div>
               <div>
@@ -103,9 +103,15 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
 
-            <div class="absolute -top-4 -right-3 sm:-top-5 sm:-right-4 rounded-full border border-emerald-200 bg-white px-4 py-2 shadow-lg flex items-center gap-2">
+            <div class="hidden sm:flex absolute -top-4 -right-3 sm:-top-5 sm:-right-4 rounded-full border border-emerald-200 bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 shadow-lg items-center gap-2">
               <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
               <span class="text-xs font-semibold text-slate-800">Live Doubt Clearing</span>
+            </div>
+
+            <!-- Mobile-only inline indicators -->
+            <div class="flex sm:hidden items-center justify-between mt-2.5 px-1 text-[11px] font-medium text-slate-600">
+              <span class="inline-flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Live Doubt Clearing</span>
+              <span class="inline-flex items-center gap-1">💡 Concept Intuition</span>
             </div>
           </div>
         </div>
@@ -114,47 +120,47 @@ import MainLayout from '../layouts/MainLayout.astro';
   </section>
 
   <!-- Stencil-inspired Philosophy / "Why? When? Where?" Section -->
-  <section class="px-6 py-20 lg:px-8">
+  <section class="px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
     <div class="mx-auto max-w-5xl">
-      <div class="text-center space-y-3 mb-12">
-        <span class="inline-block rounded-full bg-slate-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600">
+      <div class="text-center space-y-2.5 mb-10 sm:mb-12">
+        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600">
           Our Core Belief
         </span>
-        <h2 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
           Start With Curiosity, Not Formulas.
         </h2>
-        <p class="max-w-2xl mx-auto text-base text-slate-600">
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
           Learning was once natural. Today, it has been compressed into memorizing formulas to pass tests. We bring the joy of genuine discovery back.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 text-2xl font-bold mb-5">
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-3">
+        <div class="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
+          <div class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-amber-100 text-amber-700 text-xl sm:text-2xl font-bold mb-4 sm:mb-5">
             ?
           </div>
-          <h3 class="text-lg font-bold text-slate-900">1. Question First</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">1. Question First</h3>
+          <p class="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
             Why does negative times negative equal positive? When students understand the "why", mathematics transforms from a chore into an exciting puzzle.
           </p>
         </div>
 
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-700 text-2xl font-bold mb-5">
+        <div class="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
+          <div class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-indigo-100 text-indigo-700 text-xl sm:text-2xl font-bold mb-4 sm:mb-5">
             &Delta;
           </div>
-          <h3 class="text-lg font-bold text-slate-900">2. Visualize & Play</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">2. Visualize & Play</h3>
+          <p class="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
             We use geometric models, interactive reasoning, and physical intuition so students can see numbers in action before manipulating symbols.
           </p>
         </div>
 
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 text-2xl font-bold mb-5">
+        <div class="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-soft transition-all hover:shadow-hover hover:-translate-y-1">
+          <div class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-emerald-100 text-emerald-700 text-xl sm:text-2xl font-bold mb-4 sm:mb-5">
             &infin;
           </div>
-          <h3 class="text-lg font-bold text-slate-900">3. Lifelong Retention</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900">3. Lifelong Retention</h3>
+          <p class="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
             Concepts built on intuition stay forever. Our learners become independent thinkers capable of solving unfamiliar challenges in STEM and beyond.
           </p>
         </div>
@@ -163,36 +169,36 @@ import MainLayout from '../layouts/MainLayout.astro';
   </section>
 
   <!-- Programs Section with Stencil's Pastel Gradient Aesthetic -->
-  <section class="px-4 sm:px-6 py-20 lg:px-8" id="programs">
-    <div class="mx-auto max-w-[1360px] rounded-[3rem] bg-gradient-to-br from-indigo-50/70 via-purple-50/40 to-amber-50/70 p-8 sm:p-12 lg:p-16 border border-slate-200/60 shadow-soft">
-      <div class="text-center space-y-3 mb-14">
-        <span class="inline-block rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-purple-700 shadow-sm border border-purple-100">
+  <section class="px-3 sm:px-6 py-14 sm:py-20 lg:px-8" id="programs">
+    <div class="mx-auto max-w-[1360px] rounded-3xl sm:rounded-[2.5rem] lg:rounded-[3rem] bg-gradient-to-br from-indigo-50/70 via-purple-50/40 to-amber-50/70 p-4 sm:p-10 lg:p-16 border border-slate-200/60 shadow-soft">
+      <div class="text-center space-y-2.5 mb-10 sm:mb-14">
+        <span class="inline-block rounded-full bg-white px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-purple-700 shadow-sm border border-purple-100">
           Structured Learning Paths
         </span>
-        <h2 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
           Programs Designed for Every Stage
         </h2>
-        <p class="max-w-2xl mx-auto text-base text-slate-600">
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
           Whether building early numeracy or tackling calculus, our batches are carefully structured for depth, live doubt solving, and personalized pace.
         </p>
       </div>
 
       <!-- Programs Grid -->
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
         <!-- Program 1 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+        <article class="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-emerald-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-emerald-700 border border-emerald-200">
                 Grade 1–5
               </span>
               <span class="text-xs text-slate-400 font-medium">Foundations</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Foundation Mathematics</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Foundation Mathematics</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Sparking a lifelong love for numbers. Focus on visual numeracy, pattern recognition, and building zero fear of mathematics.
             </p>
-            <div class="mt-6 space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-slate-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-emerald-500 font-bold">&#10003;</span> 12 Interactive Sessions (40 mins each)
               </div>
@@ -204,7 +210,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-3.5 border-t border-slate-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20the%20Foundation%20Mathematics%20(Grade%201-5)%20program."
               class="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800"
@@ -215,19 +221,19 @@ import MainLayout from '../layouts/MainLayout.astro';
         </article>
 
         <!-- Program 2 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+        <article class="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 border border-blue-200">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-blue-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-blue-700 border border-blue-200">
                 Grade 6–10
               </span>
               <span class="text-xs text-slate-400 font-medium">Core Concepts</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Mathematics Concepts I</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Mathematics Concepts I</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Mastering algebra, geometry, and arithmetic through conceptual derivation. Preparing for board exams with deep confidence.
             </p>
-            <div class="mt-6 space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-slate-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-blue-500 font-bold">&#10003;</span> 30 Deep-Dive Sessions (50 mins each)
               </div>
@@ -239,7 +245,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-3.5 border-t border-slate-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20I%20(Grade%206-10)."
               class="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800"
@@ -250,19 +256,19 @@ import MainLayout from '../layouts/MainLayout.astro';
         </article>
 
         <!-- Program 3 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+        <article class="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700 border border-violet-200">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-violet-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-violet-700 border border-violet-200">
                 Grade 11–12
               </span>
               <span class="text-xs text-slate-400 font-medium">Advanced</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Mathematics Concepts II</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Mathematics Concepts II</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Calculus, vectors, probability, and analytical geometry. Demystifying higher secondary mathematics for entrance exams and STEM.
             </p>
-            <div class="mt-6 space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-slate-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-violet-500 font-bold">&#10003;</span> 20 Intensive Sessions (50 mins each)
               </div>
@@ -274,7 +280,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-3.5 border-t border-slate-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20II%20(Grade%2011-12)."
               class="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800"
@@ -285,22 +291,22 @@ import MainLayout from '../layouts/MainLayout.astro';
         </article>
 
         <!-- Program 4: Money & Mathematics (Featured) -->
-        <article class="relative flex flex-col justify-between rounded-3xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/90 to-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
-          <div class="absolute -top-3.5 right-6 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md">
+        <article class="relative flex flex-col justify-between rounded-2xl sm:rounded-3xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/90 to-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+          <div class="absolute -top-3 right-5 sm:right-6 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-0.5 sm:px-3.5 sm:py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white shadow-md">
             ⭐ Most Popular
           </div>
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-amber-900">
                 Financial Thinking
               </span>
               <span class="text-xs text-amber-700 font-medium">Ages 12+</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Money & Mathematics</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Money & Mathematics</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Applying mathematics to finance, compound interest, investment metrics, market probability, and strategic decision making.
             </p>
-            <div class="mt-6 space-y-2 border-t border-amber-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-amber-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-amber-600 font-bold">&#10003;</span> 15 Practical Case-Study Sessions
               </div>
@@ -312,7 +318,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-amber-100">
+          <div class="mt-6 pt-3.5 border-t border-amber-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20the%20Money%20%26%20Mathematics%20program."
               class="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-amber-400 px-4 py-2.5 text-xs font-semibold text-white shadow transition hover:opacity-95"
@@ -323,19 +329,19 @@ import MainLayout from '../layouts/MainLayout.astro';
         </article>
 
         <!-- Program 5 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+        <article class="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 border border-slate-200">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-slate-100 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-slate-700 border border-slate-200">
                 Undergrad / B.Tech
               </span>
               <span class="text-xs text-slate-400 font-medium">Higher STEM</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Engineering Mathematics</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Engineering Mathematics</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Differential equations, linear algebra, transforms, and discrete maths. Taught with practical computational intuition.
             </p>
-            <div class="mt-6 space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-slate-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-slate-600 font-bold">&#10003;</span> 55 Comprehensive Sessions (1 Hour)
               </div>
@@ -347,7 +353,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-3.5 border-t border-slate-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20Engineering%20Mathematics."
               class="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800"
@@ -358,19 +364,19 @@ import MainLayout from '../layouts/MainLayout.astro';
         </article>
 
         <!-- Program 6 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
+        <article class="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-hover">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-700 border border-rose-200">
+            <div class="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="rounded-full bg-rose-50 px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs font-semibold text-rose-700 border border-rose-200">
                 Grade 1–10
               </span>
               <span class="text-xs text-slate-400 font-medium">Daily Mentorship</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900">Regular Tuition Program</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900">Regular Tuition Program</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
               Continuous handholding for school coursework, homework clarity, and periodic school exams with dedicated individual guidance.
             </p>
-            <div class="mt-6 space-y-2 border-t border-slate-100 pt-4 text-xs font-medium text-slate-700">
+            <div class="mt-5 space-y-2 border-t border-slate-100 pt-3.5 text-xs font-medium text-slate-700">
               <div class="flex items-center gap-2">
                 <span class="text-rose-500 font-bold">&#10003;</span> Daily / Weekly / Monthly flexible options
               </div>
@@ -382,7 +388,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
             </div>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-100">
+          <div class="mt-6 pt-3.5 border-t border-slate-100">
             <a
               href="https://wa.me/918088276492?text=Hi%2C%20I%20am%20interested%20in%20the%20Regular%20Tuition%20Program."
               class="inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-slate-800"

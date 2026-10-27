@@ -23,22 +23,23 @@ const isAdmission = pathname.startsWith("/admission");
   </head>
   <body class="bg-[#f8fafc] text-slate-900 selection:bg-amber-200 selection:text-slate-950">
     <!-- Top announcement bar for a warm, welcoming vibe -->
-    <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 px-4 py-2 text-center text-xs sm:text-sm font-medium text-white shadow-inner flex items-center justify-center gap-2">
-      <span class="inline-block animate-bounce">✨</span>
-      <span>Admissions Open for 2026 Batch — Book a Free 1-on-1 Curiosity Math Demo!</span>
-      <a href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!" class="underline font-semibold hover:text-amber-100 hidden sm:inline ml-1">Claim Spot &rarr;</a>
+    <div class="flex items-center justify-center gap-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 px-3 py-1.5 text-center text-xs font-medium text-white shadow-inner">
+      <span class="hidden animate-bounce text-xs sm:inline-block">✨</span>
+      <span class="whitespace-nowrap sm:hidden">Admissions Open · Free Math Demo</span>
+      <span class="hidden whitespace-nowrap sm:inline">Admissions Open 2026 · Free 1-on-1 Math Demo</span>
+      <a href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!" class="ml-1 shrink-0 whitespace-nowrap font-semibold underline hover:text-amber-100">Claim Spot &rarr;</a>
     </div>
 
-    <!-- Header with floating pill styling -->
-    <header class="sticky top-3 z-40 px-4 sm:px-6 lg:px-8">
+    <!-- Header: clean full-width sticky bar on mobile, floating rounded pill on desktop -->
+    <header class="sticky top-0 z-40 md:top-3 md:px-6 lg:px-8">
       <div
-        class="mx-auto flex max-w-[1320px] items-center justify-between gap-4 rounded-full border border-slate-200/80 bg-white/90 px-5 py-3 shadow-soft backdrop-blur-md transition-all duration-300"
+        class="mx-auto flex max-w-[1320px] items-center justify-between gap-4 border-b border-slate-200/80 bg-white/95 px-4 py-3 backdrop-blur-md transition-all duration-300 md:rounded-full md:border md:px-5 md:shadow-soft"
       >
         <a href="/" class="inline-flex items-center gap-3 group" aria-label="NPconscious home">
           <img
             src="/site.png"
             alt="NPconscious"
-            class="h-8 w-auto object-contain md:h-9 transition-transform group-hover:scale-105"
+            class="h-7 w-auto object-contain md:h-9 transition-transform group-hover:scale-105"
           />
         </a>
 
@@ -94,7 +95,7 @@ const isAdmission = pathname.startsWith("/admission");
           type="button"
           aria-controls="mobile-navigation"
           aria-expanded="false"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 md:hidden"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 md:hidden"
         >
           <span class="sr-only">Open navigation menu</span>
           <svg
@@ -133,7 +134,7 @@ const isAdmission = pathname.startsWith("/admission");
           id="mobile-nav-close"
           type="button"
           aria-label="Close navigation menu"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-800 transition hover:bg-slate-100"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-800 transition hover:bg-slate-100"
         >
           <svg
             viewBox="0 0 24 24"
@@ -193,19 +194,19 @@ const isAdmission = pathname.startsWith("/admission");
       <slot />
     </main>
 
-    <!-- Floating WhatsApp Action -->
-    <aside aria-label="Contact via WhatsApp" class="fixed bottom-6 right-6 z-40">
+    <!-- Floating WhatsApp Action: Compact circular FAB on mobile, pill on desktop -->
+    <aside aria-label="Contact via WhatsApp" class="fixed bottom-5 right-5 z-40">
       <a
         href="https://wa.me/918088276492?text=Hi%20NPconscious%20team%2C%20I%20have%20a%20question%20about%20your%20maths%20programs."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        class="group flex items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 hover:bg-[#20ba5a] active:scale-95"
+        class="group flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 hover:bg-[#20ba5a] active:scale-95 md:h-auto md:w-auto md:px-4 md:py-3 md:gap-2.5"
       >
-        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+        <svg class="h-6 w-6 fill-current shrink-0" viewBox="0 0 24 24">
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
         </svg>
-        <span class="text-sm font-semibold pr-1">Chat on WhatsApp</span>
+        <span class="hidden md:inline text-sm font-semibold pr-1">Chat on WhatsApp</span>
       </a>
     </aside>
 
@@ -334,4 +335,3 @@ const isAdmission = pathname.startsWith("/admission");
     </script>
   </body>
 </html>
-
