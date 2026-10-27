@@ -103,7 +103,7 @@
     box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.08);
   }
 
-  /* Responsive hero/feature image should fill their wrapper */
+  /* Responsive hero/feature image should fill their wrapper. */
   .img-fill {
     @apply w-full h-full object-cover;
   }
