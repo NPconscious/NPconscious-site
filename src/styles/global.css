@@ -87,7 +87,7 @@
       #f8fafc;
   }
 
-  /* Friendly pastel gradient section inspired by Stencil */
+  /* Friendly pastel gradient section */
   .bg-pastel-gradient {
     background: linear-gradient(135deg, #ede9fe 0%, #fbcfe8 35%, #fef3c7 70%, #d1fae5 100%);
   }
@@ -107,4 +107,4 @@
   .img-fill {
     @apply w-full h-full object-cover;
   }
-}
+}
