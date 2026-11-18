@@ -1,39 +1,40 @@
 ---
 name: web-design-guidelines
-description: Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices".
+description: Comprehensive Web Design, UI/UX, and Interface Guidelines suite. Incorporates frontend-design principles, Impeccable craft rules, and UI/UX Pro Max intelligence to design distinctive, accessible, and polished user interfaces.
 metadata:
-  author: vercel
-  version: "1.0.0"
+  author: vercel & community
+  version: "2.0.0"
   argument-hint: <file-or-pattern>
 ---
 
-# Web Interface Guidelines
+# Web Design & Interface Guidelines
 
-Review files for compliance with Web Interface Guidelines.
+Comprehensive guidelines and design intelligence for crafting intentional, high-craft web interfaces.
 
-## How It Works
+## Active Skills & Frameworks in this Suite
 
-1. Fetch the latest guidelines from the source URL below
-2. Read the specified files (or prompt user for files/pattern)
-3. Check against all rules in the fetched guidelines
-4. Output findings in the terse `file:line` format
+1. **Frontend Design Principles (`frontend-design-skill.md`)**
+   - Ground designs in subject matter; avoid templated defaults, generic card kits, and AI cliché colors.
+   - Distinctive typography, purposeful visual hierarchy, and active voice copy.
 
-## Guidelines Source
+2. **Impeccable Craft & Polish (`impeccable-skill.md`)**
+   - Quality floor checks, surface modes (*Persuade*, *Operate*, *Read*, *Experience*).
+   - Heuristic critiques, audit rubrics, and deliberate animation/motion rules.
 
-Fetch fresh guidelines before each review:
+3. **UI/UX Pro Max Intelligence (`ui-ux-pro-max-skill.md`)**
+   - 10-tier priority rules: Accessibility (contrast 4.5:1, touch target ≥44px), Performance, Responsive design, Typography & Color tokens.
+   - Comprehensive anti-pattern checklists.
 
-```
-https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
-```
-
-Use WebFetch to retrieve the latest rules. The fetched content contains all the rules and output format instructions.
+4. **Web Interface Guidelines Compliance**
+   - Fetch latest guidelines from:
+     ```
+     https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
+     ```
+   - Terse `file:line` audit format for quick fixes.
 
 ## Usage
 
-When a user provides a file or pattern argument:
-1. Fetch guidelines from the source URL above
-2. Read the specified files
-3. Apply all rules from the fetched guidelines
-4. Output findings using the format specified in the guidelines
-
-If no files specified, ask the user which files to review.
+When designing, reviewing, or refactoring UI files:
+1. Apply the **frontend-design** grounding and typography scale.
+2. Verify against the **UI/UX Pro Max** priority hierarchy (Accessibility → Touch → Performance → Responsive).
+3. Enforce the **Impeccable** craft-floor standards before committing UI changes.

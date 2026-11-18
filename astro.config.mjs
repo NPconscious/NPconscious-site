@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://npconscious.example',
+  site: 'https://npconscious.com',
   vite: {
     plugins: [tailwindcss()],
   },
