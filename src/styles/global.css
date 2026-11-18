@@ -3,6 +3,27 @@
 @layer base {
   :root {
     color-scheme: light;
+
+    /* NPconscious Disciplined 5-Token Color System */
+    --canvas: #FAF8F5;          /* Warm, tactile, non-sterile off-white / math paper */
+    --surface: #FFFFFF;         /* Crisp card islands */
+    --surface-tint: #F5F3EF;    /* Subtle warm neutral tint */
+    --ink-primary: #0F172A;     /* Deep midnight slate for authoritative clarity */
+    --ink-secondary: #334155;   /* Clear, legible editorial text */
+    --ink-muted: #64748B;       /* Secondary notes & hints (passes WCAG AA 4.5:1) */
+
+    /* Single Dominant Brand Spark (Curiosity / Sunlight) */
+    --accent-gold: #D97706;      
+    --accent-gold-hover: #B45309;
+    --accent-gold-soft: #FEF3C7;
+
+    /* Verification / Proof / Growth (Subordinate) */
+    --accent-sage: #0D9488;      
+    --accent-sage-soft: #CCFBF1;
+
+    /* Structure & Dividers */
+    --border-subtle: #E2E8F0;
+    --border-warm: #EAE6DF;
   }
 
   html {
@@ -10,9 +31,17 @@
   }
 
   body {
-    @apply bg-[#f8fafc] text-slate-900 antialiased;
-    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: var(--canvas);
+    color: var(--ink-primary);
+    font-family: 'Plus Jakarta Sans', 'Poppins', system-ui, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mathematical & statistical numerals tabular alignment */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 
   button,
@@ -22,7 +51,7 @@
 
   a:focus-visible,
   button:focus-visible {
-    @apply outline-none ring-2 ring-amber-400 ring-offset-2 ring-offset-white;
+    @apply outline-none ring-2 ring-amber-500 ring-offset-2 ring-offset-white;
   }
 
   img {
@@ -35,7 +64,7 @@
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px) rotate(1deg);
+    transform: translateY(-6px) rotate(0.8deg);
   }
 }
 
@@ -44,7 +73,7 @@
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(8px) rotate(-1.5deg);
+    transform: translateY(6px) rotate(-1deg);
   }
 }
 
@@ -54,8 +83,8 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.04);
-    opacity: 0.92;
+    transform: scale(1.03);
+    opacity: 0.95;
   }
 }
 
@@ -72,28 +101,43 @@
 }
 
 @layer utilities {
+  /* Subtle tactile mathematical coordinate lattice */
+  .bg-math-grid {
+    background-color: var(--canvas);
+    background-image: radial-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Elegant isometric dot matrix for hero/features */
+  .bg-hero-texture {
+    background-color: #FAF8F5;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.45) 0%, transparent 35%),
+      radial-gradient(circle at 90% 85%, rgba(204, 251, 241, 0.4) 0%, transparent 40%),
+      radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: auto, auto, 24px 24px;
+  }
+
+  /* Backward compatibility for bg-hero with refined warm gradient */
+  .bg-hero {
+    background-color: #FAF8F5;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.4) 0%, transparent 35%),
+      radial-gradient(circle at 90% 85%, rgba(204, 251, 241, 0.35) 0%, transparent 40%),
+      radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: auto, auto, 24px 24px;
+  }
+
   .shadow-soft {
-    box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.07), 0 0 1px 1px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   }
 
   .shadow-hover {
-    box-shadow: 0 24px 50px -10px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1), 0 2px 4px rgba(15, 23, 42, 0.04);
   }
 
-  .bg-hero {
-    background: radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.5) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(224, 231, 255, 0.5) 0%, transparent 45%),
-      radial-gradient(circle at 50% 50%, rgba(240, 253, 244, 0.6) 0%, transparent 50%),
-      #f8fafc;
-  }
-
-  /* Friendly pastel gradient section */
-  .bg-pastel-gradient {
-    background: linear-gradient(135deg, #ede9fe 0%, #fbcfe8 35%, #fef3c7 70%, #d1fae5 100%);
-  }
-
-  .bg-pastel-mesh {
-    background: linear-gradient(135deg, #e0e7ff 0%, #f5d0fe 50%, #fed7aa 100%);
+  .shadow-glow-gold {
+    box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.25);
   }
 
   /* Professional images card: consistent radius, cover, and subtle shadow */
@@ -103,7 +147,7 @@
     box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.08);
   }
 
-  /* Responsive hero/feature image should fill their wrapper. */
+  /* Responsive hero/feature image should fill their wrapper */
   .img-fill {
     @apply w-full h-full object-cover;
   }
