@@ -9,19 +9,62 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
         <!-- Left Hero Content -->
         <div class="space-y-6 lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
-            <span class="flex h-2 w-2 rounded-full bg-amber-500"></span>
-            <span>Simple 3-Step Assessment</span>
+          <!-- Text block with blended mountain reflection backdrop -->
+          <div id="admission-hero-container" class="relative">
+            <!-- Blended Mountain Image Backdrop: starts horizontally from 'l' in Child's, covers half of up/down text -->
+            <div 
+              id="admission-mountain-backdrop"
+              class="pointer-events-none absolute select-none z-0 left-[55%] sm:left-[56%] lg:left-[54%] -top-2 sm:-top-4 bottom-0 sm:bottom-1 w-[260px] sm:w-[350px] lg:w-[420px] aspect-square max-w-[430px]"
+              aria-hidden="true"
+            >
+              <!-- Outer fade on left to smoothly start from 'l' -->
+              <div 
+                class="w-full h-full relative"
+                style="
+                  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
+                  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
+                "
+              >
+                <!-- Inner elliptical mask to feather edges into canvas -->
+                <div 
+                  class="w-full h-full relative"
+                  style="
+                    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 55% 50%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.65) 55%, transparent 95%);
+                    mask-image: radial-gradient(ellipse 75% 70% at 55% 50%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.65) 55%, transparent 95%);
+                  "
+                >
+                  <!-- Mountain Reflection Photo -->
+                  <img 
+                    src="/mountain-reflection.jpg" 
+                    alt="" 
+                    class="w-full h-full object-cover object-[50%_45%] opacity-80 contrast-[1.06] saturate-[1.12]"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <!-- Soft Warm Ambient Scrims to harmonize with #FAF8F5 background -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/85 via-[#FAF8F5]/25 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/35 via-transparent to-[#FAF8F5]/45 pointer-events-none"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Foreground Content: crisp typography elevated on top of image -->
+            <div class="relative z-10 space-y-6">
+              <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-amber-500"></span>
+                <span>Simple 3-Step Assessment</span>
+              </div>
+
+              <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
+                Start Your Chi<span id="child-l-marker">l</span>d's<br />
+                <span class="text-amber-600">Learning Journey</span>
+              </h1>
+
+              <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-700 font-medium text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
+                Every learner thinks differently. Our 30-minute assessment is completely stress-free — we focus on understanding your child's innate logic, curiosity, and learning style rather than judging marks.
+              </p>
+            </div>
           </div>
-
-          <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12]">
-            Start Your Child's<br />
-            <span class="text-amber-600">Learning Journey</span>
-          </h1>
-
-          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
-            Every learner thinks differently. Our 30-minute assessment is completely stress-free — we focus on understanding your child's innate logic, curiosity, and learning style rather than judging marks.
-          </p>
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
@@ -64,9 +107,10 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft">
             <div class="overflow-hidden rounded-2xl bg-slate-50 border border-slate-100">
               <img
-                src="/3.webp"
-                alt="NPconscious interactive assessment session preview"
+                src="/graph.webp"
+                alt="3 out of 5 students fear maths - Overcoming mathsphobia with NPconscious"
                 class="w-full h-auto object-cover"
+                loading="lazy"
               />
             </div>
             <div class="mt-4 flex items-center justify-between text-xs font-medium text-slate-600 border-t border-slate-100 pt-3">
@@ -551,5 +595,25 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     initAdmissionForm();
     document.addEventListener("astro:page-load", initAdmissionForm);
+
+    function alignMountainImage() {
+      const marker = document.getElementById('child-l-marker');
+      const backdrop = document.getElementById('admission-mountain-backdrop');
+      const container = document.getElementById('admission-hero-container');
+      if (marker && backdrop && container) {
+        const markerRect = marker.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const leftOffset = markerRect.left - containerRect.left;
+        backdrop.style.left = `${Math.round(leftOffset)}px`;
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', alignMountainImage);
+    } else {
+      alignMountainImage();
+    }
+    window.addEventListener('resize', alignMountainImage);
+    document.addEventListener('astro:page-load', alignMountainImage);
   </script>
 </MainLayout>
