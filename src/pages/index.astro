@@ -9,19 +9,51 @@ import MainLayout from '../layouts/MainLayout.astro';
       <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
         <!-- Left Hero Content -->
         <div class="space-y-6 lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
-            <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
-            <span>Natural Mathematical Intuition</span>
+          <!-- Text block with blended nature backdrop -->
+          <div class="relative">
+            <!-- Blended Nature Image Backdrop -->
+            <div 
+              class="pointer-events-none absolute select-none z-0 -right-2 sm:right-0 lg:right-4 -top-2 sm:-top-3 bottom-1 sm:bottom-2 w-[72%] sm:w-[62%] lg:w-[56%] max-w-[480px] overflow-hidden"
+              aria-hidden="true"
+            >
+              <div 
+                class="w-full h-full relative"
+                style="
+                  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 60% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.65) 60%, transparent 98%);
+                  mask-image: radial-gradient(ellipse 72% 68% at 60% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.65) 60%, transparent 98%);
+                "
+              >
+                <!-- Waterfall Photo with nature blend -->
+                <img 
+                  src="/nature-waterfall.jpg" 
+                  alt="" 
+                  class="w-full h-full object-cover object-[55%_40%] opacity-80 contrast-[1.08] saturate-[1.15]"
+                  loading="eager"
+                  decoding="async"
+                />
+                <!-- Soft Warm Ambient Scrims to harmonize with #FAF8F5 background -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/90 via-[#FAF8F5]/30 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-transparent to-[#FAF8F5]/50 pointer-events-none"></div>
+              </div>
+            </div>
+
+            <!-- Foreground Text -->
+            <div class="relative z-10 space-y-6">
+              <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>Natural Mathematical Intuition</span>
+              </div>
+
+              <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
+                Making Mathematics<br />
+                <span class="text-amber-600">Natural Again.</span>
+              </h1>
+
+              <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-700 font-medium text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
+                We help students build unbreakable fundamentals through curiosity, questioning, and visual models — replacing math anxiety with the genuine joy of understanding.
+              </p>
+            </div>
           </div>
-
-          <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12]">
-            Making Mathematics<br />
-            <span class="text-amber-600">Natural Again.</span>
-          </h1>
-
-          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
-            We help students build unbreakable fundamentals through curiosity, questioning, and visual models — replacing math anxiety with the genuine joy of understanding.
-          </p>
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">

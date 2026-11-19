@@ -18,7 +18,12 @@ const isAdmission = pathname.startsWith("/admission");
       name="description"
       content="NPconscious helps students build unbreakable fundamentals through curiosity, questioning, and visual exploration — replacing rote memorization with joyful mathematical mastery."
     />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -125,11 +130,19 @@ const isAdmission = pathname.startsWith("/admission");
         class="mx-auto flex max-w-[1320px] items-center justify-between gap-4 border-b border-slate-200/80 bg-white/95 px-4 py-3 backdrop-blur-md transition-all duration-300 md:rounded-full md:border md:px-6 md:shadow-soft"
       >
         <a href="/" class="inline-flex items-center gap-3 group" aria-label="NPconscious home">
-          <img
-            src="/site.webp"
-            alt="NPconscious logo"
-            class="h-7 w-auto object-contain md:h-8 transition-transform group-hover:scale-[1.02]"
-          />
+          <picture>
+            <source srcset="/site.webp" type="image/webp" />
+            <img
+              src="/site.png"
+              alt="NPconscious logo"
+              class="h-7 w-auto object-contain md:h-8 transition-transform group-hover:scale-[1.02]"
+              width="1019"
+              height="316"
+              loading="eager"
+              decoding="async"
+              onerror="this.onerror=null; this.src='/site.png';"
+            />
+          </picture>
         </a>
 
         <!-- Desktop Navigation with friendly pill states -->
@@ -221,7 +234,10 @@ const isAdmission = pathname.startsWith("/admission");
     >
       <div class="mb-8 flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <img src="/site.webp" alt="NPconscious" class="h-7 w-auto object-contain" />
+          <picture>
+            <source srcset="/site.webp" type="image/webp" />
+            <img src="/site.png" alt="NPconscious" class="h-7 w-auto object-contain" onerror="this.onerror=null; this.src='/site.png';" />
+          </picture>
         </div>
         <button
           id="mobile-nav-close"
@@ -320,7 +336,10 @@ const isAdmission = pathname.startsWith("/admission");
           <!-- Col 1: Brand Info -->
           <div class="space-y-4 lg:col-span-2">
             <div class="flex items-center gap-3">
-              <img src="/site.webp" alt="NPconscious" class="h-8 w-auto object-contain" />
+              <picture>
+                <source srcset="/site.webp" type="image/webp" />
+                <img src="/site.png" alt="NPconscious" class="h-8 w-auto object-contain" onerror="this.onerror=null; this.src='/site.png';" />
+              </picture>
             </div>
             <p class="max-w-md text-base leading-relaxed text-slate-600">
               Making Mathematics Natural Again. We cultivate genuine mathematical intuition and curiosity instead of mechanical rote learning.

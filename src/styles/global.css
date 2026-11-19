@@ -151,4 +151,9 @@
   .img-fill {
     @apply w-full h-full object-cover;
   }
+
+  /* Crisp readable elevation for text resting over blended imagery */
+  .text-layer-elevated {
+    text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);
+  }
 }
