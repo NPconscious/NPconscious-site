@@ -11,10 +11,10 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="space-y-6 lg:col-span-7">
           <!-- Text block with blended Thinkers artwork backdrop -->
           <div id="founder-hero-container" class="relative">
-            <!-- Blended Thinkers Image Backdrop: starts horizontally from 'k' in Thinkers, covers half of up/down text -->
+            <!-- Blended Thinkers Image Backdrop -->
             <div 
               id="founder-thinkers-backdrop"
-              class="pointer-events-none absolute select-none z-0 left-[48%] sm:left-[49%] lg:left-[48%] -top-2 sm:-top-4 bottom-0 sm:bottom-1 w-[260px] sm:w-[340px] lg:w-[410px] aspect-square max-w-[420px]"
+              class="pointer-events-none absolute select-none z-0 right-0 sm:right-4 lg:right-6 -top-2 sm:-top-4 bottom-0 sm:bottom-1 w-[260px] sm:w-[340px] lg:w-[410px] aspect-square max-w-[420px]"
               aria-hidden="true"
             >
               <!-- Outer fade on left to smoothly start from 'k' -->
@@ -56,7 +56,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
 
               <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Building Thin<span id="thinker-k-marker">k</span>ers,<br />
+                Building Thinkers,<br />
                 <span class="text-amber-600">Not Just Test-Takers</span>
               </h1>
 
@@ -69,7 +69,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
             <a
-              href="https://wa.me/918088276492?text=Hi%20Nikhil%2C%20I%20would%20love%20to%20connect%20and%20learn%20more%20about%20NPconscious."
+              href="https://wa.me/918011236456?text=Hi%20Nikhil%2C%20I%20would%20love%20to%20connect%20and%20learn%20more%20about%20NPconscious."
               class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Connect with Founder</span>
@@ -79,10 +79,12 @@ import MainLayout from '../layouts/MainLayout.astro';
             </a>
             <!--email_off-->
             <a
-              href="mailto:npconscious@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@npconscious.com"
+              target="_blank"
+              rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition hover:bg-slate-50"
             >
-              <span>Email Nikhil Directly</span>
+              <span>Email Founder</span>
             </a>
             <!--/email_off-->
           </div>
@@ -106,7 +108,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
         <!-- Right Hero Visual -->
         <div class="relative lg:col-span-5">
-          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft">
+          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft stretchy-scroll">
             <div class="overflow-hidden rounded-2xl bg-slate-50 border border-slate-100">
               <img
                 src="/vision.webp"
@@ -143,7 +145,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
 
       <div class="space-y-6 text-sm sm:text-base leading-relaxed text-slate-700">
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs">
+        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-1 stretchy-scroll">
           <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
             <span class="text-amber-600">01.</span> The Real Source of Math Fear
           </h3>
@@ -152,7 +154,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           </p>
         </div>
 
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs">
+        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-2 stretchy-scroll">
           <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
             <span class="text-amber-600">02.</span> Visual Models Before Algebraic Symbols
           </h3>
@@ -161,7 +163,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           </p>
         </div>
 
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs">
+        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-3 stretchy-scroll">
           <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
             <span class="text-amber-600">03.</span> Emotional Safety in the Classroom
           </h3>
@@ -173,58 +175,9 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Core Mentorship Pillars -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-6xl space-y-12">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900 border border-amber-200">
-          Our Guiding Pillars
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Mathematics Has No Age Limit
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          From a 6-year-old learning the rhythm of numbers to a high schooler tackling calculus or an adult mastering compounding finance.
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-soft transition hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 font-bold mb-5">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">Curiosity Over Speed</h3>
-          <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
-            Speed comes naturally once concepts are understood. We never rush a child through timed drills before their foundational intuition is secure.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-soft transition hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700 font-bold mb-5">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">1-on-1 Patient Mentorship</h3>
-          <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
-            Every learner thinks at a unique cognitive cadence. Our mentors adapt their explanations in real time to match how your child makes connections.
-          </p>
-        </div>
-
-        <div class="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-soft transition hover:-translate-y-1">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800 font-bold mb-5">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-slate-900">Concepts That Never Expire</h3>
-          <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
-            We build permanent intellectual assets. When a learner genuinely understands why a theorem works, that logic stays with them through high school, college, and career.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- A Personal Letter from the Founder -->
   <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-t border-slate-200/80">
-    <div class="mx-auto max-w-4xl rounded-3xl border border-amber-200/90 bg-[#FAF8F5] p-6 sm:p-12 shadow-soft">
+    <div class="mx-auto max-w-4xl rounded-3xl border border-amber-200/90 bg-[#FAF8F5] p-6 sm:p-12 shadow-soft reveal-on-scroll stretchy-scroll">
       <div class="space-y-6">
         <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold text-amber-900">
           A Personal Note from Nikhil
@@ -248,14 +201,29 @@ import MainLayout from '../layouts/MainLayout.astro';
           <div>
             <p class="font-bold text-slate-900 text-base">Nikhil Parag</p>
             <p class="text-xs text-slate-500">Founder & Academic Director, NPconscious</p>
+            <!--email_off-->
+           
           </div>
-          <a
-            href="https://wa.me/918088276492?text=Hi%20Nikhil%2C%20I%20read%20your%20letter%20on%20the%20NPconscious%20site%20and%20would%20love%20to%20connect."
-            class="inline-flex items-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 px-5 py-3 text-xs font-semibold text-white transition"
-          >
-            <span>Message Nikhil Directly on WhatsApp</span>
-            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
+          <div class="flex flex-wrap items-center gap-3">
+            <!--email_off-->
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@npconscious.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 px-5 py-3 text-xs font-semibold text-slate-800 transition shadow-xs"
+            >
+              <svg class="h-3.5 w-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Email Founder</span>
+            </a>
+            <!--/email_off-->
+            <a
+              href="https://wa.me/918011236456?text=Hi%20Nikhil%2C%20I%20read%20your%20letter%20on%20the%20NPconscious%20site%20and%20would%20love%20to%20connect."
+              class="inline-flex items-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 px-5 py-3 text-xs font-semibold text-white transition"
+            >
+              <span>Message Nikhil on WhatsApp</span>
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -263,7 +231,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   <!-- Final Call to Action -->
   <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-5xl rounded-3xl bg-slate-900 p-8 sm:p-14 text-center text-white shadow-2xl">
+    <div class="mx-auto max-w-5xl rounded-3xl bg-slate-900 p-8 sm:p-14 text-center text-white shadow-2xl reveal-on-scroll">
       <h2 class="text-2xl font-bold tracking-tight sm:text-4xl">
         Experience the Joy of Natural Mathematics
       </h2>
@@ -272,7 +240,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3.5">
         <a
-          href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!"
+          href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!"
           class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-8 py-4 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
         >
           <span>Book Free Demo on WhatsApp</span>
@@ -289,26 +257,4 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
     </div>
   </section>
-
-  <script is:inline>
-    function alignThinkersImage() {
-      const marker = document.getElementById('thinker-k-marker');
-      const backdrop = document.getElementById('founder-thinkers-backdrop');
-      const container = document.getElementById('founder-hero-container');
-      if (marker && backdrop && container) {
-        const markerRect = marker.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const leftOffset = markerRect.left - containerRect.left;
-        backdrop.style.left = `${Math.round(leftOffset)}px`;
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', alignThinkersImage);
-    } else {
-      alignThinkersImage();
-    }
-    window.addEventListener('resize', alignThinkersImage);
-    document.addEventListener('astro:page-load', alignThinkersImage);
-  </script>
 </MainLayout>
