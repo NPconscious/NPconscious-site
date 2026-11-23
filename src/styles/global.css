@@ -24,6 +24,14 @@
     /* Structure & Dividers */
     --border-subtle: #E2E8F0;
     --border-warm: #EAE6DF;
+
+    /* Animation & Physics Tokens (Emil Kowalski Animate Philosophy) */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --scroll-stretch: 1;
+    --scroll-compress: 1;
   }
 
   html {
@@ -46,7 +54,18 @@
 
   button,
   a {
-    @apply transition-all duration-200 ease-out;
+    transition-property: color, background-color, border-color, transform, opacity, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  button:active,
+  a[role="button"]:active,
+  a.rounded-full:active,
+  .btn-press:active {
+    transform: scale(0.965);
+    transition-duration: 120ms;
+    transition-timing-function: var(--ease-out);
   }
 
   a:focus-visible,
@@ -155,5 +174,95 @@
   /* Crisp readable elevation for text resting over blended imagery */
   .text-layer-elevated {
     text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);
+  }
+
+  /* Physical Scroll-Reveal with Gentle Spring Overshoot */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-spring);
+    will-change: opacity, transform;
+  }
+
+  .reveal-on-scroll.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Stagger delays for group entrances */
+  .stagger-1 { transition-delay: 40ms; }
+  .stagger-2 { transition-delay: 90ms; }
+  .stagger-3 { transition-delay: 140ms; }
+  .stagger-4 { transition-delay: 190ms; }
+  .stagger-5 { transition-delay: 240ms; }
+  .stagger-6 { transition-delay: 290ms; }
+
+  /* Stretchy Scroll Velocity Inertia (GPU Compositor Scale) */
+  .stretchy-scroll {
+    transform-origin: center center;
+    transform: scaleY(var(--scroll-stretch, 1)) scaleX(var(--scroll-compress, 1));
+    transition: transform 180ms var(--ease-out);
+    will-change: transform;
+  }
+
+  /* Tactile Pop on Active Tab Selection */
+  .tab-spring-active {
+    animation: tab-pop 250ms var(--ease-spring);
+  }
+
+  @keyframes tab-pop {
+    0% { transform: scale(0.96); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+
+  /* Smooth Gliding Entrance for Tab Panels */
+  .tab-panel-enter {
+    animation: panel-enter 280ms var(--ease-out);
+  }
+
+  @keyframes panel-enter {
+    0% { opacity: 0; transform: translateY(8px) scale(0.985); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Subtle Spring Hover Lift for Interactive Cards */
+  @media (hover: hover) and (pointer: fine) {
+    .hover-spring {
+      transition: transform 240ms var(--ease-spring), box-shadow 240ms var(--ease-out);
+    }
+    .hover-spring:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+  }
+
+  /* Sticky Stacking Deck Card Physics */
+  .deck-card {
+    will-change: transform, opacity;
+    transform-origin: center top;
+    transition: box-shadow 300ms var(--ease-out);
+  }
+
+  /* Accessibility: Prefers Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .stretchy-scroll {
+      transform: none !important;
+      transition: none !important;
+    }
+    .tab-spring-active,
+    .tab-panel-enter {
+      animation: none !important;
+    }
   }
 }

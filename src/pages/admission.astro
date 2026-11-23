@@ -11,10 +11,10 @@ import MainLayout from "../layouts/MainLayout.astro";
         <div class="space-y-6 lg:col-span-7">
           <!-- Text block with blended mountain reflection backdrop -->
           <div id="admission-hero-container" class="relative">
-            <!-- Blended Mountain Image Backdrop: starts horizontally from 'l' in Child's, covers half of up/down text -->
+            <!-- Blended Mountain Image Backdrop -->
             <div 
               id="admission-mountain-backdrop"
-              class="pointer-events-none absolute select-none z-0 left-[55%] sm:left-[56%] lg:left-[54%] -top-2 sm:-top-4 bottom-0 sm:bottom-1 w-[260px] sm:w-[350px] lg:w-[420px] aspect-square max-w-[430px]"
+              class="pointer-events-none absolute select-none z-0 right-0 sm:right-4 lg:right-6 -top-2 sm:-top-4 bottom-0 w-[260px] sm:w-[350px] lg:w-[410px] aspect-square max-w-[430px] overflow-hidden"
               aria-hidden="true"
             >
               <!-- Outer fade on left to smoothly start from 'l' -->
@@ -56,7 +56,7 @@ import MainLayout from "../layouts/MainLayout.astro";
               </div>
 
               <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Start Your Chi<span id="child-l-marker">l</span>d's<br />
+                Start Your Child's<br />
                 <span class="text-amber-600">Learning Journey</span>
               </h1>
 
@@ -78,10 +78,10 @@ import MainLayout from "../layouts/MainLayout.astro";
               </svg>
             </a>
             <a
-              href="#test-details"
+              href="#assessment-tracks"
               class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition hover:bg-slate-50 hover:border-slate-400"
             >
-              <span>View Grade Formats</span>
+              <span>View Assessment Tracks</span>
             </a>
           </div>
 
@@ -104,7 +104,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
         <!-- Right Visual: Assessment Overview Showcase Card -->
         <div class="relative lg:col-span-5">
-          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft">
+          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft stretchy-scroll">
             <div class="overflow-hidden rounded-2xl bg-slate-50 border border-slate-100">
               <img
                 src="/graph.webp"
@@ -146,7 +146,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
       <div class="grid gap-6 md:grid-cols-3">
         <!-- Step 1 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-1 stretchy-scroll">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 font-bold mb-5 tabular-nums">
             01
           </div>
@@ -161,7 +161,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         </div>
 
         <!-- Step 2 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-2 stretchy-scroll">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-800 font-bold mb-5 tabular-nums">
             02
           </div>
@@ -176,7 +176,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         </div>
 
         <!-- Step 3 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-3 stretchy-scroll">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800 font-bold mb-5 tabular-nums">
             03
           </div>
@@ -187,6 +187,368 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="mt-5 text-xs font-semibold text-emerald-700 flex items-center gap-1">
             <span>Tailored learning blueprint</span>
             <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Diagnostic Assessment Tracks Selector -->
+  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-b border-slate-200/80" id="assessment-tracks">
+    <div class="mx-auto max-w-4xl space-y-10">
+      <div class="text-center space-y-3">
+        <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900 border border-amber-200">
+          Tailored Diagnostic Tracks
+        </span>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          Choose Your Child's Assessment Track
+        </h2>
+        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
+          Every session is customized to evaluate foundational thinking, visual spatial logic, and conceptual derivation at your child's stage.
+        </p>
+      </div>
+
+      <!-- Segmented Tab Switcher -->
+      <div class="flex rounded-2xl bg-slate-100/90 p-1.5 text-xs font-semibold overflow-x-auto scrollbar-none gap-1 sm:gap-1.5" role="tablist">
+        <button
+          type="button"
+          role="tab"
+          id="tab-track-primary"
+          data-track="primary"
+          aria-selected="true"
+          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer bg-white text-slate-900 shadow-xs font-bold"
+        >
+          Classes 1–5
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-track-middle"
+          data-track="middle"
+          aria-selected="false"
+          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
+        >
+          Classes 6–10
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-track-senior"
+          data-track="senior"
+          aria-selected="false"
+          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
+        >
+          Classes 11–12
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-track-money"
+          data-track="money"
+          aria-selected="false"
+          class="track-tab flex-1 min-w-[130px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
+        >
+          Money &amp; Math
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-track-eng"
+          data-track="eng"
+          aria-selected="false"
+          class="track-tab flex-1 min-w-[120px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
+        >
+          Engineering
+        </button>
+      </div>
+
+      <!-- Track Detail Display Cards -->
+      <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-10 shadow-soft stretchy-scroll">
+        <!-- 1. Primary Track -->
+        <div id="panel-track-primary" class="track-panel space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
+            <div>
+              <span class="inline-block rounded-full bg-amber-100 px-3 py-0.5 text-xs font-semibold text-amber-900 mb-2">
+                Classes 1–5 • Primary
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                Primary Assessment (Classes 1–5)
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
+              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              30 Mins Duration
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+            Playful visual riddles, pattern completion, and intuitive counting without test anxiety.
+          </p>
+
+          <div class="grid gap-3 sm:grid-cols-3 pt-1">
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Live Interactive Session</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">30 mins 1-on-1 discovery</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Parents Welcomed to Attend</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Sit in and observe your child</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Visual Spatial Reasoning</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Focus on spatial logic &amp; patterns</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%201-5."
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <span>Book Class 1–5 Assessment</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
+              Or schedule via form below &darr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Middle & High Track -->
+        <div id="panel-track-middle" class="track-panel hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
+            <div>
+              <span class="inline-block rounded-full bg-indigo-100 px-3 py-0.5 text-xs font-semibold text-indigo-900 mb-2">
+                Classes 6–10 • Middle &amp; High School
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                Middle &amp; High School (Classes 6–10)
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
+              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              30 Mins Duration
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+            Algebraic logic, geometry derivation, word puzzles, and fundamental number intuition.
+          </p>
+
+          <div class="grid gap-3 sm:grid-cols-3 pt-1">
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Live 1-on-1 Assessment</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">30 mins personal attention</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Formula Understanding</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Assessment of Formula Understanding</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Curriculum Aligned</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Aligned with CBSE, ICSE &amp; IGCSE</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%206-10."
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <span>Book Class 6–10 Assessment</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
+              Or schedule via form below &darr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Senior Secondary Track -->
+        <div id="panel-track-senior" class="track-panel hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
+            <div>
+              <span class="inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-900 mb-2">
+                Classes 11–12 • Senior Secondary
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                Senior Secondary (Classes 11–12)
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
+              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              30 Mins Duration
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+            Evaluating intuition in calculus, trigonometry, coordinate geometry, and problem attack strategy.
+          </p>
+
+          <div class="grid gap-3 sm:grid-cols-3 pt-1">
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Live Assessment</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">30 mins 1-on-1 session</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Entrance Readiness</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Entrance Exam Conceptual Readiness</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Calculus Review</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Calculus Intuition Review</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%2011-12."
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <span>Book Class 11–12 Assessment</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
+              Or schedule via form below &darr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Money & Mathematics Track -->
+        <div id="panel-track-money" class="track-panel hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
+            <div>
+              <span class="inline-block rounded-full bg-amber-100 px-3 py-0.5 text-xs font-semibold text-amber-900 mb-2">
+                Specialized Track • Real-World Acumen
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                Money &amp; Mathematics
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
+              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              30 Mins Duration
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+            Scenario-based assessment measuring real-world financial acumen, compound interest logic, and strategic probability reasoning.
+          </p>
+
+          <div class="grid gap-3 sm:grid-cols-3 pt-1">
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Real-Life Simulations</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Real-Life Simulation Questions (30 mins)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Probability Logic</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Risk &amp; Reward Probability Number Sense</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Financial Mindset</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Practical Financial Mindset Evaluation</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Money%20%26%20Mathematics."
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <span>Book Money &amp; Math Assessment</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
+              Or schedule via form below &darr;
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Engineering Track -->
+        <div id="panel-track-eng" class="track-panel hidden space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
+            <div>
+              <span class="inline-block rounded-full bg-slate-900 px-3 py-0.5 text-xs font-semibold text-white mb-2">
+                Undergraduate • 1 Hour
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+                Engineering Mathematics
+              </h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-indigo-700 border border-slate-200 shadow-xs">
+              <svg class="h-3.5 w-3.5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              1 Hour Dedicated Slot
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+            Evaluating problem solving for university engineering coursework and computational maths.
+          </p>
+
+          <div class="grid gap-3 sm:grid-cols-2 pt-1">
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-indigo-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Written Problem Set Discussion</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Written Problem Set Discussion (1 Hour)</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
+              <svg class="h-5 w-5 text-indigo-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Linear Algebra &amp; Calculus</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Evaluation of Linear Algebra &amp; Calculus</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Engineering%20Mathematics."
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+            >
+              <span>Book Engineering Slot</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
+              Or schedule via form below &darr;
+            </a>
           </div>
         </div>
       </div>
@@ -286,263 +648,87 @@ import MainLayout from "../layouts/MainLayout.astro";
         </button>
 
         <p class="text-center text-xs text-slate-500">
-          Prefer direct messaging? <a href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20admission%20assessment." class="text-amber-700 font-semibold hover:underline">Click here to chat directly on WhatsApp</a>.
+          Prefer WhatsApp? <a href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20admission%20assessment." class="text-amber-700 font-semibold hover:underline">Chat directly</a> • Sending reports or syllabus? Email <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-700 font-semibold hover:underline">admission@npconscious.com</a>
         </p>
       </form>
     </div>
   </section>
 
-  <!-- Assessment Structure Details by Grade -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-y border-slate-200/80" id="test-details">
-    <div class="mx-auto max-w-[1360px]">
-      <div class="text-center space-y-3 mb-12">
-        <span class="inline-block rounded-full bg-slate-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Age-Appropriate Formats
+  <!-- Helpful Parent Reminder: What to Expect on Assessment Day -->
+  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-y border-slate-200/80">
+    <div class="mx-auto max-w-4xl space-y-8">
+      <div class="text-center space-y-3">
+        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
+          Zero-Stress Preparation
         </span>
         <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Assessment Formats by Grade
+          What to Expect on Assessment Day
         </h2>
         <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          Tailored to the developmental and cognitive milestones of each learner group.
+          Our 30-minute discovery session is designed to be joyful, engaging, and completely pressure-free.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
-        <!-- Card 1 (Featured Signature): Money & Mathematics -->
-        <article class="relative flex flex-col justify-between rounded-3xl border-2 border-amber-400 bg-gradient-to-b from-amber-50/95 via-white to-white p-7 shadow-xl shadow-amber-500/10 ring-4 ring-amber-400/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 lg:-translate-y-2">
-          <!-- Floating Most Popular Badge -->
-          <div class="absolute -top-3.5 left-6 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md ring-2 ring-white">
-            <svg class="h-3.5 w-3.5 fill-current text-amber-200" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <span>★ Most Popular</span>
+      <div class="grid gap-6 sm:grid-cols-3">
+        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-1">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 font-bold mb-4">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
+          <h3 class="font-bold text-slate-900 text-base">Join 5 Mins Early</h3>
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Grab a notebook and a pen in a quiet spot. Parents are warmly welcomed to sit in.
+          </p>
+        </div>
 
-          <div>
-            <div class="flex items-center justify-between mb-4 pt-1">
-              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900 border border-amber-200">
-                Ages 12+ & Adults
-              </span>
-              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                Practical Finance
-              </span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Money & Mathematics</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
-              Scenario-based assessment measuring real-world financial acumen, compound interest logic, and strategic probability reasoning.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-amber-200/80 pt-4 text-xs font-medium text-slate-700">
-              <p class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">Real-Life Simulation Questions (30 mins)</span>
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">Risk & Reward Probability Number Sense</span>
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">Practical Financial Mindset Evaluation</span>
-              </p>
-            </div>
+        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-2">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-indigo-900 font-bold mb-4">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <div class="mt-8 pt-4 border-t border-amber-200/80">
-            <a
-              href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Money%20%26%20Mathematics."
-              class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-4 py-3.5 text-xs sm:text-sm font-bold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <span>Book Money & Math Assessment</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-        </article>
+          <h3 class="font-bold text-slate-900 text-base">No Test Prep Needed</h3>
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            No formulas to memorize. We look at visual riddles to see how your child naturally explores problems.
+          </p>
+        </div>
 
-        <!-- Card 2 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200">
-                Primary
-              </span>
-              <span class="text-xs text-slate-500 font-medium">30 mins</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Classes 1–5</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Playful visual riddles, pattern completion, and intuitive counting without test anxiety.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <p class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> Live Interactive Session (30 mins)
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> Parents Welcomed to Attend
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> Focus on Visual Spatial Reasoning
-              </p>
-            </div>
+        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-900 font-bold mb-4">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <div class="mt-8 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%201-5."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Book Class 1–5 Assessment</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-800 border border-blue-200">
-                Middle & High School
-              </span>
-              <span class="text-xs text-slate-500 font-medium">30 mins</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Classes 6–10</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Algebraic logic, geometry derivation, word puzzles, and fundamental number intuition.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <p class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> Live 1-on-1 Assessment (30 mins)
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> Assessment of Formula Understanding
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> Aligned with CBSE, ICSE & IGCSE
-              </p>
-            </div>
-          </div>
-          <div class="mt-8 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%206-10."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Book Class 6–10 Assessment</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-800 border border-indigo-200">
-                Senior Secondary
-              </span>
-              <span class="text-xs text-slate-500 font-medium">30 mins</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Classes 11–12</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Evaluating intuition in calculus, trigonometry, coordinate geometry, and problem attack strategy.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <p class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> Live Assessment (30 mins)
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> Entrance Exam Conceptual Readiness
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> Calculus Intuition Review
-              </p>
-            </div>
-          </div>
-          <div class="mt-8 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%2011-12."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Book Class 11–12 Assessment</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-800 border border-slate-300">
-                Undergraduate
-              </span>
-              <span class="text-xs text-slate-500 font-medium">1 Hour</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Engineering Mathematics</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Evaluating problem solving for university engineering coursework and computational maths.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <p class="flex items-center gap-2">
-                <span class="text-slate-700 font-bold">&#10003;</span> Written Problem Set Discussion (1 Hour)
-              </p>
-              <p class="flex items-center gap-2">
-                <span class="text-slate-700 font-bold">&#10003;</span> Evaluation of Linear Algebra & Calculus
-              </p>
-            </div>
-          </div>
-          <div class="mt-8 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918088276492?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Engineering%20Mathematics."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Book Engineering Slot</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </article>
+          <h3 class="font-bold text-slate-900 text-base">Qualitative Parent Report</h3>
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            We discuss cognitive strengths, curiosity triggers, and the recommended learning pathway.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Helpful Parent Reminder Pill -->
-  <section class="px-4 py-12 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-4xl rounded-3xl border border-amber-200 bg-amber-50/80 p-6 sm:p-8 text-amber-950 shadow-xs flex flex-col sm:flex-row items-center gap-4">
-      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-200 text-amber-900 font-bold text-lg">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      </div>
-      <div>
-        <h3 class="font-bold text-base text-slate-900">What to Expect on Assessment Day:</h3>
-        <p class="mt-1 text-sm text-slate-700 leading-relaxed">
-          Please join 5 minutes before your scheduled online slot with a notebook and a pen. No special memorization, formulas, or test prep is needed — our goal is to understand how your child naturally thinks!
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Transparency & Trust Card -->
-  <section class="px-4 py-16 lg:px-8 bg-white border-t border-slate-200/80">
-    <div class="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-[#FAF8F5] p-8 sm:p-12 shadow-soft">
+  <!-- Official Admissions Support Desk -->
+  <section class="px-4 py-16 lg:px-8 bg-[#FAF8F5]">
+    <div class="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-soft reveal-on-scroll">
       <div class="flex items-center gap-3 mb-6">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800 font-bold text-lg">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 font-bold text-lg">
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         </div>
         <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Our Pledge</span>
-          <h2 class="text-2xl font-bold text-slate-900">Transparency & Trust First</h2>
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Official Assistance</span>
+          <h2 class="text-2xl font-bold text-slate-900">Dedicated Academic Mentorship</h2>
         </div>
       </div>
       <p class="text-base leading-relaxed text-slate-600">
-        At NPconscious, integrity is fundamental. We do not charge surprise registration fees or hidden charges outside officially communicated programs.
+        Every child's learning journey at NPconscious is conducted through verified, 1-on-1 channels with absolute transparency. If you have any questions or need custom slot coordination, connect with our admissions desk:
       </p>
-      <p class="mt-4 text-base leading-relaxed text-slate-600">
-        Official communication is conducted exclusively through our verified channels. If you have any doubts, reach out directly:
-      </p>
-      <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-semibold text-slate-900 w-fit">
-        <!--email_off-->
-        <a href="mailto:npconscious@gmail.com" class="text-amber-700 hover:underline">npconscious@gmail.com</a>
-        <!--/email_off-->
-        <span class="hidden sm:inline text-slate-300">•</span>
-        <a href="tel:+918088276492" class="text-slate-700 hover:underline">+91 80882 76492</a>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-[#FAF8F5] px-5 py-3.5 text-xs sm:text-sm font-semibold text-slate-900 shadow-xs">
+          <span class="text-slate-400 font-normal">Admissions Desk:</span>
+          <!--email_off-->
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:underline">admission@npconscious.com</a>
+          <!--/email_off-->
+        </div>
+        <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-[#FAF8F5] px-5 py-3.5 text-xs sm:text-sm font-semibold text-slate-900 shadow-xs">
+          <span class="text-slate-400 font-normal">Direct Helpline:</span>
+          <a href="tel:+918011236456" class="text-slate-700 hover:underline">+91 80112 36456</a>
+        </div>
       </div>
     </div>
   </section>
@@ -575,7 +761,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         if (phoneVal) message += "\n*Parent WhatsApp:* " + phoneVal;
         if (timeVal && timeVal !== "Flexible / Anytime") message += "\n*Preferred Slot:* " + timeVal;
 
-        const waUrl = "https://wa.me/918088276492?text=" + encodeURIComponent(message);
+        const waUrl = "https://wa.me/918011236456?text=" + encodeURIComponent(message);
 
         try {
           const win = window.open(waUrl, "_blank");
@@ -593,29 +779,55 @@ import MainLayout from "../layouts/MainLayout.astro";
       if (submitBtn) {
         submitBtn.onclick = handleSubmit;
       }
+
+      // Track Selector Switcher
+      const trackTabs = document.querySelectorAll(".track-tab");
+      const trackPanels = document.querySelectorAll(".track-panel");
+
+      const gradeMapping = {
+        primary: "Grade 1-5 (Primary)",
+        middle: "Grade 6-8 (Middle School)",
+        senior: "Grade 11-12 (Senior Secondary)",
+        money: "Money & Mathematics (★ Most Popular)",
+        eng: "Engineering Mathematics"
+      };
+
+      trackTabs.forEach((tab) => {
+        tab.onclick = function (e) {
+          e.preventDefault();
+          const trackKey = tab.getAttribute("data-track");
+
+          trackTabs.forEach((t) => {
+            t.classList.remove("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
+            t.classList.add("text-slate-600");
+            t.setAttribute("aria-selected", "false");
+          });
+
+          tab.classList.add("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
+          tab.classList.remove("text-slate-600");
+          tab.setAttribute("aria-selected", "true");
+          setTimeout(() => tab.classList.remove("tab-spring-active"), 300);
+
+          trackPanels.forEach((panel) => {
+            panel.classList.add("hidden");
+            panel.classList.remove("tab-panel-enter");
+          });
+
+          const activePanel = document.getElementById("panel-track-" + trackKey);
+          if (activePanel) {
+            activePanel.classList.remove("hidden");
+            activePanel.classList.add("tab-panel-enter");
+          }
+
+          const studentGradeSelect = document.getElementById("student-grade");
+          if (studentGradeSelect && gradeMapping[trackKey]) {
+            studentGradeSelect.value = gradeMapping[trackKey];
+          }
+        };
+      });
     }
 
     initAdmissionForm();
     document.addEventListener("astro:page-load", initAdmissionForm);
-
-    function alignMountainImage() {
-      const marker = document.getElementById('child-l-marker');
-      const backdrop = document.getElementById('admission-mountain-backdrop');
-      const container = document.getElementById('admission-hero-container');
-      if (marker && backdrop && container) {
-        const markerRect = marker.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const leftOffset = markerRect.left - containerRect.left;
-        backdrop.style.left = `${Math.round(leftOffset)}px`;
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', alignMountainImage);
-    } else {
-      alignMountainImage();
-    }
-    window.addEventListener('resize', alignMountainImage);
-    document.addEventListener('astro:page-load', alignMountainImage);
   </script>
 </MainLayout>
