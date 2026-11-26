@@ -1,0 +1,109 @@
+/* ==========================================================================
+   NPconscious — Design Tokens (Phase 3)
+   Reference Structure: brilliant.org (layout, type scale, radii, shadows, motion)
+   Palette: Warm Beige + Editorial Charcoal & Soft Sage
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* 1. Surface & Canvas Palette */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F1EA;       /* Warm beige sanctuary canvas */
+  --bg-elevated-soft: #FAF8F4;   /* Light beige nested cards / panels */
+  --bg-sand-soft: #ECE5D8;       /* Warm sand pill tags & subtle fills */
+  --bg-inverse: #161615;         /* Editorial charcoal dark bands */
+  --gradient-sanctuary-dark: linear-gradient(
+    135deg,
+    #161615 58%,
+    #1E2823 84%,
+    #26231C 100%
+  );
+
+  /* 2. Typography Ink Hierarchy (WCAG AA >= 4.5:1) */
+  --text-primary: #141414;
+  --text-secondary: #3B3B38;
+  --text-muted: #5F5D57;
+  --text-inverse: #F5F1EA;
+  --text-inverse-muted: #CFC9BE;
+
+  /* 3. Borders */
+  --border-subtle: #E3DDD3;
+  --border-strong: #CFC7BA;
+
+  /* 4. Interactive Accents (Charcoal Primary + Soft Sage + Warm Ochre) */
+  --cta-primary: #141414;
+  --cta-primary-hover: #292927;
+  --cta-primary-lip: #000000;
+
+  --accent-sage: #2F6B55;
+  --accent-sage-hover: #245543;
+  --accent-sage-lip: #193D30;
+  --accent-sage-soft: #E7F2EC;
+
+  --accent-ochre: #9A5B13;
+  --accent-ochre-soft: #F6EBDC;
+
+  --btn-secondary-bg: #FFFFFF;
+  --btn-secondary-hover: #FAF8F4;
+  --btn-secondary-lip: #D9D2C7;
+
+  /* 5. Typography Scale */
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --text-h1-size: clamp(2.25rem, 4.2vw, 3.375rem);      /* 36px -> 54px */
+  --text-h1-lh: 1.1;
+  --text-h1-ls: -0.02em;
+
+  --text-h2-size: clamp(2rem, 3.2vw, 2.75rem);          /* 32px -> 44px */
+  --text-h2-lh: 1.12;
+  --text-h2-ls: -0.015em;
+
+  --text-h3-size: clamp(1.5rem, 2.1vw, 1.875rem);       /* 24px -> 30px */
+  --text-h3-lh: 1.25;
+  --text-h3-ls: -0.012em;
+
+  --text-lead-size: clamp(1rem, 1.25vw, 1.125rem);      /* 16px -> 18px */
+  --text-body-size: 1rem;                               /* 16px */
+  --text-body-lh: 1.65;
+
+  /* 6. Layout & Radii */
+  --container-nav: 1176px;
+  --container-feature: 1110px;
+  --container-reading: 896px;
+
+  --radius-card: 28px;
+  --radius-panel: 24px;
+  --radius-inner: 16px;
+  --radius-pill: 9999px;
+
+  --space-section-y: clamp(3.5rem, 6.5vw, 6.25rem);     /* 56px -> 100px */
+
+  /* 7. Elevation & Tactile Shadows */
+  --shadow-subtle: 0 1px 3px rgba(20, 20, 20, 0.04);
+  --shadow-pill: 0 4px 10px 0 rgba(20, 20, 20, 0.05);
+  --shadow-card: 0 12px 40px 0 rgba(20, 20, 20, 0.06);
+  --shadow-nav-scrolled: 0 10px 30px -10px rgba(20, 20, 20, 0.09);
+
+  /* 8. Calm Sanctuary Motion Tokens (GPU-only) */
+  --ease-sanctuary: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.2, 0, 0, 1);
+  --duration-press: 100ms;
+  --duration-tab: 220ms;
+  --duration-nav: 250ms;
+  --duration-reveal: 650ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-press: 0ms;
+    --duration-tab: 0ms;
+    --duration-nav: 0ms;
+    --duration-reveal: 0ms;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}

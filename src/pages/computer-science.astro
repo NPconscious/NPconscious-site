@@ -1,0 +1,213 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SanctuaryCta from "../components/SanctuaryCta.astro";
+
+const SHOW_FILLER_NOTE = true;
+
+const content = {
+  seo: {
+    title: "Computer Science",
+    description:
+      "Computer science and programming learning at NPconscious: building technical thinking, structured reasoning, and practical coding skills through small-batch mentorship.", // FILLER
+  },
+  hero: {
+    heading: "Computer Science & Programming",
+    subtext:
+      "Helping students build foundational technical knowledge, structured reasoning, and practical programming confidence through small-batch, mentor-led learning.", // FILLER
+    primaryLabel: "Share Your Learning Interest",
+    primaryHref: "/admission?interest=computer-science",
+    secondaryLabel: "Ask on WhatsApp",
+    secondaryHref:
+      "https://wa.me/918011236456?text=Hi%20NPconscious%20team%2C%20I%27d%20like%20to%20share%20my%20interest%20in%20Computer%20Science%20classes.",
+  },
+  programme: {
+    heading: "Programme Details",
+    intro:
+      "Here is an overview of how our Computer Science programme is planned to run. Final details will be confirmed with each cohort.", // FILLER
+    fillerNote: "Sample details shown. Final information will be updated soon.", // FILLER
+    rows: [
+      {
+        label: "First Courses & Tracks",
+        value:
+          "Python fundamentals, web basics (HTML, CSS, JavaScript), and problem-solving with logic and algorithms.", // FILLER
+      },
+      {
+        label: "Target Learners",
+        value:
+          "Students in grades 8-12 (ages 12-18). No prior coding experience needed for the beginner track.", // FILLER
+      },
+      {
+        label: "Instructors",
+        value:
+          "Mentors with industry and teaching experience guide each batch. Profiles will be shared here.", // FILLER
+      },
+      {
+        label: "Class Format & Schedule",
+        value:
+          "Live online sessions of 60-90 minutes, in small groups of up to 8. Weekday evening and weekend slots.", // FILLER
+      },
+      {
+        label: "Course Fees & Pricing",
+        value:
+          "Starting from ₹X,XXX per month. Free introductory session available.", // FILLER
+      },
+    ],
+    sideCard: {
+      badge: "Interest Intake Open", // FILLER
+      title: "Tell Us What You Hope to Learn", // FILLER
+      body:
+        "Share the student's grade, current experience, and goals so we can notify you as soon as cohorts open.", // FILLER
+      linkLabel: "Register interest", // FILLER
+      linkHref: "/admission?interest=computer-science",
+    },
+  },
+  crossLinks: {
+    heading: "Other Support Available Today",
+    intro:
+      "Alongside Computer Science, you can explore our active offerings below if they fit what the student needs.", // FILLER
+    items: [
+      {
+        kicker: "If Needed",
+        kickerAccent: false,
+        title: "Mathematics Support →",
+        href: "/mathematics",
+        description:
+          "Build logical, algebraic, and discrete math foundations across Grades 1–12 & B.Tech.", // FILLER
+      },
+      {
+        kicker: "When Useful · Free",
+        kickerAccent: true,
+        title: "Free Career Guidance →",
+        href: "/career-guidance",
+        description:
+          "Discuss tech pathways, degree choices, or coaching options with zero counselling fees.", // FILLER
+      },
+    ],
+  },
+  closingCta: {
+    heading: "Want Updates When Computer Science Cohorts Open?", // FILLER
+    description:
+      "Tell us your grade and the topics you are curious about. Our team will share upcoming cohort dates with you.", // FILLER
+    primaryLabel: "Share Interest on WhatsApp",
+    primaryHref:
+      "https://wa.me/918011236456?text=Hi%20NPconscious%20team%2C%20please%20share%20upcoming%20Computer%20Science%20cohort%20details%20with%20me.", // FILLER
+    secondaryLabel: "Go to Intake Form",
+    secondaryHref: "/admission?interest=computer-science",
+  },
+};
+---
+
+<MainLayout title={content.seo.title} description={content.seo.description}>
+  <!-- Hero Section -->
+  <section class="surface-beige px-5 pt-14 pb-16 sm:pt-20 sm:pb-20 lg:px-8 lg:pt-24 lg:pb-24">
+    <div class="container-nav">
+      <div class="mx-auto max-w-3xl text-center space-y-6">
+        <h1 class="display-h1" data-hero-reveal>
+          {content.hero.heading}
+        </h1>
+
+        <p class="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]" data-hero-reveal>
+          {content.hero.subtext}
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2" data-hero-reveal>
+          <a href={content.hero.primaryHref} class="btn-pill-primary w-full sm:w-auto">
+            <span>{content.hero.primaryLabel}</span>
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href={content.hero.secondaryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-pill-secondary w-full sm:w-auto"
+          >
+            <span>{content.hero.secondaryLabel}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programme Details Section (White Surface) -->
+  <section class="surface-white section-pad border-y border-[var(--border-subtle)]">
+    <div class="container-feature space-y-10">
+      <div class="max-w-2xl space-y-3">
+        <h2 class="section-h2">{content.programme.heading}</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+          {content.programme.intro}
+        </p>
+        {SHOW_FILLER_NOTE && (
+          <p class="text-xs text-[var(--text-muted)]">
+            {content.programme.fillerNote}
+          </p>
+        )}
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <dl class="divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)] lg:col-span-8">
+          {
+            content.programme.rows.map((row) => (
+              <div class="grid gap-2 py-5 sm:grid-cols-12 sm:gap-6">
+                <dt class="text-sm font-semibold text-[var(--text-primary)] sm:col-span-4">{row.label}</dt>
+                <dd class="text-sm leading-relaxed text-[var(--text-secondary)] sm:col-span-8">
+                  {row.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+
+        <div class="sanctuary-card-beige p-7 space-y-4 lg:col-span-4">
+          <span class="inline-block rounded-full bg-[var(--accent-sage-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-sage)]">
+            {content.programme.sideCard.badge}
+          </span>
+          <h3 class="text-lg font-semibold text-[var(--text-primary)]">{content.programme.sideCard.title}</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            {content.programme.sideCard.body}
+          </p>
+          <a href={content.programme.sideCard.linkHref} class="inline-flex items-center gap-1 text-sm font-semibold text-[var(--text-primary)] underline">
+            <span>{content.programme.sideCard.linkLabel}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Non-Compulsory Cross-Links ("If Relevant") -->
+  <section class="surface-beige section-pad">
+    <div class="container-feature space-y-8">
+      <div class="max-w-2xl space-y-2">
+        <h2 class="section-h2">{content.crossLinks.heading}</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          {content.crossLinks.intro}
+        </p>
+      </div>
+
+      <div class="grid gap-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-2">
+        {
+          content.crossLinks.items.map((item) => (
+            <a href={item.href} class="group block space-y-1.5">
+              <span class={`text-xs font-semibold ${item.kickerAccent ? "text-[var(--accent-sage)]" : "text-[var(--text-muted)]"}`}>
+                {item.kicker}
+              </span>
+              <h3 class="text-lg font-semibold text-[var(--text-primary)] group-hover:underline">{item.title}</h3>
+              <p class="text-sm text-[var(--text-secondary)]">{item.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <SanctuaryCta
+    heading={content.closingCta.heading}
+    description={content.closingCta.description}
+    primaryLabel={content.closingCta.primaryLabel}
+    primaryHref={content.closingCta.primaryHref}
+    secondaryLabel={content.closingCta.secondaryLabel}
+    secondaryHref={content.closingCta.secondaryHref}
+  />
+</MainLayout>
