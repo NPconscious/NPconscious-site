@@ -1,80 +1,37 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import SanctuaryCta from "../components/SanctuaryCta.astro";
 ---
 
-<MainLayout title="Our Vision & Philosophy">
-  <!-- Hero Section: Editorial & Warm -->
-  <section class="relative overflow-hidden bg-hero-texture px-4 pt-8 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:px-8 lg:pt-16 lg:pb-24">
-    <div class="mx-auto max-w-[1360px]">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+<MainLayout
+  title="Our Vision & Philosophy"
+  description="Why NPconscious exists as A Sanctuary for Young Minds: combining emotional safety, curiosity-first learning, and guidance across Mathematics, Computer Science, and free Career Guidance."
+>
+  <!-- Hero Section: Warm Beige -->
+  <section class="surface-beige px-5 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:px-8 lg:pt-20 lg:pb-24">
+    <div class="container-feature">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
         <!-- Left Hero Content -->
         <div class="space-y-6 lg:col-span-7">
-          <!-- Text block with blended Thinkers artwork backdrop -->
-          <div id="founder-hero-container" class="relative">
-            <!-- Blended Thinkers Image Backdrop -->
-            <div 
-              id="founder-thinkers-backdrop"
-              class="pointer-events-none absolute select-none z-0 right-0 sm:right-4 lg:right-6 -top-2 sm:-top-4 bottom-0 sm:bottom-1 w-[260px] sm:w-[340px] lg:w-[410px] aspect-square max-w-[420px]"
-              aria-hidden="true"
-            >
-              <!-- Outer fade on left to smoothly start from 'k' -->
-              <div 
-                class="w-full h-full relative"
-                style="
-                  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
-                  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
-                "
-              >
-                <!-- Inner circular mask to feather edges and eliminate black corners -->
-                <div 
-                  class="w-full h-full relative"
-                  style="
-                    -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 36%, rgba(0,0,0,0.7) 44%, transparent 48.5%);
-                    mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 36%, rgba(0,0,0,0.7) 44%, transparent 48.5%);
-                  "
-                >
-                  <!-- Kid Thinker Illustration -->
-                  <img 
-                    src="/building-thinkers.jpg" 
-                    alt="" 
-                    class="w-full h-full object-cover object-center opacity-85 contrast-[1.05] saturate-[1.1]"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  <!-- Soft Warm Ambient Scrims to harmonize with #FAF8F5 background -->
-                  <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/85 via-[#FAF8F5]/25 to-transparent pointer-events-none"></div>
-                  <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/35 via-transparent to-[#FAF8F5]/45 pointer-events-none"></div>
-                </div>
-              </div>
-            </div>
+          <h1 class="display-h1" data-hero-reveal>
+            Building Thinkers,<br />
+            Not Just Test-Takers
+          </h1>
 
-            <!-- Foreground Content: crisp typography elevated on top of image -->
-            <div class="relative z-10 space-y-6">
-              <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
-                <span class="flex h-2 w-2 rounded-full bg-amber-500"></span>
-                <span>Founder & Mentorship Philosophy</span>
-              </div>
+          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]" data-hero-reveal>
+            NPconscious began by helping students rediscover mathematics. Today, we are growing into <strong class="font-semibold text-[var(--text-primary)]">A Sanctuary for Young Minds</strong>, a student-friendly space for Mathematics, Computer Science, and free Career Guidance.
+          </p>
 
-              <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Building Thinkers,<br />
-                <span class="text-amber-600">Not Just Test-Takers</span>
-              </h1>
-
-              <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-700 font-medium text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                At NPconscious, we believe mathematics is not a set of rigid formulas to be memorized under stress — it is the natural, universal language of patterns, geometry, and creative logic.
-              </p>
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1" data-hero-reveal>
             <a
               href="https://wa.me/918011236456?text=Hi%20Nikhil%2C%20I%20would%20love%20to%20connect%20and%20learn%20more%20about%20NPconscious."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary"
             >
               <span>Connect with Founder</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
             <!--email_off-->
@@ -82,127 +39,98 @@ import MainLayout from '../layouts/MainLayout.astro';
               href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@npconscious.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition hover:bg-slate-50"
+              class="btn-pill-secondary"
             >
               <span>Email Founder</span>
             </a>
             <!--/email_off-->
           </div>
 
-          <!-- Academic & Professional Credential Chips -->
-          <div class="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold text-slate-700">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a10.973 10.973 0 00-.25 2.302c0 2.502.99 4.812 2.625 6.467A1 1 0 008.5 17h3a1 1 0 00.875-1.18 10.974 10.974 0 002.625-6.467c0-.79-.088-1.564-.25-2.302l2.644-1.13a1 1 0 000-1.84l-7-3z"/></svg>
-              Information Science Engineer
-            </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Ex-Bhanzu, Airbnb, Concentrix
-            </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              100% Student-First Vision
-            </span>
-          </div>
+          <p class="text-xs font-medium text-[var(--text-muted)] pt-1" data-hero-reveal>
+            Nikhil Parag · Information Science Engineer · Ex-Bhanzu, Airbnb, Concentrix
+          </p>
         </div>
 
-        <!-- Right Hero Visual -->
-        <div class="relative lg:col-span-5">
-          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft stretchy-scroll">
-            <div class="overflow-hidden rounded-2xl bg-slate-50 border border-slate-100">
-              <img
-                src="/vision.webp"
-                alt="NPconscious learner-focused vision"
-                class="w-full h-auto object-cover"
-              />
-            </div>
-            <div class="mt-4 flex items-center justify-between text-xs font-medium text-slate-600 border-t border-slate-100 pt-3">
-              <span class="inline-flex items-center gap-1.5">
-                <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-                Curiosity Over Rote Drills
-              </span>
-              <span class="text-amber-800 font-semibold">Every child can master math</span>
-            </div>
+        <!-- Right Visual -->
+        <div class="lg:col-span-5" data-hero-reveal>
+          <div class="overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-white">
+            <img
+              src="/vision.webp"
+              alt="NPconscious learner-focused vision"
+              class="w-full h-auto object-cover"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The "Conscious Mathematics" Manifesto -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-y border-slate-200/80">
-    <div class="mx-auto max-w-4xl space-y-10">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Educational Manifesto
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Why "Conscious" Mathematics?
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          When we teach mathematics unconsciously, we reduce it to memorizing steps for an exam. When we teach it consciously, it becomes a superpower.
+  <!-- Educational Manifesto (White Surface) -->
+  <section class="surface-white section-pad border-y border-[var(--border-subtle)]">
+    <div class="container-feature space-y-10">
+      <div class="max-w-2xl space-y-3">
+        <h2 class="section-h2">Why "Conscious" Learning?</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+          When teaching is reduced to memorizing steps for an exam, curiosity fades. When we listen before advising and build visual clarity first, learning stays for life.
         </p>
       </div>
 
-      <div class="space-y-6 text-sm sm:text-base leading-relaxed text-slate-700">
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-1 stretchy-scroll">
-          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-amber-600">01.</span> The Real Source of Math Fear
+      <div class="divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)]">
+        <article class="grid gap-4 py-8 lg:grid-cols-12 lg:gap-10">
+          <h3 class="text-lg font-semibold text-[var(--text-primary)] lg:col-span-4">
+            The Real Source of Learning Fear
           </h3>
-          <p>
-            Children don't hate mathematics; they hate feeling confused and judged. When a child is handed a formula like the quadratic equation or trigonometric identities without discovering <em>why</em> they work, their brain treats it as an arbitrary burden. If they forget one plus sign, they fail. That pressure creates anxiety that lasts into adulthood.
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)] lg:col-span-8">
+            Children do not dislike thinking; they dislike feeling confused and judged. When a learner is handed a formula or rule without discovering <em>why</em> it works, their mind treats it as an arbitrary burden. That pressure creates anxiety that lasts into adulthood.
           </p>
-        </div>
+        </article>
 
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-2 stretchy-scroll">
-          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-amber-600">02.</span> Visual Models Before Algebraic Symbols
+        <article class="grid gap-4 py-8 lg:grid-cols-12 lg:gap-10">
+          <h3 class="text-lg font-semibold text-[var(--text-primary)] lg:col-span-4">
+            Visual Intuition Before Symbols
           </h3>
-          <p>
-            Human beings are visual pattern recognizers. In every NPconscious class, we translate abstract algebra into geometric structures and tangible physical analogies. Once a student can <em>see</em> what an equation is doing, writing the symbols down is merely documenting what their intuition has already understood.
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)] lg:col-span-8">
+            Human beings are visual pattern recognizers. Whether exploring algebra, geometry, or computational thinking, we translate abstract ideas into concrete models and clear analogies. Once a student can <em>see</em> how an idea works, symbols document what they already understand.
           </p>
-        </div>
+        </article>
 
-        <div class="rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-6 sm:p-8 space-y-3 shadow-xs hover-spring reveal-on-scroll stagger-3 stretchy-scroll">
-          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <span class="text-amber-600">03.</span> Emotional Safety in the Classroom
+        <article class="grid gap-4 py-8 lg:grid-cols-12 lg:gap-10">
+          <h3 class="text-lg font-semibold text-[var(--text-primary)] lg:col-span-4">
+            Emotional Safety in the Classroom
           </h3>
-          <p>
-            No student ever learned deeply while feeling humiliated or rushed. Our mentors are trained to celebrate wrong answers as fascinating windows into how a student's mind is reasoning. By breaking the stigma of "getting it wrong," we unlock the courage to tackle challenging, unfamiliar STEM problems.
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)] lg:col-span-8">
+            No student learns deeply while feeling humiliated or rushed. Our mentors treat questions and mistakes as windows into how a student reasons, and our free Career Guidance ensures learners can reach out even before they know what they need.
           </p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- A Personal Letter from the Founder -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-t border-slate-200/80">
-    <div class="mx-auto max-w-4xl rounded-3xl border border-amber-200/90 bg-[#FAF8F5] p-6 sm:p-12 shadow-soft reveal-on-scroll stretchy-scroll">
-      <div class="space-y-6">
-        <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold text-amber-900">
-          A Personal Note from Nikhil
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">
-          "Why I Started NPconscious"
+  <!-- Personal Letter from the Founder (Beige Surface) -->
+  <section class="surface-beige section-pad">
+    <div class="container-reading">
+      <div class="sanctuary-card p-7 sm:p-12 space-y-6">
+        <h2 class="feature-h3 !text-2xl sm:!text-3xl !font-semibold">
+          Why I Started NPconscious
         </h2>
-        <div class="space-y-4 text-sm sm:text-base leading-relaxed text-slate-700">
+
+        <div class="space-y-4 text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
           <p>
-            Throughout school and college, I observed brilliant students lose their spark simply because mathematics was presented as an unforgiving gauntlet of rules and timed drills. The beauty of reasoning was lost under the weight of memorization.
+            Throughout school and college, I observed capable students lose interest in learning because it was presented as an unforgiving gauntlet of rules and timed drills. The beauty of reasoning was lost under the weight of memorization.
           </p>
           <p>
-            After working across top tech and education organizations like Bhanzu, Airbnb, and Concentrix, I realized that true learning happens when a student feels emotionally safe to say: "I don’t understand this yet — can we look at it another way?"
+            After working across tech and education organizations like Bhanzu, Airbnb, and Concentrix, I saw that lasting learning happens when a student feels safe to say: "I don’t understand this yet; can we look at it another way?"
           </p>
           <p>
-            That is why NPconscious was born in January 2026. Here, we celebrate the questions as much as the answers. We want our students to walk out of every session with their eyes wide open, excited to look at the world mathematically.
+            That is why NPconscious was founded in January 2026. As we grow into <strong class="font-semibold text-[var(--text-primary)]">A Sanctuary for Young Minds</strong>, that same approach now guides everything we do across Mathematics, Computer Science, and free Career Guidance. We are not becoming less focused on education; we are becoming more relevant to more students.
           </p>
         </div>
 
-        <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="pt-6 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <p class="font-bold text-slate-900 text-base">Nikhil Parag</p>
-            <p class="text-xs text-slate-500">Founder & Academic Director, NPconscious</p>
-            <!--email_off-->
-           
+            <p class="text-base font-semibold text-[var(--text-primary)]">Nikhil Parag</p>
+            <p class="text-xs text-[var(--text-muted)]">Founder &amp; Academic Director, NPconscious</p>
           </div>
           <div class="flex flex-wrap items-center gap-3">
             <!--email_off-->
@@ -210,18 +138,19 @@ import MainLayout from '../layouts/MainLayout.astro';
               href="https://mail.google.com/mail/?view=cm&fs=1&to=admin@npconscious.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 px-5 py-3 text-xs font-semibold text-slate-800 transition shadow-xs"
+              class="btn-pill-secondary !py-2.5 !px-5 !text-xs"
             >
-              <svg class="h-3.5 w-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
               <span>Email Founder</span>
             </a>
             <!--/email_off-->
             <a
               href="https://wa.me/918011236456?text=Hi%20Nikhil%2C%20I%20read%20your%20letter%20on%20the%20NPconscious%20site%20and%20would%20love%20to%20connect."
-              class="inline-flex items-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 px-5 py-3 text-xs font-semibold text-white transition"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !py-2.5 !px-5 !text-xs"
             >
               <span>Message Nikhil on WhatsApp</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </a>
           </div>
         </div>
@@ -229,32 +158,11 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Final Call to Action -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-5xl rounded-3xl bg-slate-900 p-8 sm:p-14 text-center text-white shadow-2xl reveal-on-scroll">
-      <h2 class="text-2xl font-bold tracking-tight sm:text-4xl">
-        Experience the Joy of Natural Mathematics
-      </h2>
-      <p class="mx-auto mt-4 max-w-xl text-sm sm:text-base text-slate-300 leading-relaxed">
-        Join our growing family of confident, curious young thinkers. Schedule a free 30-minute assessment session with our academic mentors today.
-      </p>
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-        <a
-          href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!"
-          class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-8 py-4 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
-        >
-          <span>Book Free Demo on WhatsApp</span>
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </a>
-        <a
-          href="/admission"
-          class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-slate-700 bg-white/5 hover:bg-white/10 px-7 py-4 text-sm font-semibold text-white transition"
-        >
-          <span>View Admission & Assessment</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <SanctuaryCta
+    heading="Join a Sanctuary Built Around Student Curiosity"
+    description="Whether you want to explore Mathematics, share interest in Computer Science, or sit down for free Career Guidance, start with a conversation."
+    primaryLabel="Chat on WhatsApp"
+    secondaryLabel="Go to Admission & Intake"
+    secondaryHref="/admission"
+  />
 </MainLayout>

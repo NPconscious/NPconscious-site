@@ -1,0 +1,670 @@
+---
+import { Code } from "astro:components";
+
+export interface FlowStep {
+  number: string;
+  title: string;
+  tag: string;
+}
+
+export interface FlowDemoData {
+  headerTitle: string;
+  filename: string;
+  snippet: string;
+  steps: FlowStep[];
+}
+
+interface Props {
+  data?: FlowDemoData;
+  instanceId?: string;
+}
+
+const defaultFlowData: FlowDemoData = {
+  headerTitle: "Computational Thinking Flow",
+  filename: "index.html",
+  snippet: `<div class="card">
+  <h1 id="msg">Hello, World!</h1>
+  <p>My first web page</p>
+  <button onclick="msg.textContent='You clicked it!'">
+    Click me
+  </button>
+</div>
+<style>
+  .card { padding: 14px; border-radius: 12px; background: #e6f0ea; }
+  h1 { margin: 0 0 4px; font-size: 16px; color: #2f6b52; }
+  p { margin: 0 0 10px; font-size: 13px; color: #3b3b38; }
+  button { padding: 6px 12px; border: 0; border-radius: 999px; background: #2f6b52; color: #fff; cursor: pointer; }
+</style>`,
+  steps: [
+    { number: "01", title: "Understand the problem", tag: "Ask why" },
+    { number: "02", title: "Break into small steps", tag: "Logic" },
+    { number: "03", title: "Build, trace & refine", tag: "Practice" },
+  ],
+};
+
+const { data = defaultFlowData, instanceId = "cs-thinking-flow" } = Astro.props;
+
+// Build-time Shiki transformer adding static per-line gutter numbers & trace attributes
+const traceLineTransformer = {
+  name: "npconscious-trace-lines",
+  line(
+    node: { properties: Record<string, unknown>; children: Array<Record<string, unknown>> },
+    lineNumber: number
+  ) {
+    const existingClass = typeof node.properties.class === "string" ? node.properties.class : "";
+    node.properties.class = existingClass ? `${existingClass} editor-line` : "editor-line";
+    node.properties["data-flow-line"] = String(lineNumber - 1);
+    node.children.unshift({
+      type: "element",
+      tagName: "span",
+      properties: { class: "editor-line-num", "aria-hidden": "true" },
+      children: [{ type: "text", value: String(lineNumber) }],
+    });
+  },
+};
+
+const previewSrcdoc = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 14px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FAF8F4;
+        font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+        color: #141414;
+      }
+      .card {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    ${data.snippet}
+  </body>
+</html>`;
+
+const codeTabId = `${instanceId}-tab-code`;
+const previewTabId = `${instanceId}-tab-preview`;
+const codePanelId = `${instanceId}-panel-code`;
+const previewPanelId = `${instanceId}-panel-preview`;
+---
+
+<div
+  class="w-full min-w-0 rounded-[28px] border border-[var(--border-subtle)] bg-[var(--bg-secondary)] p-4 sm:p-7"
+  data-flow-card={instanceId}
+  data-preview-srcdoc={previewSrcdoc}
+>
+  <div class="min-w-0 rounded-2xl border border-[var(--border-subtle)] bg-white p-4 sm:p-5 shadow-[var(--shadow-subtle)] space-y-3.5">
+    <!-- Header + Status Pill -->
+    <div class="flex items-center justify-between gap-2 border-b border-[var(--border-subtle)] pb-2.5">
+      <span class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+        {data.headerTitle}
+      </span>
+      <span
+        data-flow-status
+        role="status"
+        aria-live="polite"
+        data-state="idle"
+        class="flow-status-pill inline-flex min-w-[74px] shrink-0 items-center justify-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold"
+      >
+        Idle
+      </span>
+    </div>
+
+    <!-- 3-Step Computational Thinking Timeline -->
+    <ol class="space-y-1.5 font-mono text-[11px] sm:text-xs" aria-label="Problem solving sequence">
+      {
+        data.steps.map((step, index) => (
+          <li
+            data-flow-step={index}
+            class="flow-step flex items-center justify-between gap-2 rounded-xl border px-3 py-2 sm:px-3.5"
+          >
+            <span class="flow-step-title min-w-0 font-semibold">
+              {step.number} · {step.title}
+            </span>
+            <span class="flow-step-tag shrink-0">{step.tag}</span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <!-- Fixed-Height Editor / Preview Window -->
+    <div class="editor-shell min-w-0 rounded-xl overflow-hidden border">
+      <!-- Window Title Bar with Dots, File/Preview Tabs & Read-Only Label -->
+      <div class="editor-titlebar flex items-center justify-between gap-2 border-b px-2.5 sm:px-3 py-1.5">
+        <div class="flex min-w-0 items-center gap-2 sm:gap-2.5">
+          <div class="flex shrink-0 items-center gap-1 sm:gap-1.5" aria-hidden="true">
+            <span class="editor-dot h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#ff5f56]"></span>
+            <span class="editor-dot h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#ffbd2e]"></span>
+            <span class="editor-dot h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#27c93f]"></span>
+          </div>
+
+          <div class="flex items-center gap-1" role="tablist" aria-label="Code editor views">
+            <button
+              type="button"
+              id={codeTabId}
+              role="tab"
+              aria-selected="true"
+              aria-controls={codePanelId}
+              data-flow-tab="code"
+              class="editor-tab rounded-md px-2 sm:px-2.5 py-1 font-mono text-[11px] font-medium cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent-sage)]"
+            >
+              {data.filename}
+            </button>
+            <button
+              type="button"
+              id={previewTabId}
+              role="tab"
+              aria-selected="false"
+              aria-controls={previewPanelId}
+              aria-disabled="true"
+              disabled
+              data-flow-tab="preview"
+              class="editor-tab rounded-md px-2 sm:px-2.5 py-1 font-mono text-[11px] font-medium cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent-sage)]"
+            >
+              Preview
+            </button>
+          </div>
+        </div>
+
+        <span
+          data-editor-meta
+          class="shrink-0 font-mono text-[10px] uppercase tracking-normal sm:tracking-wider text-[var(--editor-muted)]"
+        >
+          read-only
+        </span>
+      </div>
+
+      <!-- Fixed-Height Viewport Body (identical height between code & preview) -->
+      <div class="editor-viewport h-[248px] w-full overflow-hidden">
+        <!-- Tab Panel 1: Highlighted Read-Only Code -->
+        <div
+          id={codePanelId}
+          role="tabpanel"
+          aria-labelledby={codeTabId}
+          data-flow-panel="code"
+          class="editor-code-scroll h-full w-full overflow-auto"
+          tabindex="0"
+        >
+          <Code
+            code={data.snippet}
+            lang="html"
+            theme="dark-plus"
+            transformers={[traceLineTransformer]}
+            class="editor-shiki"
+          />
+        </div>
+
+        <!-- Tab Panel 2: Sandboxed Live Preview inside the same box -->
+        <div
+          id={previewPanelId}
+          role="tabpanel"
+          aria-labelledby={previewTabId}
+          data-flow-panel="preview"
+          hidden
+          class="flex h-full w-full flex-col bg-[#FAF8F4]"
+        >
+          <div class="flex shrink-0 items-center gap-2 border-b border-[var(--border-subtle)] bg-white px-3 py-1.5 text-[11px] font-mono text-[var(--text-muted)]">
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--accent-sage)] shrink-0" aria-hidden="true"></span>
+            <span class="truncate">localhost:4321</span>
+          </div>
+          <iframe
+            data-flow-preview
+            title="Live interactive HTML and CSS preview"
+            sandbox="allow-scripts"
+            srcdoc={previewSrcdoc}
+            class="block h-full w-full flex-1 border-0 bg-transparent"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="flex items-center justify-between gap-3 pt-0.5">
+      <span data-flow-hint class="text-xs text-[var(--text-muted)]">
+        Click Run to trace &amp; render
+      </span>
+      <button
+        type="button"
+        data-flow-run
+        data-state="idle"
+        class="flow-run-btn inline-flex min-h-[36px] shrink-0 items-center justify-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-sage)]"
+      >
+        <span data-run-icon aria-hidden="true">▶</span>
+        <span data-run-label>Run</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Component-scoped dark editor theme tokens */
+  [data-flow-card] {
+    --editor-bg: #1e1e1e;
+    --editor-titlebar: #252526;
+    --editor-border: #333336;
+    --editor-tab-active: #1e1e1e;
+    --editor-gutter: #858e99;
+    --editor-text: #d4d4d4;
+    --editor-muted: #9da5b4;
+    --editor-line-active: rgba(47, 107, 85, 0.34);
+    --editor-line-border: #4ec9b0;
+  }
+
+  .flow-status-pill {
+    background-color: var(--bg-sand-soft);
+    color: var(--text-secondary);
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .flow-status-pill[data-state="running"] {
+    background-color: var(--accent-ochre-soft);
+    color: var(--accent-ochre);
+  }
+
+  .flow-status-pill[data-state="done"] {
+    background-color: var(--accent-sage-soft);
+    color: var(--accent-sage);
+  }
+
+  .flow-step {
+    border-color: var(--border-subtle);
+    background-color: var(--bg-elevated-soft);
+    transition:
+      background-color 220ms cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .flow-step-title {
+    color: var(--text-primary);
+    transition: color 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .flow-step-tag {
+    color: var(--text-muted);
+    transition: color 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .flow-step[data-active="true"] {
+    border-color: rgba(47, 107, 85, 0.3);
+    background-color: var(--accent-sage-soft);
+  }
+
+  .flow-step[data-active="true"] .flow-step-title,
+  .flow-step[data-active="true"] .flow-step-tag {
+    color: var(--accent-sage);
+  }
+
+  .editor-shell {
+    background-color: var(--editor-bg);
+    border-color: var(--editor-border);
+  }
+
+  .editor-titlebar {
+    background-color: var(--editor-titlebar);
+    border-color: var(--editor-border);
+  }
+
+  .editor-tab {
+    color: var(--editor-muted);
+    background-color: transparent;
+    transition: background-color 150ms ease, color 150ms ease, opacity 150ms ease;
+  }
+
+  .editor-tab[aria-selected="true"] {
+    background-color: var(--editor-tab-active);
+    color: #ffffff;
+  }
+
+  .editor-tab:not(:disabled):not([aria-selected="true"]):hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .editor-tab:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+  }
+
+  .editor-code-scroll {
+    background-color: var(--editor-bg);
+    scrollbar-color: #464649 var(--editor-bg);
+    scrollbar-width: thin;
+  }
+
+  .editor-code-scroll :global(pre) {
+    margin: 0 !important;
+    padding: 0.45rem 0 !important;
+    background-color: var(--editor-bg) !important;
+    min-width: 100%;
+    width: max-content;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    line-height: 1.55;
+    user-select: text;
+    caret-color: transparent;
+  }
+
+  .editor-code-scroll :global(pre code) {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    user-select: text;
+  }
+
+  .editor-code-scroll :global(.editor-line) {
+    display: flex;
+    align-items: baseline;
+    white-space: pre;
+    padding: 0 0.875rem 0 0.5rem;
+    border-left: 2px solid transparent;
+    transition: background-color 140ms ease, border-color 140ms ease;
+  }
+
+  .editor-code-scroll :global(.editor-line-num) {
+    display: inline-block;
+    width: 1.35rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    text-align: right;
+    color: var(--editor-gutter);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+  }
+
+  .editor-code-scroll :global(.editor-line[data-traced="true"]) {
+    background-color: var(--editor-line-active);
+    border-left-color: var(--editor-line-border);
+  }
+
+  .editor-code-scroll :global(.editor-line[data-traced="true"] .editor-line-num) {
+    color: var(--editor-line-border);
+    font-weight: 600;
+  }
+
+  .flow-run-btn {
+    background-color: var(--accent-sage);
+    color: #ffffff;
+    transition: background-color 150ms ease, opacity 150ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .flow-run-btn:not(:disabled):hover {
+      background-color: var(--accent-sage-hover);
+    }
+
+    .flow-run-btn[data-state="done"]:not(:disabled):hover {
+      background-color: var(--cta-primary-hover);
+    }
+  }
+
+  .flow-run-btn[data-state="done"] {
+    background-color: var(--cta-primary);
+  }
+
+  .flow-run-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flow-status-pill,
+    .flow-step,
+    .flow-step-title,
+    .flow-step-tag,
+    .editor-tab,
+    .editor-code-scroll :global(.editor-line),
+    .flow-run-btn {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const activeCleanups: Array<() => void> = [];
+
+  function initThinkingFlowCards() {
+    while (activeCleanups.length > 0) {
+      const stop = activeCleanups.pop();
+      if (stop) stop();
+    }
+
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-flow-card]"));
+    if (cards.length === 0) return;
+
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    cards.forEach((card) => {
+      const statusEl = card.querySelector<HTMLElement>("[data-flow-status]");
+      const runBtn = card.querySelector<HTMLButtonElement>("[data-flow-run]");
+      const runIcon = card.querySelector<HTMLElement>("[data-run-icon]");
+      const runLabel = card.querySelector<HTMLElement>("[data-run-label]");
+      const hintEl = card.querySelector<HTMLElement>("[data-flow-hint]");
+      const metaEl = card.querySelector<HTMLElement>("[data-editor-meta]");
+      const codeTab = card.querySelector<HTMLButtonElement>('[data-flow-tab="code"]');
+      const previewTab = card.querySelector<HTMLButtonElement>('[data-flow-tab="preview"]');
+      const codePanel = card.querySelector<HTMLElement>('[data-flow-panel="code"]');
+      const previewPanel = card.querySelector<HTMLElement>('[data-flow-panel="preview"]');
+      const previewIframe = card.querySelector<HTMLIFrameElement>("[data-flow-preview]");
+      const steps = Array.from(card.querySelectorAll<HTMLElement>("[data-flow-step]"));
+      const codeLines = Array.from(card.querySelectorAll<HTMLElement>("[data-flow-line]"));
+
+      if (
+        !statusEl ||
+        !runBtn ||
+        !runIcon ||
+        !runLabel ||
+        !hintEl ||
+        !metaEl ||
+        !codeTab ||
+        !previewTab ||
+        !codePanel ||
+        !previewPanel ||
+        !previewIframe
+      ) {
+        return;
+      }
+
+      const basePreviewSrcdoc = card.dataset.previewSrcdoc ?? "";
+      let timers: number[] = [];
+      let hasRunOnce = false;
+
+      const clearTimers = () => {
+        timers.forEach((id) => window.clearTimeout(id));
+        timers = [];
+      };
+
+      const setPill = (state: "idle" | "running" | "done", label: string) => {
+        statusEl.dataset.state = state;
+        statusEl.textContent = label;
+      };
+
+      const setButton = (
+        state: "idle" | "running" | "done",
+        icon: string,
+        label: string,
+        disabled: boolean
+      ) => {
+        runBtn.dataset.state = state;
+        runBtn.disabled = disabled;
+        runBtn.setAttribute("aria-disabled", String(disabled));
+        runIcon.textContent = icon;
+        runIcon.hidden = icon === "";
+        runLabel.textContent = label;
+      };
+
+      const setPreviewUnlocked = (unlocked: boolean) => {
+        previewTab.disabled = !unlocked;
+        previewTab.setAttribute("aria-disabled", String(!unlocked));
+      };
+
+      const switchView = (view: "code" | "preview") => {
+        const isCode = view === "code";
+        codeTab.setAttribute("aria-selected", String(isCode));
+        previewTab.setAttribute("aria-selected", String(!isCode));
+        codePanel.hidden = !isCode;
+        previewPanel.hidden = isCode;
+        metaEl.textContent = isCode ? "read-only" : "live DOM";
+      };
+
+      const resetTrace = () => {
+        steps.forEach((s) => {
+          delete s.dataset.active;
+        });
+        codeLines.forEach((l) => {
+          delete l.dataset.traced;
+        });
+      };
+
+      const traceLine = (lineIdx: number) => {
+        codeLines.forEach((l, idx) => {
+          if (idx === lineIdx) l.dataset.traced = "true";
+          else delete l.dataset.traced;
+        });
+      };
+
+      const applyDoneState = () => {
+        clearTimers();
+        hasRunOnce = true;
+        steps.forEach((s) => {
+          s.dataset.active = "true";
+        });
+        traceLine(Math.max(0, codeLines.length - 1));
+        setPreviewUnlocked(true);
+        switchView("preview");
+        setPill("done", "Done");
+        setButton("done", "↺", "Replay", false);
+        hintEl.textContent = "Switch tabs or test the button";
+      };
+
+      const applyIdleState = () => {
+        clearTimers();
+        hasRunOnce = false;
+        resetTrace();
+        setPreviewUnlocked(false);
+        switchView("code");
+        setPill("idle", "Idle");
+        setButton("idle", "▶", "Run", false);
+        hintEl.textContent = "Click Run to trace & render";
+      };
+
+      const runSequence = () => {
+        if (motionQuery.matches) {
+          applyDoneState();
+          return;
+        }
+
+        clearTimers();
+        resetTrace();
+        previewIframe.srcdoc = basePreviewSrcdoc;
+        switchView("code");
+        setPill("running", "Running…");
+        setButton("running", "", "Running…", true);
+        hintEl.textContent = "Tracing HTML & CSS…";
+
+        const stepIntervalMs = 700;
+        const totalDurationMs = steps.length * stepIntervalMs;
+        const lineIntervalMs =
+          codeLines.length > 0 ? Math.floor(totalDurationMs / codeLines.length) : 200;
+
+        steps.forEach((stepEl, idx) => {
+          const t = window.setTimeout(() => {
+            stepEl.dataset.active = "true";
+          }, idx * stepIntervalMs);
+          timers.push(t);
+        });
+
+        codeLines.forEach((_, idx) => {
+          const t = window.setTimeout(() => {
+            traceLine(idx);
+          }, idx * lineIntervalMs);
+          timers.push(t);
+        });
+
+        const finishTimer = window.setTimeout(() => {
+          hasRunOnce = true;
+          setPreviewUnlocked(true);
+          switchView("preview");
+          setPill("done", "Done");
+          setButton("done", "↺", "Replay", false);
+          hintEl.textContent = "Switch tabs or test the button";
+        }, totalDurationMs + 150);
+
+        timers.push(finishTimer);
+      };
+
+      if (motionQuery.matches) {
+        applyDoneState();
+      } else {
+        applyIdleState();
+      }
+
+      const onRunClick = () => {
+        runSequence();
+      };
+
+      const onCodeTabClick = () => {
+        switchView("code");
+      };
+
+      const onPreviewTabClick = () => {
+        if (!hasRunOnce && previewTab.disabled) return;
+        switchView("preview");
+      };
+
+      const onTabKeyDown = (event: KeyboardEvent) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Home" && event.key !== "End") {
+          return;
+        }
+        event.preventDefault();
+        if (event.key === "ArrowLeft" || event.key === "Home") {
+          switchView("code");
+          codeTab.focus();
+        } else if (!previewTab.disabled) {
+          switchView("preview");
+          previewTab.focus();
+        }
+      };
+
+      const onMotionChange = (event: MediaQueryListEvent) => {
+        if (event.matches) {
+          applyDoneState();
+        }
+      };
+
+      runBtn.addEventListener("click", onRunClick);
+      codeTab.addEventListener("click", onCodeTabClick);
+      previewTab.addEventListener("click", onPreviewTabClick);
+      codeTab.addEventListener("keydown", onTabKeyDown);
+      previewTab.addEventListener("keydown", onTabKeyDown);
+      motionQuery.addEventListener("change", onMotionChange);
+
+      activeCleanups.push(() => {
+        clearTimers();
+        runBtn.removeEventListener("click", onRunClick);
+        codeTab.removeEventListener("click", onCodeTabClick);
+        previewTab.removeEventListener("click", onPreviewTabClick);
+        codeTab.removeEventListener("keydown", onTabKeyDown);
+        previewTab.removeEventListener("keydown", onTabKeyDown);
+        motionQuery.removeEventListener("change", onMotionChange);
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initThinkingFlowCards);
+  document.addEventListener("astro:before-swap", () => {
+    while (activeCleanups.length > 0) {
+      const stop = activeCleanups.pop();
+      if (stop) stop();
+    }
+  });
+</script>

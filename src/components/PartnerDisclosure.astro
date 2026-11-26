@@ -1,0 +1,53 @@
+---
+interface Props {
+  variant?: "footer" | "card";
+}
+
+const { variant = "card" } = Astro.props;
+---
+
+{
+  variant === "footer" ? (
+    <div
+      class="rounded-xl bg-[var(--bg-elevated-soft)] px-5 py-4 sm:px-6 sm:py-5"
+      role="note"
+      aria-label="Partner referral and commission disclosure"
+    >
+      <p class="max-w-[80ch] text-sm leading-relaxed text-[var(--text-primary)]">
+        <strong class="font-bold text-[var(--text-primary)]">Transparency Note:</strong>{" "}
+        Basic career counselling at NPconscious is always free. When we recommend an external coaching centre, university, college, or overseas education partner and you choose to enrol, NPconscious may earn a commission from qualifying referrals. Every recommendation is guided by your goals, eligibility, budget, and preferences, never by commission.
+      </p>
+    </div>
+  ) : (
+    <div
+      class="sanctuary-card p-7 sm:p-9 space-y-5"
+      role="note"
+      aria-label="Partner referral and commission disclosure"
+    >
+      <div>
+        <h3 class="text-lg font-semibold text-[var(--text-primary)]">
+          Partner Referrals &amp; Commission Disclosure
+        </h3>
+      </div>
+
+      <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+        When a student is ready for a next step that NPconscious does not directly provide, such as a partner coaching centre, college, university, or overseas education partner, we may recommend a suitable external option. If you choose to proceed and the referral qualifies, NPconscious may earn a commission.
+      </p>
+
+      <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 text-sm sm:grid-cols-3">
+        <div>
+          <dt class="font-semibold text-[var(--text-primary)]">Free to Students</dt>
+          <dd class="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">Basic career counselling is never charged.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-[var(--text-primary)]">Fit Before Commission</dt>
+          <dd class="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">Guided by your goals, eligibility, budget, and preferences.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-[var(--text-primary)]">No Outcome Guarantees</dt>
+          <dd class="mt-1 text-xs leading-relaxed text-[var(--text-muted)]">We never promise admissions, visas, jobs, or exam scores.</dd>
+        </div>
+      </dl>
+    </div>
+  )
+}

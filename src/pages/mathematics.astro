@@ -1,0 +1,469 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SanctuaryCta from "../components/SanctuaryCta.astro";
+---
+
+<MainLayout
+  title="Mathematics Mentorship"
+  description="Curiosity-first mathematics mentorship for Grades 1–12, Money & Mathematics, and Engineering Mathematics across CBSE, ICSE, Cambridge, and IB."
+>
+  <!-- Hero Section: Warm Beige + Interactive Intuition Lab -->
+  <section class="surface-beige px-5 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:px-8 lg:pt-20 lg:pb-24">
+    <div class="container-feature">
+      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <!-- Left Hero Copy -->
+        <div class="space-y-6 lg:col-span-6">
+          <h1 class="display-h1" data-hero-reveal>
+            Making Mathematics<br />
+            Natural Again.
+          </h1>
+
+          <p class="max-w-xl text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]" data-hero-reveal>
+            We help students build lasting fundamentals through curiosity, questioning, and visual models across Grades 1–12, practical finance, and B.Tech Engineering Mathematics.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1" data-hero-reveal>
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session%20for%20my%20child."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary"
+            >
+              <span>Book Free 1-on-1 Demo</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+            <a href="#programs" class="btn-pill-secondary">
+              <span>Explore Curriculums</span>
+              <svg class="h-4 w-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
+
+          <p class="text-xs font-medium text-[var(--text-muted)] pt-1" data-hero-reveal>
+            160+ active learners · 1-on-1 dedicated mentors · Student-first pacing
+          </p>
+        </div>
+
+        <!-- Right Hero Visual: Interactive Intuition Lab -->
+        <div class="lg:col-span-6" data-hero-reveal>
+          <div class="sanctuary-card p-6 sm:p-8 space-y-5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">The Intuition Lab</span>
+              <span class="rounded-full bg-[var(--accent-sage-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-sage)]">
+                Interactive Example
+              </span>
+            </div>
+
+            <h2 class="text-lg sm:text-xl font-semibold text-[var(--text-primary)]">
+              Why does <span class="rounded-lg bg-[var(--bg-sand-soft)] px-2 py-0.5 font-mono text-[var(--text-primary)]">(-1) × (-1) = +1</span>?
+            </h2>
+
+            <!-- Intuition Switcher -->
+            <div class="flex rounded-full bg-[var(--bg-secondary)] p-1 text-xs font-semibold border border-[var(--border-subtle)]" role="tablist" aria-label="Explanation comparison">
+              <button
+                id="btn-rote"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                class="flex-1 rounded-full py-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition cursor-pointer"
+              >
+                Conventional Rote
+              </button>
+              <button
+                id="btn-intuition"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                class="flex-1 rounded-full py-2 bg-white text-[var(--text-primary)] shadow-[var(--shadow-subtle)] font-semibold transition cursor-pointer"
+              >
+                The NPconscious Way
+              </button>
+            </div>
+
+            <div class="min-h-[140px] border-t border-[var(--border-subtle)] pt-4">
+              <div id="view-rote" class="hidden space-y-2">
+                <p class="text-xs font-semibold text-[var(--accent-ochre)]">Rote Rule</p>
+                <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                  "Two minuses make a plus. Don't ask why: just memorize the formula and practice it 30 times for tomorrow's test."
+                </p>
+                <p class="text-xs text-[var(--text-muted)]">
+                  Focuses on short-term memorization without conceptual understanding.
+                </p>
+              </div>
+
+              <div id="view-intuition" class="space-y-2">
+                <p class="text-xs font-semibold text-[var(--accent-sage)]">Visual Intuition</p>
+                <p class="text-sm text-[var(--text-primary)] leading-relaxed font-medium">
+                  Imagine walking backward <span class="font-mono font-semibold text-[var(--accent-ochre)]">(-1)</span>. Now play that video in reverse <span class="font-mono font-semibold text-[var(--accent-ochre)]">(-1)</span>. What do you see? You are walking <span class="font-semibold text-[var(--accent-sage)] underline">forward (+1)</span>.
+                </p>
+                <p class="text-xs text-[var(--text-muted)]">
+                  Geometric reasoning: Two 180° reversals point straight forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pedagogical Foundation: 3 Pillars with Inertia Motion (White Surface) -->
+  <section class="surface-white section-pad border-y border-[var(--border-subtle)]">
+    <div class="container-feature space-y-12">
+      <div class="max-w-2xl space-y-3">
+        <h2 class="section-h2">Start With Curiosity</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+          Children are pattern explorers by nature. We nurture that instinct so mathematical reasoning feels as direct as everyday speech.
+        </p>
+      </div>
+
+      <div class="grid gap-10 md:grid-cols-3">
+        <article class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <h3 class="text-xl font-semibold text-[var(--text-primary)]">Question First</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            Why does a formula exist? When learners discover the human puzzle a formula was built to solve, equations become practical tools rather than chores to memorize.
+          </p>
+        </article>
+
+        <article class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <h3 class="text-xl font-semibold text-[var(--text-primary)]">Visualize &amp; Play</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            We use geometric derivations, physical analogies, and interactive visual models so students see numbers behaving before they manipulate abstract symbols.
+          </p>
+        </article>
+
+        <article class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <h3 class="text-xl font-semibold text-[var(--text-primary)]">Lifelong Retention</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            Concepts anchored in intuition stay with learners far longer. Students build independent reasoning for STEM, board examinations, and everyday logic.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs & Curriculums Section (Beige Surface) -->
+  <section id="programs" class="surface-beige section-pad">
+    <div class="container-nav space-y-10">
+      <div class="max-w-2xl space-y-3">
+        <h2 class="section-h2">Structured Curriculums for Every Stage</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          Whether your child is building early numeracy or tackling higher secondary calculus, choose the track aligned with their stage and school board.
+        </p>
+      </div>
+
+      <!-- Pill Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2.5" role="tablist" aria-label="Mathematics program categories">
+        <button type="button" data-filter="all" class="filter-tab pill-tab is-active">
+          All Programs
+        </button>
+        <button type="button" data-filter="school" class="filter-tab pill-tab">
+          School Foundations (Grades 1–10)
+        </button>
+        <button type="button" data-filter="higher" class="filter-tab pill-tab">
+          Higher STEM &amp; College (Grades 11–12 &amp; B.Tech)
+        </button>
+        <button type="button" data-filter="applied" class="filter-tab pill-tab">
+          Financial &amp; Daily Tuitions
+        </button>
+      </div>
+
+      <!-- 6 Mathematics Program Cards (Preserved) -->
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="programs-grid">
+        <!-- Program 1 (Featured): Money & Mathematics -->
+        <article
+          data-category="applied"
+          class="program-card sanctuary-card sanctuary-card-interactive relative flex flex-col justify-between border-[var(--text-primary)] p-7"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--accent-ochre-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-ochre)]">
+                Featured · Ages 12+ &amp; Adults
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Practical Math</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Money &amp; Mathematics</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Applying mathematics to everyday finance: compound interest, risk probability, investment formulas, inflation calculations, and strategic life decisions.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>15 Practical Case-Study Sessions</li>
+              <li>Real-World Financial Simulations</li>
+              <li>5 Dedicated Mentorship Clinics</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20the%20Money%20%26%20Mathematics%20program."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary w-full !text-xs"
+            >
+              <span>Inquire for Money &amp; Math</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Program 2: Foundation Mathematics -->
+        <article data-category="school" class="program-card sanctuary-card sanctuary-card-interactive flex flex-col justify-between p-7">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--accent-sage-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-sage)]">
+                Grades 1–5
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Primary Foundations</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Foundation Mathematics</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Sparking a lifelong love for numbers. Focus on visual numeracy, pattern discovery, and eliminating the early fear of mathematics.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>12 Interactive Sessions (40 mins each)</li>
+              <li>5 Dedicated 1-on-1 Doubt Sessions</li>
+              <li>Bi-weekly Parent Progress Reviews</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Foundation%20Mathematics%20(Grade%201-5)."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-secondary w-full !text-xs"
+            >
+              <span>Inquire for Grade 1–5</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Program 3: Mathematics Concepts I -->
+        <article data-category="school" class="program-card sanctuary-card sanctuary-card-interactive flex flex-col justify-between p-7">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--bg-sand-soft)] px-3 py-1 text-xs font-semibold text-[var(--text-primary)]">
+                Grades 6–10
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Core Mastery</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Mathematics Concepts I</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Mastering algebra, geometry, trigonometry, and arithmetic through conceptual derivation. Built for deep board-exam readiness without cramming.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>30 Deep-Dive Sessions (50 mins each)</li>
+              <li>10 Problem-Solving Doubt Sessions</li>
+              <li>Aligned with CBSE, ICSE, IGCSE &amp; IB</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20I%20(Grade%206-10)."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-secondary w-full !text-xs"
+            >
+              <span>Inquire for Grade 6–10</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Program 4: Mathematics Concepts II -->
+        <article data-category="higher" class="program-card sanctuary-card sanctuary-card-interactive flex flex-col justify-between p-7">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--bg-sand-soft)] px-3 py-1 text-xs font-semibold text-[var(--text-primary)]">
+                Grades 11–12
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Advanced Secondary</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Mathematics Concepts II</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Calculus, vectors, 3D geometry, probability, and analytical proofs. Demystifying senior secondary mathematics for entrance exams and STEM.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>20 Intensive Sessions (50 mins each)</li>
+              <li>5 Dedicated Proof &amp; Doubt Clinics</li>
+              <li>Higher STEM &amp; Competitive Readiness</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20II%20(Grade%2011-12)."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-secondary w-full !text-xs"
+            >
+              <span>Inquire for Grade 11–12</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Program 5: Engineering Mathematics -->
+        <article data-category="higher" class="program-card sanctuary-card sanctuary-card-interactive flex flex-col justify-between p-7">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--bg-sand-soft)] px-3 py-1 text-xs font-semibold text-[var(--text-primary)]">
+                Undergrad / B.Tech
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Higher STEM</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Engineering Mathematics</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Differential equations, linear algebra, Laplace transforms, Fourier series, and discrete mathematics. Taught with practical engineering intuition.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>55 Comprehensive Sessions (1 Hour)</li>
+              <li>25 Live Doubt Solving Hours</li>
+              <li>University Syllabus Assistance</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Engineering%20Mathematics."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-secondary w-full !text-xs"
+            >
+              <span>Inquire for Engineering Math</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Program 6: Regular Tuition Program -->
+        <article data-category="applied" class="program-card sanctuary-card sanctuary-card-interactive flex flex-col justify-between p-7">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="rounded-full bg-[var(--accent-sage-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-sage)]">
+                Grades 1–10
+              </span>
+              <span class="text-xs font-medium text-[var(--text-muted)]">Daily Mentorship</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">Regular Tuition Program</h3>
+            <p class="mt-2.5 text-sm text-[var(--text-secondary)] leading-relaxed">
+              Continuous patient handholding for school coursework, homework clarity, and periodic school tests with dedicated personal attention.
+            </p>
+            <ul class="mt-5 space-y-2 border-t border-[var(--border-subtle)] pt-4 text-xs font-medium text-[var(--text-secondary)]">
+              <li>Daily / Weekly flexible schedule options</li>
+              <li>1 Hour Class + 10 Min Habit Mentoring</li>
+              <li>Regular Parent Syncs on Progress</li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20the%20Regular%20Tuition%20Program."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-secondary w-full !text-xs"
+            >
+              <span>Inquire for Regular Tuition</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Visual Intuition Matters + "If Relevant" Cross-Links (White Surface) -->
+  <section class="surface-white section-pad border-t border-[var(--border-subtle)]">
+    <div class="container-feature">
+      <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+        <div class="lg:col-span-5">
+          <img
+            src="/graph.webp"
+            alt="Overcoming math anxiety through visual intuition at NPconscious"
+            class="w-full h-auto rounded-2xl border border-[var(--border-subtle)]"
+            width="1024"
+            height="576"
+            loading="eager"
+          />
+        </div>
+        <div class="space-y-6 lg:col-span-7">
+          <div class="space-y-3">
+            <h2 class="section-h2">Mathematics Connects Naturally to Other Goals</h2>
+            <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+              Most students join for Mathematics alone, and that is all they need. If relevant along the way, learners can also explore:
+            </p>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 border-t border-[var(--border-subtle)] pt-6">
+            <a href="/computer-science" class="group block space-y-1.5">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">If Relevant</span>
+              <h3 class="text-base font-semibold text-[var(--text-primary)] group-hover:underline">Computer Science →</h3>
+              <p class="text-xs leading-relaxed text-[var(--text-secondary)]">Apply logical thinking to programming and problem solving.</p>
+            </a>
+            <a href="/career-guidance" class="group block space-y-1.5">
+              <span class="text-xs font-semibold text-[var(--accent-sage)]">When Useful · Free</span>
+              <h3 class="text-base font-semibold text-[var(--text-primary)] group-hover:underline">Free Career Guidance →</h3>
+              <p class="text-xs leading-relaxed text-[var(--text-secondary)]">Explore academic choices, streams, coaching, or overseas study.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SanctuaryCta
+    heading="See How Natural Mathematics Feels When Curiosity Comes First"
+    description="Book a free 30-minute 1-on-1 demo assessment or write to help@npconscious.com with your child's grade and board."
+    primaryLabel="Book Free Demo on WhatsApp"
+    primaryHref="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session."
+    secondaryLabel="View Admission & Assessment Tracks"
+    secondaryHref="/admission?interest=mathematics"
+  />
+</MainLayout>
+
+<script>
+  function initMathematicsPage() {
+    const btnRote = document.getElementById("btn-rote");
+    const btnIntuition = document.getElementById("btn-intuition");
+    const viewRote = document.getElementById("view-rote");
+    const viewIntuition = document.getElementById("view-intuition");
+
+    if (btnRote && btnIntuition && viewRote && viewIntuition) {
+      const setMode = (mode: "rote" | "intuition") => {
+        const isRote = mode === "rote";
+        btnRote.setAttribute("aria-selected", String(isRote));
+        btnIntuition.setAttribute("aria-selected", String(!isRote));
+
+        btnRote.classList.toggle("bg-white", isRote);
+        btnRote.classList.toggle("text-[var(--text-primary)]", isRote);
+        btnRote.classList.toggle("shadow-[var(--shadow-subtle)]", isRote);
+        btnRote.classList.toggle("font-semibold", isRote);
+        btnRote.classList.toggle("text-[var(--text-muted)]", !isRote);
+
+        btnIntuition.classList.toggle("bg-white", !isRote);
+        btnIntuition.classList.toggle("text-[var(--text-primary)]", !isRote);
+        btnIntuition.classList.toggle("shadow-[var(--shadow-subtle)]", !isRote);
+        btnIntuition.classList.toggle("font-semibold", !isRote);
+        btnIntuition.classList.toggle("text-[var(--text-muted)]", isRote);
+
+        viewRote.classList.toggle("hidden", !isRote);
+        viewIntuition.classList.toggle("hidden", isRote);
+        (isRote ? viewRote : viewIntuition).classList.add("tab-panel-enter");
+      };
+
+      btnRote.onclick = () => setMode("rote");
+      btnIntuition.onclick = () => setMode("intuition");
+    }
+
+    const filterTabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
+    const programCards = document.querySelectorAll<HTMLElement>(".program-card");
+
+    filterTabs.forEach((tab) => {
+      tab.onclick = () => {
+        filterTabs.forEach((t) => t.classList.remove("is-active"));
+        tab.classList.add("is-active");
+
+        const filter = tab.dataset.filter || "all";
+        programCards.forEach((card) => {
+          const match = filter === "all" || card.dataset.category === filter;
+          card.classList.toggle("hidden", !match);
+          if (match) card.classList.add("tab-panel-enter");
+        });
+      };
+    });
+  }
+
+  document.addEventListener("astro:page-load", initMathematicsPage);
+</script>

@@ -2,552 +2,320 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Admission">
-  <!-- Hero Section: Warm, Reassuring, Clear for Parents -->
-  <section class="relative overflow-hidden bg-hero-texture px-4 pt-8 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:px-8 lg:pt-16 lg:pb-24">
-    <div class="mx-auto max-w-[1360px]">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
-        <!-- Left Hero Content -->
+<MainLayout
+  title="Admission & First Step"
+  description="Start your journey with NPconscious: book a Mathematics diagnostic assessment, express interest in Computer Science, schedule free Career Guidance, or start a listen-first conversation."
+>
+  <!-- Hero Section (Warm Beige) -->
+  <section class="surface-beige px-5 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:px-8 lg:pt-20 lg:pb-24">
+    <div class="container-feature">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
         <div class="space-y-6 lg:col-span-7">
-          <!-- Text block with blended mountain reflection backdrop -->
-          <div id="admission-hero-container" class="relative">
-            <!-- Blended Mountain Image Backdrop -->
-            <div 
-              id="admission-mountain-backdrop"
-              class="pointer-events-none absolute select-none z-0 right-0 sm:right-4 lg:right-6 -top-2 sm:-top-4 bottom-0 w-[260px] sm:w-[350px] lg:w-[410px] aspect-square max-w-[430px] overflow-hidden"
-              aria-hidden="true"
-            >
-              <!-- Outer fade on left to smoothly start from 'l' -->
-              <div 
-                class="w-full h-full relative"
-                style="
-                  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
-                  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 100%);
-                "
-              >
-                <!-- Inner elliptical mask to feather edges into canvas -->
-                <div 
-                  class="w-full h-full relative"
-                  style="
-                    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 55% 50%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.65) 55%, transparent 95%);
-                    mask-image: radial-gradient(ellipse 75% 70% at 55% 50%, rgba(0,0,0,1) 25%, rgba(0,0,0,0.65) 55%, transparent 95%);
-                  "
-                >
-                  <!-- Mountain Reflection Photo -->
-                  <img 
-                    src="/mountain-reflection.jpg" 
-                    alt="" 
-                    class="w-full h-full object-cover object-[50%_45%] opacity-80 contrast-[1.06] saturate-[1.12]"
-                    loading="eager"
-                    decoding="async"
-                  />
-                  <!-- Soft Warm Ambient Scrims to harmonize with #FAF8F5 background -->
-                  <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/85 via-[#FAF8F5]/25 to-transparent pointer-events-none"></div>
-                  <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/35 via-transparent to-[#FAF8F5]/45 pointer-events-none"></div>
-                </div>
-              </div>
-            </div>
+          <h1 class="display-h1" data-hero-reveal>
+            Start Your Learning<br />
+            or Guidance Journey
+          </h1>
 
-            <!-- Foreground Content: crisp typography elevated on top of image -->
-            <div class="relative z-10 space-y-6">
-              <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
-                <span class="flex h-2 w-2 rounded-full bg-amber-500"></span>
-                <span>Simple 3-Step Assessment</span>
-              </div>
+          <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]" data-hero-reveal>
+            Every student starts from a different place. Whether you want a 30-minute Mathematics assessment, want to share interest in <strong>Computer Science</strong>, need <strong>free Career Guidance</strong>, or are unsure where to begin, our first conversation has zero pressure.
+          </p>
 
-              <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Start Your Child's<br />
-                <span class="text-amber-600">Learning Journey</span>
-              </h1>
-
-              <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-700 font-medium text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Every learner thinks differently. Our 30-minute assessment is completely stress-free — we focus on understanding your child's innate logic, curiosity, and learning style rather than judging marks.
-              </p>
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
-            <a
-              href="#book-assessment"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <span>Schedule Assessment</span>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1" data-hero-reveal>
+            <a href="#book-assessment" class="btn-pill-primary">
+              <span>Book Free First Step</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <a
-              href="#assessment-tracks"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition hover:bg-slate-50 hover:border-slate-400"
-            >
-              <span>View Assessment Tracks</span>
+            <a href="#assessment-tracks" class="btn-pill-secondary">
+              <span>View Maths Assessment Tracks</span>
             </a>
           </div>
-
-          <!-- Academic Trust Chips -->
-          <div class="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold text-slate-700">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Zero Pressure or Scoring Stigma
-            </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Detailed Qualitative Parent Feedback
-            </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 border border-slate-200/90 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              Personalized Learning Roadmap
-            </span>
-          </div>
         </div>
 
-        <!-- Right Visual: Assessment Overview Showcase Card -->
-        <div class="relative lg:col-span-5">
-          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft stretchy-scroll">
-            <div class="overflow-hidden rounded-2xl bg-slate-50 border border-slate-100">
-              <img
-                src="/graph.webp"
-                alt="3 out of 5 students fear maths - Overcoming mathsphobia with NPconscious"
-                class="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 flex items-center justify-between text-xs font-medium text-slate-600 border-t border-slate-100 pt-3">
-              <span class="inline-flex items-center gap-1.5">
-                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                Live 1-on-1 Guidance
-              </span>
-              <span class="inline-flex items-center gap-1.5">
-                <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-                Parents Welcomed to Join
-              </span>
-            </div>
+        <div class="lg:col-span-5" data-hero-reveal>
+          <div class="overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-white">
+            <img
+              src="/mountain-reflection.jpg"
+              alt="Mountain lake reflection representing NPconscious Sanctuary for Young Minds"
+              class="w-full h-auto object-cover"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3-Step Admission Roadmap (Friendly Timeline) -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-b border-slate-200/80">
-    <div class="mx-auto max-w-5xl space-y-12">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          How It Works
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Three Easy Steps to Get Started
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          We keep the process transparent, supportive, and hassle-free for parents.
+  <!-- 3-Step Roadmap (White Surface) -->
+  <section class="surface-white section-pad border-y border-[var(--border-subtle)]">
+    <div class="container-feature space-y-12">
+      <div class="max-w-2xl space-y-3">
+        <h2 class="section-h2">Three Easy Steps to Get Started</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          A straightforward intake process for students and parents.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Step 1 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-1 stretchy-scroll">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 font-bold mb-5 tabular-nums">
-            01
+      <ol class="grid gap-8 md:grid-cols-3">
+        <li class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <div class="flex items-baseline justify-between gap-2">
+            <span class="text-sm font-semibold text-[var(--text-muted)] tabular-nums">01</span>
+            <span class="text-xs font-medium text-[var(--accent-ochre)]">Under 1 minute</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900">Share Student Details</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            Share your child’s current grade, school board (CBSE, ICSE, IGCSE, State), and any specific math topics they find challenging.
+          <h3 class="text-lg font-semibold text-[var(--text-primary)]">Share Student Details</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            Tell us what you are exploring—Mathematics, Computer Science, free Career Guidance, or "Not sure yet"—along with grade and how you found us.
           </p>
-          <div class="mt-5 text-xs font-semibold text-amber-700 flex items-center gap-1">
-            <span>Takes under 1 minute</span>
-            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
-        </div>
+        </li>
 
-        <!-- Step 2 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-2 stretchy-scroll">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-800 font-bold mb-5 tabular-nums">
-            02
+        <li class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <div class="flex items-baseline justify-between gap-2">
+            <span class="text-sm font-semibold text-[var(--accent-sage)] tabular-nums">02</span>
+            <span class="text-xs font-medium text-[var(--accent-sage)]">Parents welcomed</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900">30-Min Assessment Session</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            A friendly online 1-on-1 session where we explore visual puzzles together. Zero marks pressure — just joyful problem solving.
+          <h3 class="text-lg font-semibold text-[var(--text-primary)]">Listen-First Session</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            A 1-on-1 conversation or 30-minute visual Mathematics discovery session focused on understanding how the learner thinks.
           </p>
-          <div class="mt-5 text-xs font-semibold text-indigo-700 flex items-center gap-1">
-            <span>Parents are welcomed to attend</span>
-            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
-        </div>
+        </li>
 
-        <!-- Step 3 -->
-        <div class="relative rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-7 shadow-soft transition hover-spring reveal-on-scroll stagger-3 stretchy-scroll">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800 font-bold mb-5 tabular-nums">
-            03
+        <li class="border-t border-[var(--border-strong)] pt-6 space-y-2.5">
+          <div class="flex items-baseline justify-between gap-2">
+            <span class="text-sm font-semibold text-[var(--text-muted)] tabular-nums">03</span>
+            <span class="text-xs font-medium text-[var(--text-muted)]">No compulsory upsells</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900">Personalized Growth Roadmap</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            We share comprehensive feedback highlighting your child’s cognitive strengths and recommend the exact curriculum path for them.
+          <h3 class="text-lg font-semibold text-[var(--text-primary)]">Agree on Next Steps</h3>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            Receive qualitative feedback, a recommended Mathematics track, free career options, or updates when Computer Science cohorts open.
           </p>
-          <div class="mt-5 text-xs font-semibold text-emerald-700 flex items-center gap-1">
-            <span>Tailored learning blueprint</span>
-            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- Interactive Diagnostic Assessment Tracks Selector -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-b border-slate-200/80" id="assessment-tracks">
-    <div class="mx-auto max-w-4xl space-y-10">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900 border border-amber-200">
-          Tailored Diagnostic Tracks
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Choose Your Child's Assessment Track
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          Every session is customized to evaluate foundational thinking, visual spatial logic, and conceptual derivation at your child's stage.
+  <!-- Interactive Mathematics Diagnostic Assessment Tracks (Beige Surface) -->
+  <section id="assessment-tracks" class="surface-beige section-pad">
+    <div class="container-reading space-y-10">
+      <div class="space-y-3">
+        <h2 class="section-h2">Mathematics Assessment Tracks</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          For Mathematics learners, each session evaluates foundational reasoning, visual logic, and conceptual derivation.
         </p>
       </div>
 
-      <!-- Segmented Tab Switcher -->
-      <div class="flex rounded-2xl bg-slate-100/90 p-1.5 text-xs font-semibold overflow-x-auto scrollbar-none gap-1 sm:gap-1.5" role="tablist">
-        <button
-          type="button"
-          role="tab"
-          id="tab-track-primary"
-          data-track="primary"
-          aria-selected="true"
-          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer bg-white text-slate-900 shadow-xs font-bold"
-        >
+      <!-- Segmented Pill Switcher -->
+      <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Mathematics diagnostic tracks">
+        <button type="button" role="tab" id="tab-track-primary" data-track="primary" aria-selected="true" class="track-tab pill-tab is-active">
           Classes 1–5
         </button>
-        <button
-          type="button"
-          role="tab"
-          id="tab-track-middle"
-          data-track="middle"
-          aria-selected="false"
-          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
-        >
+        <button type="button" role="tab" id="tab-track-middle" data-track="middle" aria-selected="false" class="track-tab pill-tab">
           Classes 6–10
         </button>
-        <button
-          type="button"
-          role="tab"
-          id="tab-track-senior"
-          data-track="senior"
-          aria-selected="false"
-          class="track-tab flex-1 min-w-[110px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
-        >
+        <button type="button" role="tab" id="tab-track-senior" data-track="senior" aria-selected="false" class="track-tab pill-tab">
           Classes 11–12
         </button>
-        <button
-          type="button"
-          role="tab"
-          id="tab-track-money"
-          data-track="money"
-          aria-selected="false"
-          class="track-tab flex-1 min-w-[130px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
-        >
+        <button type="button" role="tab" id="tab-track-money" data-track="money" aria-selected="false" class="track-tab pill-tab">
           Money &amp; Math
         </button>
-        <button
-          type="button"
-          role="tab"
-          id="tab-track-eng"
-          data-track="eng"
-          aria-selected="false"
-          class="track-tab flex-1 min-w-[120px] rounded-xl py-2.5 px-3 text-center transition cursor-pointer text-slate-600 hover:text-slate-900"
-        >
+        <button type="button" role="tab" id="tab-track-eng" data-track="eng" aria-selected="false" class="track-tab pill-tab">
           Engineering
         </button>
       </div>
 
-      <!-- Track Detail Display Cards -->
-      <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-10 shadow-soft stretchy-scroll">
-        <!-- 1. Primary Track -->
+      <div class="sanctuary-card p-6 sm:p-10">
+        <!-- 1. Primary -->
         <div id="panel-track-primary" class="track-panel space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
-            <div>
-              <span class="inline-block rounded-full bg-amber-100 px-3 py-0.5 text-xs font-semibold text-amber-900 mb-2">
-                Classes 1–5 • Primary
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-                Primary Assessment (Classes 1–5)
-              </h3>
-            </div>
-            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              30 Mins Duration
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[var(--border-subtle)]">
+            <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">Primary Assessment (Classes 1–5)</h3>
+            <span class="inline-flex items-center self-start rounded-full bg-[var(--accent-sage-soft)] px-3.5 py-1.5 text-xs font-semibold text-[var(--accent-sage)]">
+              30 mins · 1-on-1
             </span>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
             Playful visual riddles, pattern completion, and intuitive counting without test anxiety.
           </p>
-
-          <div class="grid gap-3 sm:grid-cols-3 pt-1">
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Live Interactive Session</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">30 mins 1-on-1 discovery</p>
-              </div>
+          <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 sm:grid-cols-3">
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Session Format</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">30 minutes, 1-on-1 discovery</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Parents Welcomed to Attend</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Sit in and observe your child</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Parents Welcomed</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Sit in and observe alongside your child</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Visual Spatial Reasoning</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Focus on spatial logic &amp; patterns</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Focus Area</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Spatial logic and number patterns</dd>
             </div>
-          </div>
-
-          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+          </dl>
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[var(--border-subtle)]">
             <a
               href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%201-5."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !text-xs sm:!text-sm"
             >
               <span>Book Class 1–5 Assessment</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
-              Or schedule via form below &darr;
+            <a href="#book-assessment" class="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] text-center sm:text-left">
+              Or schedule via form below ↓
             </a>
           </div>
         </div>
 
-        <!-- 2. Middle & High Track -->
+        <!-- 2. Middle & High -->
         <div id="panel-track-middle" class="track-panel hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
-            <div>
-              <span class="inline-block rounded-full bg-indigo-100 px-3 py-0.5 text-xs font-semibold text-indigo-900 mb-2">
-                Classes 6–10 • Middle &amp; High School
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-                Middle &amp; High School (Classes 6–10)
-              </h3>
-            </div>
-            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              30 Mins Duration
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[var(--border-subtle)]">
+            <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">Middle &amp; High School (Classes 6–10)</h3>
+            <span class="inline-flex items-center self-start rounded-full bg-[var(--accent-sage-soft)] px-3.5 py-1.5 text-xs font-semibold text-[var(--accent-sage)]">
+              30 mins · 1-on-1
             </span>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
             Algebraic logic, geometry derivation, word puzzles, and fundamental number intuition.
           </p>
-
-          <div class="grid gap-3 sm:grid-cols-3 pt-1">
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Live 1-on-1 Assessment</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">30 mins personal attention</p>
-              </div>
+          <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 sm:grid-cols-3">
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Session Format</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">30 minutes, personal attention</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Formula Understanding</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Assessment of Formula Understanding</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Concept Depth</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Checks why formulas work, not recall speed</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Curriculum Aligned</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Aligned with CBSE, ICSE &amp; IGCSE</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Board Alignment</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">CBSE, ICSE, IGCSE, IB &amp; State</dd>
             </div>
-          </div>
-
-          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+          </dl>
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[var(--border-subtle)]">
             <a
               href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%206-10."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !text-xs sm:!text-sm"
             >
               <span>Book Class 6–10 Assessment</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
-              Or schedule via form below &darr;
+            <a href="#book-assessment" class="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] text-center sm:text-left">
+              Or schedule via form below ↓
             </a>
           </div>
         </div>
 
-        <!-- 3. Senior Secondary Track -->
+        <!-- 3. Senior Secondary -->
         <div id="panel-track-senior" class="track-panel hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
-            <div>
-              <span class="inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-900 mb-2">
-                Classes 11–12 • Senior Secondary
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-                Senior Secondary (Classes 11–12)
-              </h3>
-            </div>
-            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              30 Mins Duration
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[var(--border-subtle)]">
+            <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">Senior Secondary (Classes 11–12)</h3>
+            <span class="inline-flex items-center self-start rounded-full bg-[var(--accent-sage-soft)] px-3.5 py-1.5 text-xs font-semibold text-[var(--accent-sage)]">
+              30 mins · 1-on-1
             </span>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
             Evaluating intuition in calculus, trigonometry, coordinate geometry, and problem attack strategy.
           </p>
-
-          <div class="grid gap-3 sm:grid-cols-3 pt-1">
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Live Assessment</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">30 mins 1-on-1 session</p>
-              </div>
+          <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 sm:grid-cols-3">
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Session Format</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">30 minutes, 1-on-1 diagnostic</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Entrance Readiness</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Entrance Exam Conceptual Readiness</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Entrance Readiness</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Conceptual gaps across senior STEM topics</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Calculus Review</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Calculus Intuition Review</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Calculus Review</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Limits, rates of change, and geometric proofs</dd>
             </div>
-          </div>
-
-          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+          </dl>
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[var(--border-subtle)]">
             <a
               href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Classes%2011-12."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !text-xs sm:!text-sm"
             >
               <span>Book Class 11–12 Assessment</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
-              Or schedule via form below &darr;
+            <a href="#book-assessment" class="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] text-center sm:text-left">
+              Or schedule via form below ↓
             </a>
           </div>
         </div>
 
-        <!-- 4. Money & Mathematics Track -->
+        <!-- 4. Money & Math -->
         <div id="panel-track-money" class="track-panel hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
-            <div>
-              <span class="inline-block rounded-full bg-amber-100 px-3 py-0.5 text-xs font-semibold text-amber-900 mb-2">
-                Specialized Track • Real-World Acumen
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-                Money &amp; Mathematics
-              </h3>
-            </div>
-            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-emerald-800 border border-slate-200 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              30 Mins Duration
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[var(--border-subtle)]">
+            <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">Money &amp; Mathematics</h3>
+            <span class="inline-flex items-center self-start rounded-full bg-[var(--accent-sage-soft)] px-3.5 py-1.5 text-xs font-semibold text-[var(--accent-sage)]">
+              30 mins · Ages 12+ &amp; Adults
             </span>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
-            Scenario-based assessment measuring real-world financial acumen, compound interest logic, and strategic probability reasoning.
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+            Scenario-based session exploring compound interest logic, risk probability, and everyday financial reasoning.
           </p>
-
-          <div class="grid gap-3 sm:grid-cols-3 pt-1">
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Real-Life Simulations</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Real-Life Simulation Questions (30 mins)</p>
-              </div>
+          <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 sm:grid-cols-3">
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Real-Life Scenarios</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">30 minutes of practical case discussion</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Probability Logic</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Risk &amp; Reward Probability Number Sense</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Probability Logic</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Risk vs reward number sense</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Financial Mindset</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Practical Financial Mindset Evaluation</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Financial Decisions</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Inflation, compounding, and trade-offs</dd>
             </div>
-          </div>
-
-          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+          </dl>
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[var(--border-subtle)]">
             <a
               href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Money%20%26%20Mathematics."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !text-xs sm:!text-sm"
             >
               <span>Book Money &amp; Math Assessment</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
-              Or schedule via form below &darr;
+            <a href="#book-assessment" class="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] text-center sm:text-left">
+              Or schedule via form below ↓
             </a>
           </div>
         </div>
 
-        <!-- 5. Engineering Track -->
+        <!-- 5. Engineering -->
         <div id="panel-track-eng" class="track-panel hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
-            <div>
-              <span class="inline-block rounded-full bg-slate-900 px-3 py-0.5 text-xs font-semibold text-white mb-2">
-                Undergraduate • 1 Hour
-              </span>
-              <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
-                Engineering Mathematics
-              </h3>
-            </div>
-            <span class="inline-flex items-center gap-1.5 self-start sm:self-center rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-indigo-700 border border-slate-200 shadow-xs">
-              <svg class="h-3.5 w-3.5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              1 Hour Dedicated Slot
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[var(--border-subtle)]">
+            <h3 class="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">Engineering Mathematics</h3>
+            <span class="inline-flex items-center self-start rounded-full bg-[var(--bg-sand-soft)] px-3.5 py-1.5 text-xs font-semibold text-[var(--text-primary)]">
+              1 Hour · Undergraduate / B.Tech
             </span>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed text-slate-700">
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
             Evaluating problem solving for university engineering coursework and computational maths.
           </p>
-
-          <div class="grid gap-3 sm:grid-cols-2 pt-1">
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-indigo-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Written Problem Set Discussion</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Written Problem Set Discussion (1 Hour)</p>
-              </div>
+          <dl class="grid gap-5 border-t border-[var(--border-subtle)] pt-5 sm:grid-cols-2">
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Written Problem Review</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Dedicated 1-hour walkthrough of university problem sets</dd>
             </div>
-            <div class="flex items-start gap-2.5 rounded-2xl bg-white p-4 border border-slate-200/70 shadow-xs">
-              <svg class="h-5 w-5 text-indigo-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <div>
-                <p class="text-xs font-bold text-slate-900">Linear Algebra &amp; Calculus</p>
-                <p class="text-[11px] text-slate-500 mt-0.5">Evaluation of Linear Algebra &amp; Calculus</p>
-              </div>
+            <div>
+              <dt class="text-xs font-semibold text-[var(--text-primary)]">Core Syllabus Topics</dt>
+              <dd class="mt-1 text-xs text-[var(--text-muted)]">Linear algebra, differential equations, Laplace &amp; Fourier</dd>
             </div>
-          </div>
-
-          <div class="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-slate-200">
+          </dl>
+          <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-t border-[var(--border-subtle)]">
             <a
               href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20assessment%20for%20Engineering%20Mathematics."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 hover:bg-slate-800 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-pill-primary !text-xs sm:!text-sm"
             >
               <span>Book Engineering Slot</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
-            <a href="#book-assessment" class="text-xs font-semibold text-slate-500 hover:text-slate-900 text-center sm:text-left transition">
-              Or schedule via form below &darr;
+            <a href="#book-assessment" class="text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] text-center sm:text-left">
+              Or schedule via form below ↓
             </a>
           </div>
         </div>
@@ -555,279 +323,254 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
   </section>
 
-  <!-- Interactive Inline Assessment Booking Section -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-[#FAF8F5]" id="book-assessment">
-    <div class="mx-auto max-w-3xl rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-soft">
-      <div class="text-center space-y-2 mb-8">
-        <span class="inline-block rounded-full bg-amber-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900">
-          Quick Scheduling
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-950">
-          Book Your Free Assessment Session
-        </h2>
-        <p class="text-sm text-slate-600">
-          Fill in the details below to connect instantly on WhatsApp with our academic team.
-        </p>
-      </div>
-
-      <form id="assessment-form" class="space-y-5">
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label for="student-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-              Student Name
-            </label>
-            <input
-              type="text"
-              id="student-name"
-              name="student-name"
-              placeholder="e.g. Aarav Sharma"
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
-            />
-          </div>
-
-          <div>
-            <label for="student-grade" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-              Current Grade / Class
-            </label>
-            <select
-              id="student-grade"
-              name="student-grade"
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 bg-white"
-            >
-              <option value="">Select Grade / Program</option>
-              <option value="Money & Mathematics (★ Most Popular)">Money & Mathematics (★ Most Popular)</option>
-              <option value="Grade 1-5 (Primary)">Grade 1–5 (Primary Foundations)</option>
-              <option value="Grade 6-8 (Middle School)">Grade 6–8 (Middle School)</option>
-              <option value="Grade 9-10 (Board Prep)">Grade 9–10 (Board Exam Prep)</option>
-              <option value="Grade 11-12 (Senior Secondary)">Grade 11–12 (Calculus & STEM)</option>
-              <option value="Engineering Mathematics">Engineering Mathematics (B.Tech)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label for="parent-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-              Parent WhatsApp Number
-            </label>
-            <input
-              type="tel"
-              id="parent-phone"
-              name="parent-phone"
-              placeholder="+91 98765 43210"
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20"
-            />
-          </div>
-
-          <div>
-            <label for="preferred-time" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-              Preferred Time Slot
-            </label>
-            <select
-              id="preferred-time"
-              name="preferred-time"
-              class="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/20 bg-white"
-            >
-              <option value="Flexible / Anytime">Flexible / Any time</option>
-              <option value="Weekday Evening (5 PM - 8 PM)">Weekday Evening (5 PM – 8 PM)</option>
-              <option value="Weekend Morning (10 AM - 1 PM)">Weekend Morning (10 AM – 1 PM)</option>
-              <option value="Weekend Afternoon (2 PM - 6 PM)">Weekend Afternoon (2 PM – 6 PM)</option>
-            </select>
-          </div>
-        </div>
-
-        <button
-          type="button"
-          id="btn-whatsapp-submit"
-          class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-6 py-4 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-        >
-          <span>Continue to WhatsApp Booking</span>
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </button>
-
-        <p class="text-center text-xs text-slate-500">
-          Prefer WhatsApp? <a href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20an%20admission%20assessment." class="text-amber-700 font-semibold hover:underline">Chat directly</a> • Sending reports or syllabus? Email <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-700 font-semibold hover:underline">admission@npconscious.com</a>
-        </p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Helpful Parent Reminder: What to Expect on Assessment Day -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-y border-slate-200/80">
-    <div class="mx-auto max-w-4xl space-y-8">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Zero-Stress Preparation
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          What to Expect on Assessment Day
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          Our 30-minute discovery session is designed to be joyful, engaging, and completely pressure-free.
-        </p>
-      </div>
-
-      <div class="grid gap-6 sm:grid-cols-3">
-        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-1">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 font-bold mb-4">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-slate-900 text-base">Join 5 Mins Early</h3>
-          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Grab a notebook and a pen in a quiet spot. Parents are warmly welcomed to sit in.
+  <!-- Interactive Inline Sanctuary Intake & Assessment Booking Form (White Surface) -->
+  <section id="book-assessment" class="surface-white section-pad border-y border-[var(--border-subtle)]">
+    <div class="container-reading">
+      <div class="sanctuary-card-beige p-6 sm:p-10">
+        <div class="space-y-2 mb-8">
+          <h2 class="section-h2 !text-2xl sm:!text-3xl">Book Your Free First Step</h2>
+          <p class="text-sm text-[var(--text-secondary)]">
+            Choose what you are exploring below to open a pre-filled WhatsApp message with our team.
           </p>
         </div>
 
-        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-2">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-indigo-900 font-bold mb-4">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-slate-900 text-base">No Test Prep Needed</h3>
-          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            No formulas to memorize. We look at visual riddles to see how your child naturally explores problems.
-          </p>
-        </div>
+        <form id="assessment-form" class="space-y-5">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="interest-area" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                What are you looking for?
+              </label>
+              <select
+                id="interest-area"
+                name="interest-area"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              >
+                <option value="Mathematics Assessment">Mathematics Assessment</option>
+                <option value="Free Career Guidance">Free Career Guidance (Always Free)</option>
+                <option value="Computer Science Interest">Computer Science Interest</option>
+                <option value="Not sure yet — help me choose">Not sure yet — help me choose</option>
+              </select>
+            </div>
 
-        <div class="rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 shadow-xs hover-spring reveal-on-scroll stagger-3">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-900 font-bold mb-4">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <div>
+              <label for="lead-source" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                How did you hear about us?
+              </label>
+              <select
+                id="lead-source"
+                name="lead-source"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              >
+                <option value="">Select source (optional)</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Instagram / Social Media">Instagram / Social Media</option>
+                <option value="Friend / Parent Referral">Friend / Parent Referral</option>
+                <option value="School / Teacher">School / Teacher</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
           </div>
-          <h3 class="font-bold text-slate-900 text-base">Qualitative Parent Report</h3>
-          <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            We discuss cognitive strengths, curiosity triggers, and the recommended learning pathway.
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="student-name" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                Student name
+              </label>
+              <input
+                type="text"
+                id="student-name"
+                name="student-name"
+                placeholder="e.g. Aarav Sharma"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              />
+            </div>
+
+            <div>
+              <label for="student-grade" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                Current grade / level
+              </label>
+              <select
+                id="student-grade"
+                name="student-grade"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              >
+                <option value="">Select Grade / Track</option>
+                <option value="Money & Mathematics">Money &amp; Mathematics</option>
+                <option value="Grade 1-5 (Primary)">Grade 1–5 (Primary Foundations)</option>
+                <option value="Grade 6-8 (Middle School)">Grade 6–8 (Middle School)</option>
+                <option value="Grade 9-10 (Board Prep)">Grade 9–10 (Board Exam Prep)</option>
+                <option value="Grade 11-12 (Senior Secondary)">Grade 11–12 (Calculus &amp; STEM)</option>
+                <option value="Engineering Mathematics">Engineering Mathematics (B.Tech)</option>
+                <option value="College / Graduate / Exploring Options">College / Graduate / Exploring Options</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="parent-phone" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                Student or parent WhatsApp number
+              </label>
+              <input
+                type="tel"
+                id="parent-phone"
+                name="parent-phone"
+                placeholder="+91 98765 43210"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              />
+            </div>
+
+            <div>
+              <label for="preferred-time" class="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
+                Preferred time slot
+              </label>
+              <select
+                id="preferred-time"
+                name="preferred-time"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-white px-4 py-3 text-sm text-[var(--text-primary)]"
+              >
+                <option value="Flexible / Anytime">Flexible / Any time</option>
+                <option value="Weekday Evening (5 PM - 8 PM)">Weekday Evening (5 PM – 8 PM)</option>
+                <option value="Weekend Morning (10 AM - 1 PM)">Weekend Morning (10 AM – 1 PM)</option>
+                <option value="Weekend Afternoon (2 PM - 6 PM)">Weekend Afternoon (2 PM – 6 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-whatsapp-submit" class="btn-pill-primary w-full">
+            <span>Continue to WhatsApp Booking</span>
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+
+          <p class="text-center text-xs text-[var(--text-muted)]">
+            Prefer direct chat? <a href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20start%20a%20conversation%20with%20NPconscious." target="_blank" rel="noopener noreferrer" class="font-semibold text-[var(--text-primary)] underline">Chat on WhatsApp</a> · Sending reports or questions? Email
+            <!--email_off-->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="font-semibold text-[var(--text-primary)] underline">admission@npconscious.com</a>
+            <!--/email_off-->
           </p>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Official Admissions Support Desk -->
-  <section class="px-4 py-16 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-soft reveal-on-scroll">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 font-bold text-lg">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+  <!-- Session Notes & Direct Assistance (Beige Surface) -->
+  <section class="surface-beige section-pad">
+    <div class="container-reading">
+      <div class="grid gap-10 md:grid-cols-2">
+        <div class="space-y-3">
+          <h2 class="text-xl font-semibold text-[var(--text-primary)]">Preparing for Session Day</h2>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            Join five minutes early from a quiet spot with a notebook and pen. No formulas or advance preparation are required, and parents are welcome to sit in.
+          </p>
         </div>
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Official Assistance</span>
-          <h2 class="text-2xl font-bold text-slate-900">Dedicated Academic Mentorship</h2>
-        </div>
-      </div>
-      <p class="text-base leading-relaxed text-slate-600">
-        Every child's learning journey at NPconscious is conducted through verified, 1-on-1 channels with absolute transparency. If you have any questions or need custom slot coordination, connect with our admissions desk:
-      </p>
-      <div class="mt-6 flex flex-wrap items-center gap-3">
-        <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-[#FAF8F5] px-5 py-3.5 text-xs sm:text-sm font-semibold text-slate-900 shadow-xs">
-          <span class="text-slate-400 font-normal">Admissions Desk:</span>
-          <!--email_off-->
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:underline">admission@npconscious.com</a>
-          <!--/email_off-->
-        </div>
-        <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-[#FAF8F5] px-5 py-3.5 text-xs sm:text-sm font-semibold text-slate-900 shadow-xs">
-          <span class="text-slate-400 font-normal">Direct Helpline:</span>
-          <a href="tel:+918011236456" class="text-slate-700 hover:underline">+91 80112 36456</a>
+
+        <div class="space-y-3 border-t border-[var(--border-subtle)] pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-10">
+          <h2 class="text-xl font-semibold text-[var(--text-primary)]">Direct Admissions Desk</h2>
+          <p class="text-sm leading-relaxed text-[var(--text-secondary)]">
+            For custom scheduling or school-report attachments, write to us or call directly:
+          </p>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold text-[var(--text-primary)]">
+            <!--email_off-->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=admission@npconscious.com" target="_blank" rel="noopener noreferrer" class="underline">admission@npconscious.com</a>
+            <!--/email_off-->
+            <span class="text-[var(--text-muted)]" aria-hidden="true">·</span>
+            <a href="tel:+918011236456" class="hover:underline">+91 80112 36456</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+</MainLayout>
 
-  <!-- Interactive Script for Form submission to WhatsApp -->
-  <script is:inline>
-    function initAdmissionForm() {
-      const form = document.getElementById("assessment-form");
-      const submitBtn = document.getElementById("btn-whatsapp-submit");
+<script>
+  function initAdmissionPage() {
+    const form = document.getElementById("assessment-form") as HTMLFormElement | null;
+    const interestSelect = document.getElementById("interest-area") as HTMLSelectElement | null;
+    const sourceSelect = document.getElementById("lead-source") as HTMLSelectElement | null;
+    const studentName = document.getElementById("student-name") as HTMLInputElement | null;
+    const studentGrade = document.getElementById("student-grade") as HTMLSelectElement | null;
+    const parentPhone = document.getElementById("parent-phone") as HTMLInputElement | null;
+    const preferredTime = document.getElementById("preferred-time") as HTMLSelectElement | null;
 
-      function handleSubmit(e) {
-        if (e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
+    // Pre-select interest area from URL query string (e.g. ?interest=career-guidance)
+    const params = new URLSearchParams(window.location.search);
+    const interestParam = params.get("interest");
+    if (interestSelect && interestParam) {
+      const interestMap: Record<string, string> = {
+        mathematics: "Mathematics Assessment",
+        "career-guidance": "Free Career Guidance",
+        "computer-science": "Computer Science Interest",
+        "not-sure": "Not sure yet — help me choose",
+      };
+      if (interestMap[interestParam]) {
+        interestSelect.value = interestMap[interestParam];
+      }
+    }
 
-        const studentName = document.getElementById("student-name");
-        const studentGrade = document.getElementById("student-grade");
-        const parentPhone = document.getElementById("parent-phone");
-        const preferredTime = document.getElementById("preferred-time");
-
+    if (form) {
+      form.onsubmit = (e: Event) => {
+        e.preventDefault();
+        const interestVal = interestSelect?.value?.trim() || "First Conversation";
+        const sourceVal = sourceSelect?.value?.trim() || "";
         const nameVal = studentName?.value?.trim() || "";
         const gradeVal = studentGrade?.value?.trim() || "";
         const phoneVal = parentPhone?.value?.trim() || "";
-        const timeVal = preferredTime?.value?.trim() || "Flexible / Any time";
+        const timeVal = preferredTime?.value?.trim() || "Flexible / Anytime";
 
-        let message = "Hi NPconscious team,\n\nI would like to book a free 30-minute assessment session for my child.";
-        if (nameVal) message += "\n\n*Student Name:* " + nameVal;
-        if (gradeVal) message += "\n*Grade / Level:* " + gradeVal;
-        if (phoneVal) message += "\n*Parent WhatsApp:* " + phoneVal;
-        if (timeVal && timeVal !== "Flexible / Anytime") message += "\n*Preferred Slot:* " + timeVal;
+        let message = `Hi NPconscious team,\n\nI would like to connect regarding: ${interestVal}.`;
+        if (nameVal) message += `\n\n*Student Name:* ${nameVal}`;
+        if (gradeVal) message += `\n*Grade / Level:* ${gradeVal}`;
+        if (phoneVal) message += `\n*WhatsApp:* ${phoneVal}`;
+        if (timeVal && timeVal !== "Flexible / Anytime") message += `\n*Preferred Slot:* ${timeVal}`;
+        if (sourceVal) message += `\n*Heard About NPconscious Via:* ${sourceVal}`;
 
         const waUrl = "https://wa.me/918011236456?text=" + encodeURIComponent(message);
-
-        try {
-          const win = window.open(waUrl, "_blank");
-          if (!win || win.closed || typeof win.closed === "undefined") {
-            window.location.href = waUrl;
-          }
-        } catch (err) {
-          window.location.href = waUrl;
-        }
-      }
-
-      if (form) {
-        form.onsubmit = handleSubmit;
-      }
-      if (submitBtn) {
-        submitBtn.onclick = handleSubmit;
-      }
-
-      // Track Selector Switcher
-      const trackTabs = document.querySelectorAll(".track-tab");
-      const trackPanels = document.querySelectorAll(".track-panel");
-
-      const gradeMapping = {
-        primary: "Grade 1-5 (Primary)",
-        middle: "Grade 6-8 (Middle School)",
-        senior: "Grade 11-12 (Senior Secondary)",
-        money: "Money & Mathematics (★ Most Popular)",
-        eng: "Engineering Mathematics"
+        const win = window.open(waUrl, "_blank", "noopener,noreferrer");
+        if (!win) window.location.href = waUrl;
       };
-
-      trackTabs.forEach((tab) => {
-        tab.onclick = function (e) {
-          e.preventDefault();
-          const trackKey = tab.getAttribute("data-track");
-
-          trackTabs.forEach((t) => {
-            t.classList.remove("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-            t.classList.add("text-slate-600");
-            t.setAttribute("aria-selected", "false");
-          });
-
-          tab.classList.add("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-          tab.classList.remove("text-slate-600");
-          tab.setAttribute("aria-selected", "true");
-          setTimeout(() => tab.classList.remove("tab-spring-active"), 300);
-
-          trackPanels.forEach((panel) => {
-            panel.classList.add("hidden");
-            panel.classList.remove("tab-panel-enter");
-          });
-
-          const activePanel = document.getElementById("panel-track-" + trackKey);
-          if (activePanel) {
-            activePanel.classList.remove("hidden");
-            activePanel.classList.add("tab-panel-enter");
-          }
-
-          const studentGradeSelect = document.getElementById("student-grade");
-          if (studentGradeSelect && gradeMapping[trackKey]) {
-            studentGradeSelect.value = gradeMapping[trackKey];
-          }
-        };
-      });
     }
 
-    initAdmissionForm();
-    document.addEventListener("astro:page-load", initAdmissionForm);
-  </script>
-</MainLayout>
+    const trackTabs = document.querySelectorAll<HTMLButtonElement>(".track-tab");
+    const trackPanels = document.querySelectorAll<HTMLElement>(".track-panel");
+
+    const gradeMapping: Record<string, string> = {
+      primary: "Grade 1-5 (Primary)",
+      middle: "Grade 6-8 (Middle School)",
+      senior: "Grade 11-12 (Senior Secondary)",
+      money: "Money & Mathematics",
+      eng: "Engineering Mathematics",
+    };
+
+    trackTabs.forEach((tab) => {
+      tab.onclick = () => {
+        const trackKey = tab.dataset.track || "primary";
+
+        trackTabs.forEach((t) => {
+          t.classList.remove("is-active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("is-active");
+        tab.setAttribute("aria-selected", "true");
+
+        trackPanels.forEach((panel) => {
+          panel.classList.add("hidden");
+          panel.classList.remove("tab-panel-enter");
+        });
+
+        const activePanel = document.getElementById(`panel-track-${trackKey}`);
+        if (activePanel) {
+          activePanel.classList.remove("hidden");
+          activePanel.classList.add("tab-panel-enter");
+        }
+
+        if (studentGrade && gradeMapping[trackKey]) {
+          studentGrade.value = gradeMapping[trackKey];
+        }
+      };
+    });
+  }
+
+  document.addEventListener("astro:page-load", initAdmissionPage);
+</script>

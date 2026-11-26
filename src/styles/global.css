@@ -1,268 +1,314 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
 @layer base {
-  :root {
-    color-scheme: light;
-
-    /* NPconscious Disciplined 5-Token Color Systems */
-    --canvas: #FAF8F5;          /* Warm, tactile, non-sterile off-white / math paper */
-    --surface: #FFFFFF;         /* Crisp card islands */
-    --surface-tint: #F5F3EF;    /* Subtle warm neutral tint */
-    --ink-primary: #0F172A;     /* Deep midnight slate for authoritative clarity */
-    --ink-secondary: #334155;   /* Clear, legible editorial text */
-    --ink-muted: #64748B;       /* Secondary notes & hints (passes WCAG AA 4.5:1) */
-
-    /* Single Dominant Brand Spark (Curiosity / Sunlight) */
-    --accent-gold: #D97706;      
-    --accent-gold-hover: #B45309;
-    --accent-gold-soft: #FEF3C7;
-
-    /* Verification / Proof / Growth (Subordinate) */
-    --accent-sage: #0D9488;      
-    --accent-sage-soft: #CCFBF1;
-
-    /* Structure & Dividers */
-    --border-subtle: #E2E8F0;
-    --border-warm: #EAE6DF;
-
-    /* Animation & Physics Tokens (Emil Kowalski Animate Philosophy) */
-    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-    --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1);
-    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-    --scroll-stretch: 1;
-    --scroll-compress: 1;
-  }
-
   html {
     scroll-behavior: smooth;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    scrollbar-color: var(--border-strong) var(--bg-secondary);
+    scrollbar-width: thin;
   }
 
   body {
-    background-color: var(--canvas);
-    color: var(--ink-primary);
-    font-family: 'Plus Jakarta Sans', 'Poppins', system-ui, sans-serif;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-lh);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    caret-color: var(--accent-sage);
   }
 
-  /* Mathematical & statistical numerals tabular alignment */
+  ::selection {
+    background-color: var(--accent-sage-soft);
+    color: var(--text-primary);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 9999px;
+    border: 2px solid var(--bg-secondary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    text-wrap: balance;
+  }
+
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
 
-  button,
   a {
-    transition-property: color, background-color, border-color, transform, opacity, box-shadow;
-    transition-duration: 200ms;
-    transition-timing-function: var(--ease-out);
-  }
-
-  button:active,
-  a[role="button"]:active,
-  a.rounded-full:active,
-  .btn-press:active {
-    transform: scale(0.965);
-    transition-duration: 120ms;
-    transition-timing-function: var(--ease-out);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
   }
 
   a:focus-visible,
-  button:focus-visible {
-    @apply outline-none ring-2 ring-amber-500 ring-offset-2 ring-offset-white;
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--accent-sage);
+    outline-offset: 2px;
   }
 
   img {
-    @apply block max-w-full;
+    display: block;
+    max-width: 100%;
   }
 }
 
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(0.8deg);
-  }
-}
-
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(6px) rotate(-1deg);
-  }
-}
-
-@keyframes gentle-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.03);
-    opacity: 0.95;
-  }
-}
-
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: float-reverse 7s ease-in-out infinite;
-}
-
-.animate-gentle-pulse {
-  animation: gentle-pulse 3s ease-in-out infinite;
-}
-
-@layer utilities {
-  /* Subtle tactile mathematical coordinate lattice */
-  .bg-math-grid {
-    background-color: var(--canvas);
-    background-image: radial-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px);
-    background-size: 24px 24px;
+@layer components {
+  /* Typography Roles */
+  .display-h1 {
+    font-size: var(--text-h1-size);
+    line-height: var(--text-h1-lh);
+    letter-spacing: var(--text-h1-ls);
+    font-weight: 600;
   }
 
-  /* Elegant isometric dot matrix for hero/features */
-  .bg-hero-texture {
-    background-color: #FAF8F5;
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.45) 0%, transparent 35%),
-      radial-gradient(circle at 90% 85%, rgba(204, 251, 241, 0.4) 0%, transparent 40%),
-      radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-    background-size: auto, auto, 24px 24px;
+  .section-h2 {
+    font-size: var(--text-h2-size);
+    line-height: var(--text-h2-lh);
+    letter-spacing: var(--text-h2-ls);
+    font-weight: 600;
   }
 
-  /* Backward compatibility for bg-hero with refined warm gradient */
-  .bg-hero {
-    background-color: #FAF8F5;
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.4) 0%, transparent 35%),
-      radial-gradient(circle at 90% 85%, rgba(204, 251, 241, 0.35) 0%, transparent 40%),
-      radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-    background-size: auto, auto, 24px 24px;
+  .feature-h3 {
+    font-size: var(--text-h3-size);
+    line-height: var(--text-h3-lh);
+    letter-spacing: var(--text-h3-ls);
+    font-weight: 500;
   }
 
-  .shadow-soft {
-    box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  /* Layout Containers */
+  .container-nav {
+    width: 100%;
+    max-width: var(--container-nav);
+    margin-inline: auto;
   }
 
-  .shadow-hover {
-    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1), 0 2px 4px rgba(15, 23, 42, 0.04);
+  .container-feature {
+    width: 100%;
+    max-width: var(--container-feature);
+    margin-inline: auto;
   }
 
-  .shadow-glow-gold {
-    box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.25);
+  .container-reading {
+    width: 100%;
+    max-width: var(--container-reading);
+    margin-inline: auto;
   }
 
-  /* Professional images card: consistent radius, cover, and subtle shadow */
-  img.img-card {
-    @apply rounded-[1.75rem] object-cover block w-full h-auto;
-    background-color: #ffffff;
-    box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.08);
+  /* Alternating Sanctuary Surfaces */
+  .surface-beige {
+    background-color: var(--bg-secondary);
   }
 
-  /* Responsive hero/feature image should fill their wrapper */
-  .img-fill {
-    @apply w-full h-full object-cover;
+  .surface-white {
+    background-color: var(--bg-primary);
   }
 
-  /* Crisp readable elevation for text resting over blended imagery */
-  .text-layer-elevated {
-    text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);
+  .surface-dark {
+    background: var(--gradient-sanctuary-dark);
+    color: var(--text-inverse);
   }
 
-  /* Physical Scroll-Reveal with Gentle Spring Overshoot */
-  .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(28px) scale(0.97);
-    transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-spring);
-    will-change: opacity, transform;
+  .section-pad {
+    padding-block: var(--space-section-y);
+    padding-inline: 1.25rem;
   }
 
-  .reveal-on-scroll.is-revealed {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  @media (min-width: 1024px) {
+    .section-pad {
+      padding-inline: 2rem;
+    }
   }
 
-  /* Stagger delays for group entrances */
-  .stagger-1 { transition-delay: 40ms; }
-  .stagger-2 { transition-delay: 90ms; }
-  .stagger-3 { transition-delay: 140ms; }
-  .stagger-4 { transition-delay: 190ms; }
-  .stagger-5 { transition-delay: 240ms; }
-  .stagger-6 { transition-delay: 290ms; }
-
-  /* Stretchy Scroll Velocity Inertia (GPU Compositor Scale) */
-  .stretchy-scroll {
-    transform-origin: center center;
-    transform: scaleY(var(--scroll-stretch, 1)) scaleX(var(--scroll-compress, 1));
-    transition: transform 180ms var(--ease-out);
-    will-change: transform;
+  /* Sanctuary Cards (28px radius, warm hairline border) */
+  .sanctuary-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-subtle);
+    transition:
+      transform var(--duration-nav) var(--ease-sanctuary),
+      box-shadow var(--duration-nav) var(--ease-sanctuary),
+      border-color var(--duration-nav) var(--ease-sanctuary);
   }
 
-  /* Tactile Pop on Active Tab Selection */
-  .tab-spring-active {
-    animation: tab-pop 250ms var(--ease-spring);
-  }
-
-  @keyframes tab-pop {
-    0% { transform: scale(0.96); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-  }
-
-  /* Smooth Gliding Entrance for Tab Panels */
-  .tab-panel-enter {
-    animation: panel-enter 280ms var(--ease-out);
-  }
-
-  @keyframes panel-enter {
-    0% { opacity: 0; transform: translateY(8px) scale(0.985); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  /* Subtle Spring Hover Lift for Interactive Cards */
   @media (hover: hover) and (pointer: fine) {
-    .hover-spring {
-      transition: transform 240ms var(--ease-spring), box-shadow 240ms var(--ease-out);
-    }
-    .hover-spring:hover {
-      transform: translateY(-4px) scale(1.01);
+    .sanctuary-card-interactive:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--border-strong);
     }
   }
 
-  /* Sticky Stacking Deck Card Physics */
-  .deck-card {
-    will-change: transform, opacity;
-    transform-origin: center top;
-    transition: box-shadow 300ms var(--ease-out);
+  .sanctuary-card-beige {
+    background-color: var(--bg-elevated-soft);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-subtle);
   }
 
-  /* Accessibility: Prefers Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-    .reveal-on-scroll {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-    .stretchy-scroll {
-      transform: none !important;
-      transition: none !important;
-    }
-    .tab-spring-active,
-    .tab-panel-enter {
-      animation: none !important;
-    }
+  /* Tactile Pill Buttons */
+  .btn-pill-primary,
+  .btn-pill-sage,
+  .btn-pill-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 46px;
+    white-space: nowrap;
+    border-radius: var(--radius-pill);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.96875rem;
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform var(--duration-press) ease-out,
+      box-shadow var(--duration-press) ease-out,
+      background-color 150ms ease-out,
+      border-color 150ms ease-out;
+  }
+
+  .btn-pill-primary {
+    background-color: var(--cta-primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 0 0 var(--cta-primary-lip);
+  }
+
+  .btn-pill-primary:hover {
+    background-color: var(--cta-primary-hover);
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 0 var(--cta-primary-lip);
+  }
+
+  .btn-pill-primary:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 var(--cta-primary-lip);
+  }
+
+  .btn-pill-sage {
+    background-color: var(--accent-sage);
+    color: #FFFFFF;
+    box-shadow: 0 4px 0 0 var(--accent-sage-lip);
+  }
+
+  .btn-pill-sage:hover {
+    background-color: var(--accent-sage-hover);
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 0 var(--accent-sage-lip);
+  }
+
+  .btn-pill-sage:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 var(--accent-sage-lip);
+  }
+
+  .btn-pill-secondary {
+    background-color: var(--btn-secondary-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 0 0 var(--btn-secondary-lip);
+  }
+
+  .btn-pill-secondary:hover {
+    background-color: var(--btn-secondary-hover);
+    border-color: var(--border-strong);
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 0 var(--btn-secondary-lip);
+  }
+
+  .btn-pill-secondary:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 var(--btn-secondary-lip);
+  }
+
+  /* Filter / Curriculum Pill Tabs */
+  .pill-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 46px;
+    padding: 0 1.25rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-primary);
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    box-shadow: var(--shadow-pill);
+    cursor: pointer;
+    transition:
+      color 150ms ease-out,
+      background-color 150ms ease-out,
+      border-color 150ms ease-out,
+      transform var(--duration-tab) var(--ease-sanctuary);
+  }
+
+  .pill-tab:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
+
+  .pill-tab.is-active {
+    background-color: var(--cta-primary);
+    border-color: var(--cta-primary);
+    color: #FFFFFF;
+  }
+}
+
+/* Tab Panel Switch */
+@keyframes panel-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-panel-enter {
+  animation: panel-fade-in 220ms var(--ease-sanctuary) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sanctuary-card,
+  .btn-pill-primary,
+  .btn-pill-sage,
+  .btn-pill-secondary,
+  .pill-tab,
+  .tab-panel-enter {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }

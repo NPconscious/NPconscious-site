@@ -1,1124 +1,842 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import SanctuaryCta from "../components/SanctuaryCta.astro";
+import ComputerScienceSection from "../components/ComputerScienceSection.astro";
+
+const reviews = [
+  {
+    name: "Sarra",
+    role: "Parent of Grade 8 Student",
+    quote:
+      "My son in Grade 8 used to freeze whenever a word problem appeared. After 2 months with NPconscious, he has started explaining proofs to us at dinner! The difference in his confidence is remarkable.",
+  },
+  {
+    name: "Maaz",
+    role: "Grade 10 Learner",
+    quote:
+      "The Money & Mathematics module opened my eyes. I never realized how practical compound interest and probability are in real life. The classes feel like interactive discussions, not lectures.",
+  },
+  {
+    name: "Rohit",
+    role: "Parent of Grade 9 Student",
+    quote:
+      "I appreciate how transparent Nikhil and the educators are. No false promises of 100/100 in two days. They focus purely on conceptual fundamentals and the exam confidence naturally follows.",
+  },
+];
+
+// Seamless 6-slot circular deck (3 primary reviews + 3 aria-hidden wrap clones, matching Brilliant's sliding carousel pattern)
+const carouselSlides = [
+  ...reviews.map((r, i) => ({ ...r, logicalIndex: i, isClone: false })),
+  ...reviews.map((r, i) => ({ ...r, logicalIndex: i, isClone: true })),
+];
 ---
 
-<MainLayout title="Home">
-  <!-- Hero Section: Warm, Inspiring, High-Trust for Kids & Parents -->
-  <section class="relative overflow-hidden bg-hero-texture px-4 pt-8 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:px-8 lg:pt-16 lg:pb-24">
-    <div class="mx-auto max-w-[1360px]">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
-        <!-- Left Hero Content -->
-        <div class="space-y-6 lg:col-span-7">
-          <!-- Text block with blended nature backdrop -->
-          <div class="relative">
-            <!-- Blended Nature Image Backdrop -->
-            <div 
-              class="pointer-events-none absolute select-none z-0 -right-2 sm:right-0 lg:right-4 -top-2 sm:-top-3 bottom-1 sm:bottom-2 w-[72%] sm:w-[62%] lg:w-[56%] max-w-[480px] overflow-hidden"
-              aria-hidden="true"
-            >
-              <div 
-                class="w-full h-full relative"
-                style="
-                  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 60% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.65) 60%, transparent 98%);
-                  mask-image: radial-gradient(ellipse 72% 68% at 60% 50%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.65) 60%, transparent 98%);
-                "
-              >
-                <!-- Waterfall Photo with nature blend -->
-                <img 
-                  src="/nature-waterfall.jpg" 
-                  alt="" 
-                  class="w-full h-full object-cover object-[55%_40%] opacity-80 contrast-[1.08] saturate-[1.15]"
-                  loading="eager"
-                  decoding="async"
-                />
-                <!-- Soft Warm Ambient Scrims to harmonize with #FAF8F5 background -->
-                <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/90 via-[#FAF8F5]/30 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-transparent to-[#FAF8F5]/50 pointer-events-none"></div>
+<MainLayout
+  title="A Sanctuary for Young Minds"
+  description="NPconscious is a student-friendly sanctuary for young minds offering Mathematics, Computer Science, and free Career Guidance, listening first to help every learner find their right next step."
+>
+  <!-- Band 1: Umbrella Identity Hero (Warm Beige Canvas) -->
+  <section class="surface-beige px-5 pt-14 pb-16 sm:pt-20 sm:pb-24 lg:px-8 lg:min-h-[calc(100svh_-_71px)] lg:flex lg:items-center">
+    <div class="container-nav">
+      <div class="mx-auto max-w-3xl text-center space-y-7">
+        <h1 class="display-h1 text-[var(--text-primary)]" data-hero-reveal>
+          NPconscious —<br class="hidden sm:inline" />
+          A Sanctuary for Young Minds
+        </h1>
+
+        <p
+          class="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--text-secondary)]"
+          data-hero-reveal
+        >
+          We listen first, understand what each student needs, and support them through
+          <strong class="font-semibold text-[var(--text-primary)]">Mathematics</strong>,
+          <strong class="font-semibold text-[var(--text-primary)]">Computer Science</strong>, and
+          <strong class="font-semibold text-[var(--text-primary)]">free Career Guidance</strong> without pressure or rigid tracks.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-1" data-hero-reveal>
+          <a href="/admission" class="btn-pill-primary w-full sm:w-auto">
+            <span>Talk to Us — Free First Step</span>
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="#not-sure-yet" class="btn-pill-secondary w-full sm:w-auto">
+            <span>Not sure yet? Start here</span>
+            <svg class="h-4 w-4 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+
+        <dl
+          class="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 border-t border-[var(--border-subtle)] pt-7 text-left sm:grid-cols-3 sm:gap-8 sm:text-center"
+          data-hero-reveal
+        >
+          <div>
+            <dt class="text-sm font-semibold text-[var(--text-primary)]">1-on-1 &amp; Small Groups</dt>
+            <dd class="mt-1 text-xs text-[var(--text-muted)]">Across CBSE, ICSE, IGCSE, IB &amp; B.Tech</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold text-[var(--accent-sage)]">Free Career Counselling</dt>
+            <dd class="mt-1 text-xs text-[var(--text-muted)]">Zero charges for basic guidance</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold text-[var(--text-primary)]">Listen-First Intake</dt>
+            <dd class="mt-1 text-xs text-[var(--text-muted)]">Arrive even without a fixed plan</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Band 2: Three Clear Offerings (Alternating 2-Column Visual Split Rows) -->
+  <section id="offerings" class="surface-white section-pad scroll-mt-24 border-y border-[var(--border-subtle)]">
+    <div class="container-feature">
+      <div class="max-w-2xl space-y-3 pb-10 sm:pb-14 border-b border-[var(--border-subtle)]" data-reveal>
+        <h2 class="section-h2">Three Clear Ways We Support Students</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+          Every learner enters with different questions. Explore the offering that fits where you are right now.
+        </p>
+      </div>
+
+      <!-- Row 1: Mathematics (Visual Left, Copy Right) -->
+      <div class="grid gap-10 py-14 sm:py-20 lg:grid-cols-12 lg:items-center lg:gap-16 border-b border-[var(--border-subtle)]">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="rounded-[28px] border border-[var(--border-subtle)] bg-[var(--bg-secondary)] p-6 sm:p-8">
+            <div class="rounded-2xl border border-[var(--border-subtle)] bg-white p-5 sm:p-6 shadow-[var(--shadow-subtle)] space-y-4">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Visual Intuition Preview
+                </span>
+                <div class="inline-flex rounded-full border border-[var(--border-subtle)] bg-[var(--bg-elevated-soft)] p-0.5 text-[11px] font-semibold" role="tablist" aria-label="Square identity explanation mode">
+                  <button
+                    type="button"
+                    id="math-preview-visual-btn"
+                    role="tab"
+                    aria-selected="true"
+                    class="rounded-full bg-white px-3 py-1 text-[var(--text-primary)] shadow-[var(--shadow-subtle)] cursor-pointer transition"
+                  >
+                    See It
+                  </button>
+                  <button
+                    type="button"
+                    id="math-preview-rule-btn"
+                    role="tab"
+                    aria-selected="false"
+                    class="rounded-full px-3 py-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer transition"
+                  >
+                    Memorize
+                  </button>
+                </div>
+              </div>
+
+              <p class="text-base font-semibold text-[var(--text-primary)]">
+                Why does <span class="font-mono bg-[var(--bg-sand-soft)] px-1.5 py-0.5 rounded">(a + b)² = a² + 2ab + b²</span>?
+              </p>
+
+              <!-- Visual Geometric Proof -->
+              <div id="math-preview-visual" class="grid grid-cols-12 gap-4 items-center pt-1">
+                <div class="col-span-5">
+                  <svg viewBox="0 0 120 120" class="w-full max-w-[140px] mx-auto" role="img" aria-label="Geometric area model of (a + b) squared showing a squared, two a-b rectangles, and b squared">
+                    <!-- a^2 -->
+                    <rect x="4" y="4" width="72" height="72" rx="6" fill="#ECE5D8" stroke="#CFC7BA" stroke-width="1.5" />
+                    <text x="40" y="45" text-anchor="middle" font-size="14" font-weight="600" fill="#141414">a²</text>
+                    <!-- a*b right -->
+                    <rect x="80" y="4" width="36" height="72" rx="6" fill="#E7F2EC" stroke="#B7D6C6" stroke-width="1.5" />
+                    <text x="98" y="44" text-anchor="middle" font-size="12" font-weight="600" fill="#2F6B55">ab</text>
+                    <!-- a*b bottom -->
+                    <rect x="4" y="80" width="72" height="36" rx="6" fill="#E7F2EC" stroke="#B7D6C6" stroke-width="1.5" />
+                    <text x="40" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#2F6B55">ab</text>
+                    <!-- b^2 -->
+                    <rect x="80" y="80" width="36" height="36" rx="6" fill="#F6EBDC" stroke="#DFC5A0" stroke-width="1.5" />
+                    <text x="98" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#9A5B13">b²</text>
+                  </svg>
+                </div>
+                <div class="col-span-7 space-y-2">
+                  <p class="text-xs sm:text-sm leading-relaxed text-[var(--text-secondary)]">
+                    Split a square of side <span class="font-mono font-semibold text-[var(--text-primary)]">(a + b)</span>. Four pieces appear naturally—so you never forget the middle <span class="font-mono font-semibold text-[var(--accent-sage)]">2ab</span>.
+                  </p>
+                  <p class="text-[11px] font-medium text-[var(--accent-sage)]">
+                    Visual derivation before symbols
+                  </p>
+                </div>
+              </div>
+
+              <!-- Rote Comparison -->
+              <div id="math-preview-rule" class="hidden rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated-soft)] p-4 space-y-1.5">
+                <p class="text-xs font-semibold text-[var(--accent-ochre)]">Without visual understanding</p>
+                <p class="text-xs sm:text-sm leading-relaxed text-[var(--text-secondary)]">
+                  "Just memorize the identity and write a² + b²... wait, was there a 2ab?" Without seeing the square, formulas slip under exam pressure.
+                </p>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Foreground Text -->
-            <div class="relative z-10 space-y-6">
-              <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-amber-900 shadow-xs backdrop-blur-sm">
-                <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
-                <span>Natural Mathematical Intuition</span>
+        <div class="space-y-5 lg:col-span-6" data-reveal>
+          <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+            <span class="text-[var(--text-primary)]">Core Service</span>
+            <span aria-hidden="true">·</span>
+            <span>Course Fees</span>
+          </div>
+
+          <h3 class="section-h2 !text-3xl sm:!text-4xl">Mathematics</h3>
+
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+            Curiosity-first mathematics mentorship building visual intuition and lasting conceptual clarity across school boards, practical finance, and engineering maths.
+          </p>
+
+          <ul class="space-y-2 border-t border-[var(--border-subtle)] pt-4 text-sm text-[var(--text-secondary)]">
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--text-primary)] shrink-0"></span>
+              <span>Grades 1–12, Money &amp; Math, and B.Tech Engineering</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--text-primary)] shrink-0"></span>
+              <span>1-on-1 mentorship &amp; visual derivations</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--text-primary)] shrink-0"></span>
+              <span>Aligned with CBSE, ICSE, IGCSE, IB &amp; State boards</span>
+            </li>
+          </ul>
+
+          <div class="pt-2">
+            <a href="/mathematics" class="btn-pill-primary">
+              <span>Explore Mathematics</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <ComputerScienceSection />
+
+      <!-- Row 3: Free Career Guidance (Visual Left, Copy Right) -->
+      <div class="grid gap-10 pt-14 sm:pt-20 lg:grid-cols-12 lg:items-center lg:gap-16">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="rounded-[28px] border border-[var(--border-subtle)] bg-[var(--bg-secondary)] p-6 sm:p-8">
+            <div class="rounded-2xl border border-[var(--border-subtle)] bg-white p-5 sm:p-6 shadow-[var(--shadow-subtle)] space-y-4">
+              <div class="flex items-center justify-between border-b border-[var(--border-subtle)] pb-3">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Listen-First Guidance Map
+                </span>
+                <span class="rounded-full bg-[var(--accent-sage-soft)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--accent-sage)]">
+                  Always Free
+                </span>
               </div>
 
-              <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl leading-[1.12] text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                Making Mathematics<br />
-                <span class="text-amber-600">Natural Again.</span>
-              </h1>
+              <div class="grid grid-cols-2 gap-2.5 text-xs">
+                <div class="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated-soft)] p-3">
+                  <p class="font-semibold text-[var(--text-primary)]">Your Goals</p>
+                  <p class="mt-0.5 text-[11px] text-[var(--text-muted)]">Interests &amp; strengths</p>
+                </div>
+                <div class="rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated-soft)] p-3">
+                  <p class="font-semibold text-[var(--text-primary)]">Real Constraints</p>
+                  <p class="mt-0.5 text-[11px] text-[var(--text-muted)]">Eligibility &amp; budget</p>
+                </div>
+              </div>
 
-              <p class="max-w-2xl text-base sm:text-lg leading-relaxed text-slate-700 font-medium text-layer-elevated" style="text-shadow: 0 1px 3px rgba(250, 248, 245, 0.95), 0 0 20px rgba(250, 248, 245, 0.9);">
-                We help students build unbreakable fundamentals through curiosity, questioning, and visual models — replacing math anxiety with the genuine joy of understanding.
+              <div class="rounded-xl border border-[var(--accent-sage)]/25 bg-[var(--accent-sage-soft)] p-3.5 text-xs">
+                <p class="font-semibold text-[var(--accent-sage)]">Clear Next Paths</p>
+                <p class="mt-1 text-[var(--text-secondary)]">
+                  Academic streams · Career options · Coaching · Overseas study
+                </p>
+              </div>
+
+              <p class="text-[11px] leading-relaxed text-[var(--text-muted)]">
+                Basic counselling is never charged. Partner referrals are disclosed transparently and based on student fit, never commission.
               </p>
             </div>
           </div>
+        </div>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session%20for%20my%20child."
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <span>Book Free 1-on-1 Demo</span>
+        <div class="space-y-5 lg:col-span-6" data-reveal>
+          <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+            <span class="text-[var(--accent-sage)]">Free to Students</span>
+            <span aria-hidden="true">·</span>
+            <span>Zero Counselling Fee</span>
+          </div>
+
+          <h3 class="section-h2 !text-3xl sm:!text-4xl">Career Guidance</h3>
+
+          <p class="text-sm sm:text-base leading-relaxed text-[var(--text-secondary)]">
+            Free, honest counselling to explore academic choices, career paths, coaching options, and overseas education—always grounded in the student's own goals, eligibility, and budget.
+          </p>
+
+          <ul class="space-y-2 border-t border-[var(--border-subtle)] pt-4 text-sm text-[var(--text-secondary)]">
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--accent-sage)] shrink-0"></span>
+              <span>Stream, degree &amp; career direction clarity</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--accent-sage)] shrink-0"></span>
+              <span>Coaching &amp; overseas education exploration</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-[var(--accent-sage)] shrink-0"></span>
+              <span>Plain-language partner referral disclosure</span>
+            </li>
+          </ul>
+
+          <div class="pt-2">
+            <a href="/career-guidance" class="btn-pill-sage">
+              <span>Explore Free Career Guidance</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </a>
-            <a
-              href="#programs"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 shadow-xs transition hover:bg-slate-50 hover:border-slate-400"
-            >
-              <span>Explore Curriculums</span>
-              <svg class="h-4 w-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Highlight Metric Pills -->
-          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-3 sm:pt-4 max-w-xl">
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-3.5 sm:p-4 text-center shadow-soft reveal-on-scroll stagger-1">
-              <span class="text-xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">160+</span>
-              <p class="mt-0.5 text-xs font-medium text-slate-500">Active Learners</p>
-            </div>
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-3.5 sm:p-4 text-center shadow-soft reveal-on-scroll stagger-2">
-              <span class="text-xl sm:text-3xl font-extrabold text-amber-600 tabular-nums">1-on-1</span>
-              <p class="mt-0.5 text-xs font-medium text-slate-500">Dedicated Mentors</p>
-            </div>
-            <div class="rounded-2xl border border-slate-200/80 bg-white/95 p-3.5 sm:p-4 text-center shadow-soft reveal-on-scroll stagger-3">
-              <span class="text-xl sm:text-3xl font-extrabold text-emerald-700 tabular-nums">100%</span>
-              <p class="mt-0.5 text-xs font-medium text-slate-500">Student-First Pacing</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Hero Visual: Interactive Mathematical Curiosity Widget -->
-        <div class="relative lg:col-span-5 pt-2 lg:pt-0">
-          <div class="relative rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-soft stretchy-scroll">
-            <!-- Header of Card -->
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="flex h-3 w-3 rounded-full bg-amber-500"></span>
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-800">The Intuition Lab</span>
-              </div>
-              <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 animate-float-slow">
-                Live Interactive Thought
-              </span>
-            </div>
-
-            <!-- Question Prompt -->
-            <div class="mt-4">
-              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide">Parent & Child Challenge</p>
-              <h2 class="mt-1 text-lg font-bold text-slate-900">
-                Why does <span class="font-mono bg-slate-100 px-1.5 py-0.5 rounded text-amber-700">(-1) × (-1) = +1</span>?
-              </h2>
-            </div>
-
-            <!-- Intuition Comparison Switcher -->
-            <div class="mt-4 flex rounded-xl bg-slate-100 p-1 text-xs font-semibold" role="tablist">
-              <button
-                id="btn-rote"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                class="flex-1 rounded-lg py-2 transition text-slate-600 hover:text-slate-900 cursor-pointer"
-              >
-                Conventional Rote
-              </button>
-              <button
-                id="btn-intuition"
-                type="button"
-                role="tab"
-                aria-selected="true"
-                class="flex-1 rounded-lg py-2 transition bg-white text-slate-900 shadow-xs font-bold cursor-pointer"
-              >
-                The NPconscious Way
-              </button>
-            </div>
-
-            <!-- Display Area for Switcher -->
-            <div class="mt-4 min-h-[160px] rounded-2xl bg-[#FAF8F5] p-4 border border-slate-200/70 flex flex-col justify-between">
-              <!-- Rote Explanation View -->
-              <div id="view-rote" class="hidden space-y-2">
-                <div class="flex items-center gap-2 text-rose-700 text-xs font-bold">
-                  <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                  <span>Rote Rule</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  "Two minuses make a plus. Don't ask why — just memorize the formula and practice it 30 times for tomorrow's test."
-                </p>
-                <p class="text-[11px] text-slate-500">
-                  Focuses on short-term memorization without conceptual understanding.
-                </p>
-              </div>
-
-              <!-- NPconscious Intuition View -->
-              <div id="view-intuition" class="space-y-2">
-                <div class="flex items-center gap-2 text-emerald-800 text-xs font-bold">
-                  <svg class="h-4 w-4 shrink-0 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  <span>Visual Intuition</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
-                  Imagine walking backward <span class="text-amber-700 font-mono font-bold">(-1)</span>. Now play that video in reverse <span class="text-amber-700 font-mono font-bold">(-1)</span>. What do you see? You are walking <span class="text-emerald-700 font-bold underline">forward (+1)</span>!
-                </p>
-                <div class="flex items-center gap-2 pt-1 text-[11px] text-slate-600 font-medium">
-                  <span class="inline-block h-2 w-2 rounded-full bg-amber-500"></span>
-                  <span>Geometric reasoning: Two 180° reversals point straight forward.</span>
-                </div>
-              </div>
-
-              <!-- Interactive prompt -->
-              <div class="mt-3 pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
-                <span>Instant clarity</span>
-                <span class="text-amber-700 font-semibold">Lifelong mastery</span>
-              </div>
-            </div>
-
-            <!-- Bottom trust strip on the card -->
-            <div class="mt-4 flex items-center justify-between pt-1 text-xs text-slate-600">
-              <span class="inline-flex items-center gap-1.5 font-medium">
-                <svg class="h-3.5 w-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                Personalized Pace
-              </span>
-              <span class="inline-flex items-center gap-1.5 font-medium">
-                <svg class="h-3.5 w-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                </svg>
-                Live Interactive Whiteboard
-              </span>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Pedagogical Foundation: Sticky Stacking Deck with Inertia Physics -->
-  <section id="pillars-deck-track" class="relative px-4 sm:px-6 lg:px-8 py-14 sm:py-20" style="min-height: 220vh;">
-    <!-- Sticky Stage Container -->
-    <div class="sticky top-20 sm:top-24 lg:top-28 mx-auto max-w-4xl space-y-6 sm:space-y-8">
-      
-      <!-- Section Header with Progress Navigation -->
-      <div class="text-center space-y-3">
-        <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50/90 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-amber-900 shadow-xs">
-          <span>Our Pedagogical Foundation</span>
-        </div>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Start With Curiosity, Not Formulas
-        </h2>
-        <p class="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-slate-600">
-          Children are born pattern explorers. We nurture that instinct so mathematical reasoning becomes as intuitive as speaking your mother tongue.
-        </p>
-
-        <!-- Interactive Deck Progress Indicators (Clickable) -->
-        <div class="pt-2 flex items-center justify-center gap-2 sm:gap-3" id="deck-indicators" role="tablist">
-          <button
-            type="button"
-            data-card="0"
-            class="deck-indicator-btn inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer bg-slate-900 text-white shadow-xs"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
-            <span>01 Question First</span>
-          </button>
-          <button
-            type="button"
-            data-card="1"
-            class="deck-indicator-btn inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer bg-slate-100 text-slate-600 hover:text-slate-900"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
-            <span>02 Visualize &amp; Play</span>
-          </button>
-          <button
-            type="button"
-            data-card="2"
-            class="deck-indicator-btn inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer bg-slate-100 text-slate-600 hover:text-slate-900"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-            <span>03 Lifelong Retention</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Stacking Deck Viewport (Relative stage with absolute stacked cards) -->
-      <div class="relative mx-auto w-full max-w-3xl min-h-[300px] sm:min-h-[290px] md:min-h-[280px]">
-        
-        <!-- Card 1: Question First -->
-        <div
-          id="deck-card-0"
-          class="deck-card absolute inset-x-0 top-0 rounded-3xl border border-amber-200/90 bg-white p-6 sm:p-9 shadow-soft"
-          style="z-index: 10;"
-        >
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 font-bold">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700">Pillar 01 • First Principles</span>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-950">1. Question First</h3>
-              </div>
-            </div>
-            <span class="inline-flex self-start sm:self-auto rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800 border border-amber-200">
-              Curiosity Over Speed
-            </span>
-          </div>
-
-          <p class="mt-4 text-sm sm:text-base leading-relaxed text-slate-700">
-            Why does a formula exist? When learners discover the real human puzzle a formula was invented to solve, equations transform from dreaded chores into empowering intellectual tools.
-          </p>
-
-          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-medium">
-            <span class="flex items-center gap-2">
-              <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-              Zero memorization pressure • Authentic discovery
-            </span>
-            <span class="text-amber-800 font-semibold">Scroll down to explore &darr;</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Visualize & Play -->
-        <div
-          id="deck-card-1"
-          class="deck-card absolute inset-x-0 top-0 rounded-3xl border border-indigo-200/90 bg-white p-6 sm:p-9 shadow-soft"
-          style="z-index: 20; transform: translateY(115%) scale(0.95); opacity: 0;"
-        >
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700 font-bold">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-700">Pillar 02 • Geometric Intuition</span>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-950">2. Visualize &amp; Play</h3>
-              </div>
-            </div>
-            <span class="inline-flex self-start sm:self-auto rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-800 border border-indigo-200">
-              Tactile Proofs
-            </span>
-          </div>
-
-          <p class="mt-4 text-sm sm:text-base leading-relaxed text-slate-700">
-            We use geometric derivations, tactile physical analogies, and live interactive simulations so students see numbers behaving before they manipulate abstract symbols.
-          </p>
-
-          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-medium">
-            <span class="flex items-center gap-2">
-              <span class="h-2 w-2 rounded-full bg-indigo-500"></span>
-              Visual spatial reasoning • Real-life physical models
-            </span>
-            <span class="text-indigo-800 font-semibold">Scroll down to explore &darr;</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Lifelong Retention -->
-        <div
-          id="deck-card-2"
-          class="deck-card absolute inset-x-0 top-0 rounded-3xl border border-emerald-200/90 bg-white p-6 sm:p-9 shadow-soft"
-          style="z-index: 30; transform: translateY(115%) scale(0.95); opacity: 0;"
-        >
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-800 font-bold">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Pillar 03 • Permanent Mastery</span>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-950">3. Lifelong Retention</h3>
-              </div>
-            </div>
-            <span class="inline-flex self-start sm:self-auto rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200">
-              Permanent Intellectual Asset
-            </span>
-          </div>
-
-          <p class="mt-4 text-sm sm:text-base leading-relaxed text-slate-700">
-            Concepts anchored in intuition never fade. Our students become resilient independent thinkers equipped to tackle unfamiliar challenges in STEM, board examinations, and everyday logic.
-          </p>
-
-          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-medium">
-            <span class="flex items-center gap-2">
-              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-              Lasts across high school, college &amp; career
-            </span>
-            <span class="text-emerald-800 font-semibold">Foundation complete &check;</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Programs & Curriculums Section with Intuitive Pathway Filter -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-y border-slate-200/80" id="programs">
-    <div class="mx-auto max-w-[1360px]">
-      <div class="text-center space-y-3 mb-10 sm:mb-12">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Learning Pathways
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Structured Curriculums for Every Stage
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
-          Whether your child is building early numeracy or tackling higher secondary calculus, find the exact path tailored to their age and board.
-        </p>
-
-        <!-- Pathway Selector Filter Tabs -->
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-2" role="tablist">
-          <button
-            type="button"
-            data-filter="all"
-            class="filter-tab active rounded-full px-5 py-2 text-xs sm:text-sm font-semibold transition bg-slate-900 text-white shadow-xs"
-          >
-            All Programs
-          </button>
-          <button
-            type="button"
-            data-filter="school"
-            class="filter-tab rounded-full px-5 py-2 text-xs sm:text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200"
-          >
-            School Foundations (Grades 1–10)
-          </button>
-          <button
-            type="button"
-            data-filter="higher"
-            class="filter-tab rounded-full px-5 py-2 text-xs sm:text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200"
-          >
-            Higher STEM & College (Grades 11–12 & B.Tech)
-          </button>
-          <button
-            type="button"
-            data-filter="applied"
-            class="filter-tab rounded-full px-5 py-2 text-xs sm:text-sm font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200"
-          >
-            Financial & Daily Tuitions
-          </button>
-        </div>
-      </div>
-
-      <!-- Programs Grid -->
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4" id="programs-grid">
-        <!-- Program 1 (Featured Signature): Money & Mathematics -->
-        <article
-          data-category="applied"
-          class="program-card relative flex flex-col justify-between rounded-3xl border-2 border-amber-400 bg-gradient-to-b from-amber-50/95 via-white to-white p-6 sm:p-7 shadow-xl shadow-amber-500/10 ring-4 ring-amber-400/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 lg:-translate-y-2"
-        >
-          <!-- Floating Most Popular Badge -->
-          <div class="absolute -top-3.5 left-6 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md ring-2 ring-white">
-            <svg class="h-3.5 w-3.5 fill-current text-amber-200" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            <span>★ Most Popular</span>
-          </div>
-
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4 pt-1">
-              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900 border border-amber-200">
-                Ages 12+ & Adults
-              </span>
-              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                Signature Practical Math
-              </span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Money & Mathematics</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
-              Applying mathematics to everyday finance: compound interest, risk probability, investment formulas, inflation calculations, and strategic life decisions.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-amber-200/80 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">15 Practical Case-Study Sessions</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">Real-World Financial Simulations</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="flex h-4 w-4 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">✓</span>
-                <span class="font-semibold text-slate-800">5 Dedicated Mentorship Clinics</span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-amber-200/80">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20the%20Money%20%26%20Mathematics%20program."
-              class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-4 py-3.5 text-xs sm:text-sm font-bold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <span>Inquire for Money & Math</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Program 2: Foundation Mathematics -->
-        <article data-category="school" class="program-card flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 border border-emerald-200">
-                Grades 1–5
-              </span>
-              <span class="text-xs text-slate-500 font-medium">Primary Foundations</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Foundation Mathematics</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
-              Sparking a lifelong love for numbers. Focus on visual numeracy, pattern discovery, and eliminating the early fear of mathematics.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> 12 Interactive Sessions (40 mins each)
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> 5 Dedicated 1-on-1 Doubt Sessions
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold">&#10003;</span> Bi-weekly Parent Progress Reviews
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Foundation%20Mathematics%20(Grade%201-5)."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Inquire for Grade 1–5</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Program 3: Mathematics Concepts I -->
-        <article data-category="school" class="program-card flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-800 border border-blue-200">
-                Grades 6–10
-              </span>
-              <span class="text-xs text-slate-500 font-medium">Core Mastery</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Mathematics Concepts I</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
-              Mastering algebra, geometry, trigonometry, and arithmetic through conceptual derivation. Built for board exam excellence with zero cramming.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> 30 Deep-Dive Sessions (50 mins each)
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> 10 Problem-Solving Doubt Sessions
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-blue-700 font-bold">&#10003;</span> Aligned with CBSE, ICSE, IGCSE & IB
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20I%20(Grade%206-10)."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Inquire for Grade 6–10</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Program 4: Mathematics Concepts II -->
-        <article data-category="higher" class="program-card flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-800 border border-indigo-200">
-                Grades 11–12
-              </span>
-              <span class="text-xs text-slate-500 font-medium">Advanced Secondary</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Mathematics Concepts II</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
-              Calculus, vectors, 3D geometry, probability, and analytical proofs. Demystifying senior secondary mathematics for entrance exams and STEM.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> 20 Intensive Sessions (50 mins each)
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> 5 Dedicated Proof & Doubt Clinics
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-indigo-700 font-bold">&#10003;</span> Higher STEM & Competitive Readiness
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Mathematics%20Concepts%20II%20(Grade%2011-12)."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Inquire for Grade 11–12</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Program 5: Engineering Mathematics -->
-        <article data-category="higher" class="program-card flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-800 border border-slate-300">
-                Undergrad / B.Tech
-              </span>
-              <span class="text-xs text-slate-500 font-medium">Higher STEM</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Engineering Mathematics</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
-              Differential equations, linear algebra, Laplace transforms, Fourier series, and discrete mathematics. Taught with practical engineering intuition.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="text-slate-700 font-bold">&#10003;</span> 55 Comprehensive Sessions (1 Hour)
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-slate-700 font-bold">&#10003;</span> 25 Live Doubt Solving Hours
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-slate-700 font-bold">&#10003;</span> University Syllabus Assistance
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20Engineering%20Mathematics."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Inquire for Engineering Math</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Program 6: Regular Tuition Program -->
-        <article data-category="applied" class="program-card flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-hover">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="rounded-full bg-rose-50 px-3 py-1 text-xs font-semibold text-rose-800 border border-rose-200">
-                Grades 1–10
-              </span>
-              <span class="text-xs text-slate-500 font-medium">Daily Mentorship</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Regular Tuition Program</h3>
-            <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
-              Continuous patient handholding for school coursework, homework clarity, and periodic school tests with dedicated personal attention.
-            </p>
-            <div class="mt-6 space-y-2.5 border-t border-slate-200/70 pt-4 text-xs font-medium text-slate-700">
-              <div class="flex items-center gap-2">
-                <span class="text-rose-700 font-bold">&#10003;</span> Daily / Weekly flexible schedule options
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-rose-700 font-bold">&#10003;</span> 1 Hour Class + 10 Min Habit Mentoring
-              </div>
-              <div class="flex items-center gap-2">
-                <span class="text-rose-700 font-bold">&#10003;</span> Regular Parent Syncs on Progress
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200/70">
-            <a
-              href="https://wa.me/918011236456?text=Hi%2C%20I%20am%20interested%20in%20the%20Regular%20Tuition%20Program."
-              class="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-slate-900 hover:bg-slate-800 px-4 py-3 text-xs font-semibold text-white transition"
-            >
-              <span>Inquire for Regular Tuition</span>
-              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Stories: Hear From Our Students & Parents -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-b border-slate-200/80">
-    <div class="mx-auto max-w-6xl space-y-12">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Parent & Student Feedback
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Real Stories of Transformation
-        </h2>
-        <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
+  <!-- Band 3: Real Stories (Brilliant-Style Sliding Carousel + Curved Rotating Wheel Slider, Beige Surface) -->
+  <section id="stories" class="surface-beige section-pad scroll-mt-24 overflow-hidden">
+    <div class="container-feature space-y-10">
+      <div class="mx-auto max-w-2xl text-center space-y-3" data-reveal>
+        <h2 class="section-h2">Real Stories of Transformation</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
           Seeing a child go from "I hate maths" to eagerly explaining a proof at the dinner table is why we exist.
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Testimonial 1 -->
-        <div class="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-7 shadow-xs">
-          <div>
-            <div class="flex items-center gap-1 text-amber-500 mb-4" aria-label="5 out of 5 stars">
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="text-sm leading-relaxed text-slate-700 italic">
-              "My son in Grade 8 used to freeze whenever a word problem appeared. After 2 months with NPconscious, he has started explaining proofs to us at dinner! The difference in his confidence is remarkable."
-            </p>
+      <!-- Draggable / Clickable Center-Focus Card Stage -->
+      <div
+        id="reviews-carousel-stage"
+        class="relative mx-auto h-[370px] sm:h-[380px] w-full max-w-[1110px] select-none cursor-grab active:cursor-grabbing touch-pan-y"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Parent and student reviews"
+        tabindex="0"
+      >
+        {
+          carouselSlides.map((slide, idx) => (
+            <article
+              data-review-card
+              data-slide-idx={idx}
+              data-logical-idx={slide.logicalIndex}
+              aria-hidden={slide.isClone ? "true" : "false"}
+              class="absolute left-1/2 top-1/2 w-[296px] sm:w-[336px] min-h-[325px] rounded-[28px] border border-[var(--border-subtle)] bg-white p-7 sm:p-8 flex flex-col justify-between will-change-transform"
+              style="transform: translate3d(-50%, -50%, 0); opacity: 0;"
+            >
+              <div class="space-y-4">
+                <div class="flex items-center gap-1 text-[var(--accent-ochre)]" aria-hidden="true">
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+
+                <blockquote class="text-sm sm:text-base leading-relaxed text-[var(--text-primary)]">
+                  "{slide.quote}"
+                </blockquote>
+              </div>
+
+              <footer class="mt-6 pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-semibold text-[var(--text-primary)]">{slide.name}</p>
+                  <p class="text-xs text-[var(--text-muted)]">{slide.role}</p>
+                </div>
+                <span class="text-[11px] font-medium text-[var(--text-muted)] tabular-nums">
+                  {slide.logicalIndex + 1} / {reviews.length}
+                </span>
+              </footer>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Curved Rotating Wheel Slider Control -->
+      <div class="mx-auto max-w-md flex flex-col items-center gap-2 pt-1">
+        <div class="flex items-center gap-3 w-full justify-center">
+          <button
+            type="button"
+            id="reviews-prev-btn"
+            aria-label="Previous review"
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-white text-[var(--text-primary)] shadow-[var(--shadow-subtle)] transition hover:border-[var(--border-strong)] hover:bg-[var(--bg-elevated-soft)] cursor-pointer"
+          >
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <div
+            id="reviews-wheel-control"
+            class="relative flex-1 max-w-[300px] select-none cursor-grab active:cursor-grabbing touch-none"
+            role="slider"
+            aria-label="Turn wheel to browse reviews"
+            aria-valuemin="1"
+            aria-valuemax={reviews.length}
+            aria-valuenow="2"
+            tabindex="0"
+          >
+            <svg viewBox="0 0 320 64" class="w-full h-16 overflow-hidden" aria-hidden="true">
+              <defs>
+                <linearGradient id="wheel-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="white" stop-opacity="0" />
+                  <stop offset="16%" stop-color="white" stop-opacity="1" />
+                  <stop offset="84%" stop-color="white" stop-opacity="1" />
+                  <stop offset="100%" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+                <mask id="wheel-edge-mask">
+                  <rect x="0" y="0" width="320" height="64" fill="url(#wheel-fade)" />
+                </mask>
+              </defs>
+
+              <g mask="url(#wheel-edge-mask)">
+                <!-- Subtle Curved Track Horizon (pivot at 160, 380, r = 360) -->
+                <circle cx="160" cy="380" r="360" fill="none" stroke="#CFC7BA" stroke-width="1.75" />
+
+                <!-- Rotating 360-deg Wheel Spoke Ticks (seamless continuous spinning) -->
+                <g
+                  id="reviews-wheel-rotor"
+                  style="transform-box: view-box; transform-origin: 160px 380px;"
+                >
+                  {
+                    Array.from({ length: 96 }, (_, idx) => {
+                      const deg = idx * 3.75;
+                      const isMajor = idx % 4 === 0;
+                      const rad = (deg * Math.PI) / 180;
+                      const rOuter = 360;
+                      const rInner = isMajor ? 344 : 351;
+                      const x1 = 160 + rOuter * Math.sin(rad);
+                      const y1 = 380 - rOuter * Math.cos(rad);
+                      const x2 = 160 + rInner * Math.sin(rad);
+                      const y2 = 380 - rInner * Math.cos(rad);
+                      return (
+                        <line
+                          x1={x1.toFixed(2)}
+                          y1={y1.toFixed(2)}
+                          x2={x2.toFixed(2)}
+                          y2={y2.toFixed(2)}
+                          stroke={isMajor ? "#2F6B55" : "#B8B0A2"}
+                          stroke-width={isMajor ? "2" : "1.25"}
+                          stroke-linecap="round"
+                        />
+                      );
+                    })
+                  }
+                </g>
+              </g>
+
+              <!-- Fixed Top Center Wheel Pointer & Grip Knob -->
+              <line x1="160" y1="8" x2="160" y2="27" stroke="#141414" stroke-width="2" stroke-linecap="round" />
+              <circle cx="160" cy="20" r="5" fill="#2F6B55" stroke="#FFFFFF" stroke-width="2" />
+            </svg>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Sarra</h3>
-            <p class="text-xs text-slate-500">Parent of Grade 8 Student</p>
-          </div>
+
+          <button
+            type="button"
+            id="reviews-next-btn"
+            aria-label="Next review"
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] bg-white text-[var(--text-primary)] shadow-[var(--shadow-subtle)] transition hover:border-[var(--border-strong)] hover:bg-[var(--bg-elevated-soft)] cursor-pointer"
+          >
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
-        <!-- Testimonial 2 -->
-        <div class="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-7 shadow-xs">
-          <div>
-            <div class="flex items-center gap-1 text-amber-500 mb-4" aria-label="5 out of 5 stars">
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="text-sm leading-relaxed text-slate-700 italic">
-              "The Money & Mathematics module opened my eyes. I never realized how practical compound interest and probability are in real life. The classes feel like interactive discussions, not lectures."
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Maaz</h3>
-            <p class="text-xs text-slate-500">Grade 10 Learner</p>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-[#FAF8F5] p-7 shadow-xs">
-          <div>
-            <div class="flex items-center gap-1 text-amber-500 mb-4" aria-label="5 out of 5 stars">
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            </div>
-            <p class="text-sm leading-relaxed text-slate-700 italic">
-              "I appreciate how transparent Nikhil and the educators are. No false promises of 100/100 in two days. They focus purely on conceptual fundamentals and the exam confidence naturally follows."
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Rohit</h3>
-            <p class="text-xs text-slate-500">Parent of Grade 9 Student</p>
-          </div>
-        </div>
+        <p class="text-xs font-medium text-[var(--text-muted)]">
+          Drag cards or turn the wheel · <span id="reviews-active-label" class="text-[var(--text-primary)] font-semibold">Maaz · Grade 10 Learner</span>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Founder Spotlight Section -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-    <div class="mx-auto max-w-[1200px] rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 lg:p-14 shadow-soft">
-      <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
-        <div class="lg:col-span-5">
-          <div class="overflow-hidden rounded-2xl border border-slate-200 shadow-xs bg-slate-50">
-            <img
-              src="/letter.webp"
-              alt="Founder letter illustration"
-              class="w-full h-auto object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div class="space-y-5 lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold text-slate-700">
-            Founder's Note
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950">
-            A Journey Back to Natural Thinking
-          </h2>
-          <p class="text-sm sm:text-base leading-relaxed text-slate-600">
-            Nikhil Parag holds a Bachelor of Engineering in Information Science. Having worked across organizations like Concentrix, Airbnb, and Bhanzu, he experienced firsthand how traditional education often suppresses natural curiosity in favor of rigid testing drills.
+  <!-- Band 4: "Not Sure Yet?" Listen-First Entry Point (White Surface) -->
+  <section id="not-sure-yet" class="surface-white section-pad scroll-mt-24 border-y border-[var(--border-subtle)]">
+    <div class="container-feature">
+      <div class="w-full grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <div class="space-y-5 lg:col-span-5" data-reveal>
+          <h2 class="section-h2">Not Sure What You Need Yet?</h2>
+          <p class="text-base font-normal leading-relaxed text-[var(--text-primary)]">
+            Whether it's maths, CS, or career questions, we start by listening.
           </p>
-          <p class="text-sm sm:text-base leading-relaxed text-slate-600">
-            In January 2026, he founded NPconscious to create a sanctuary for curious minds — where students of all ages can rediscover mathematics as the intuitive, creative language of the universe.
-          </p>
-          <div class="pt-2">
+          <div class="flex flex-wrap lg:flex-nowrap items-center gap-x-4 gap-y-3 pt-2">
             <a
-              href="/founder"
-              class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 hover:text-amber-800 transition"
+              href="/admission?interest=not-sure"
+              class="btn-pill-primary !px-5 !text-sm !shadow-none hover:!-translate-y-0.5 hover:!shadow-none hover:!bg-[var(--cta-primary-hover)] active:!translate-y-0 active:!shadow-none focus-visible:!outline-2 focus-visible:!outline-offset-2 focus-visible:!outline-[var(--accent-sage)]"
             >
-              <span>Read Our Full Vision & Story</span>
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              <span>Start a Free Conversation</span>
+            </a>
+            <a
+              href="https://wa.me/918011236456?text=Hi%20NPconscious%20team%2C%20we%20are%20not%20sure%20which%20path%20fits%20best%20yet%20and%20would%20love%20to%20talk."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex min-h-[46px] shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm text-sm leading-[1.25] font-semibold text-[var(--accent-sage-hover)] transition-colors hover:text-[var(--accent-sage-lip)] hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-sage)]"
+            >
+              <svg class="h-4 w-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
               </svg>
+              <span>Message on WhatsApp</span>
+              <span class="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
+
+        <ol class="w-full space-y-3.5 lg:col-span-7">
+          <li class="rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated-soft)] px-5 py-4 sm:px-6 sm:py-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-center justify-between gap-4" data-reveal data-reveal-delay="0">
+            <div class="grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-1.5">
+              <span class="text-xl sm:text-2xl font-bold leading-none text-[var(--accent-sage)] tabular-nums">01</span>
+              <h3 class="text-base sm:text-lg font-bold leading-none text-[var(--text-primary)]">Share where you are</h3>
+              <p class="col-start-2 text-[15px] font-normal leading-snug text-[#2A2A2A]">
+                Grade, interests, and questions.
+              </p>
+            </div>
+            <span class="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[var(--border-subtle)] text-[var(--accent-sage)]" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated-soft)] px-5 py-4 sm:px-6 sm:py-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-center justify-between gap-4" data-reveal data-reveal-delay="60">
+            <div class="grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-1.5">
+              <span class="text-xl sm:text-2xl font-bold leading-none text-[var(--accent-sage)] tabular-nums">02</span>
+              <h3 class="text-base sm:text-lg font-bold leading-none text-[var(--text-primary)]">We listen first</h3>
+              <p class="col-start-2 text-[15px] font-normal leading-snug text-[#2A2A2A]">
+                No course pushed.
+              </p>
+            </div>
+            <span class="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[var(--border-subtle)] text-[var(--accent-sage)]" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="rounded-2xl border border-[var(--border-strong)] bg-[var(--bg-elevated-soft)] px-5 py-4 sm:px-6 sm:py-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-center justify-between gap-4" data-reveal data-reveal-delay="120">
+            <div class="grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-1.5">
+              <span class="text-xl sm:text-2xl font-bold leading-none text-[var(--accent-sage)] tabular-nums">03</span>
+              <h3 class="text-base sm:text-lg font-bold leading-none text-[var(--text-primary)]">Agree on a next step</h3>
+              <p class="col-start-2 text-[15px] font-normal leading-snug text-[#2A2A2A]">
+                A track, free guidance, or a better external option.
+              </p>
+            </div>
+            <span class="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[var(--border-subtle)] text-[var(--accent-sage)]" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Parent FAQ Section -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white border-t border-slate-200/80">
-    <div class="mx-auto max-w-4xl space-y-10">
-      <div class="text-center space-y-3">
-        <span class="inline-block rounded-full bg-slate-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-700">
-          Clear Answers For Parents
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-          Frequently Asked Questions
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600">
-          Everything parents want to know about our teaching philosophy and class format.
+  <!-- Band 5: FAQ (Beige Surface) -->
+  <section id="faq" class="surface-beige section-pad scroll-mt-24">
+    <div class="container-reading space-y-10">
+      <div class="space-y-3">
+        <h2 class="section-h2">Frequently Asked Questions</h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          Common questions from parents and students about our offerings, free career guidance, and support format.
         </p>
       </div>
 
-      <div class="space-y-4">
-        <details class="group rounded-2xl border border-slate-200 bg-[#FAF8F5] p-5 sm:p-6 shadow-xs transition hover:border-slate-300">
-          <summary class="flex cursor-pointer items-center justify-between text-base font-semibold text-slate-900 list-none">
-            <span>How does the free 1-on-1 demo assessment work?</span>
-            <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 group-open:rotate-180 transition-transform shadow-xs">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      <div class="divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)]">
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-[var(--text-primary)] list-none">
+            <span>What does "A Sanctuary for Young Minds" mean at NPconscious?</span>
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform group-open:rotate-180">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">
-            The free demo is a relaxed 30-minute 1-on-1 session with an academic mentor. We explore a playful visual puzzle to observe how your child naturally thinks, visualizes patterns, and asks questions. There is zero pressure to perform, and parents receive qualitative feedback afterward.
+          <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+            It means students can approach us without fear of being judged or pushed into a course. We listen first, understand what the learner needs, and support them across Mathematics, Computer Science, and free Career Guidance.
           </p>
         </details>
 
-        <details class="group rounded-2xl border border-slate-200 bg-[#FAF8F5] p-5 sm:p-6 shadow-xs transition hover:border-slate-300">
-          <summary class="flex cursor-pointer items-center justify-between text-base font-semibold text-slate-900 list-none">
-            <span>Which school boards and curricula do you align with?</span>
-            <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 group-open:rotate-180 transition-transform shadow-xs">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-[var(--text-primary)] list-none">
+            <span>Is Career Guidance really free, and how do partner referrals work?</span>
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform group-open:rotate-180">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">
-            Our modules cover CBSE, ICSE, Cambridge (IGCSE), IB, and State Board standards. Because we build foundational intuition first, students seamlessly adapt concepts to their school exams without feeling overwhelmed.
+          <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+            Yes. Basic career counselling is always free for students. When a student is ready for an external next step (such as a coaching centre, college, university, or overseas education partner) and chooses to proceed through a qualifying referral, NPconscious may earn a commission. Every recommendation is based on the student's goals, eligibility, budget, and preferences, never on commission.
           </p>
         </details>
 
-        <details class="group rounded-2xl border border-slate-200 bg-[#FAF8F5] p-5 sm:p-6 shadow-xs transition hover:border-slate-300">
-          <summary class="flex cursor-pointer items-center justify-between text-base font-semibold text-slate-900 list-none">
-            <span>What happens if my child misses a scheduled session?</span>
-            <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 group-open:rotate-180 transition-transform shadow-xs">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-[var(--text-primary)] list-none">
+            <span>What is included in Computer Science right now?</span>
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform group-open:rotate-180">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">
-            Life happens! All our programs include dedicated doubt and makeup hours. Parents can easily coordinate with the mentor to reschedule sessions so your child never falls behind.
+          <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+            Our Computer Science track covers Python fundamentals, web basics (HTML, CSS, JavaScript), and logical problem-solving for students in grades 8–12 in small mentor-led batches. You can view the <a href="/computer-science" class="font-medium text-[var(--text-primary)] underline">Computer Science page</a> or share your interest so our team can share upcoming cohort dates.
           </p>
         </details>
 
-        <details class="group rounded-2xl border border-slate-200 bg-[#FAF8F5] p-5 sm:p-6 shadow-xs transition hover:border-slate-300">
-          <summary class="flex cursor-pointer items-center justify-between text-base font-semibold text-slate-900 list-none">
-            <span>How do we get started?</span>
-            <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-slate-700 group-open:rotate-180 transition-transform shadow-xs">
-              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-[var(--text-primary)] list-none">
+            <span>How does the Mathematics demo &amp; assessment work?</span>
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform group-open:rotate-180">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </span>
           </summary>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">
-            Simply click "Book Free 1-on-1 Demo" or send a message on WhatsApp with your child's grade and name. For any questions or guidance, you can also write directly to <a href="https://mail.google.com/mail/?view=cm&fs=1&to=help@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-700 font-medium hover:underline">help@npconscious.com</a>. Our academic advisor will connect with you to confirm a comfortable time slot.
+          <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+            Our Mathematics assessment is a 30-minute 1-on-1 session (1 hour for Engineering Maths) where we explore visual puzzles together to see how the student reasons and asks questions. Parents receive qualitative feedback afterward.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-[var(--text-primary)] list-none">
+            <span>Which school boards do you align with, and are multiple offerings compulsory?</span>
+            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border-subtle)] text-[var(--text-primary)] transition-transform group-open:rotate-180">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+            Our Mathematics programmes align with CBSE, ICSE, Cambridge (IGCSE), IB, and State Board standards. Offerings are never bundled as compulsory upsells: we only suggest another offering if it fits what the student needs.
           </p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Final Call to Action Banner -->
-  <section class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-[#FAF8F5]">
-    <div class="mx-auto max-w-5xl rounded-3xl bg-slate-900 p-8 sm:p-14 text-center text-white shadow-2xl relative overflow-hidden">
-      <div class="relative z-10 space-y-5">
-        <span class="inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300 border border-white/10">
-          Zero-Pressure First Step
-        </span>
-        <h2 class="text-2xl font-bold tracking-tight sm:text-4xl">
-          Help Your Child Experience the Joy of Mathematics
-        </h2>
-        <p class="mx-auto max-w-xl text-sm sm:text-base text-slate-300 leading-relaxed">
-          Book a 30-minute demo session to see how natural mathematics feels when curiosity comes first.
-        </p>
-        <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-          <a
-            href="https://wa.me/918011236456?text=Hi%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20session!"
-            class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-amber-600 hover:bg-amber-700 px-8 py-4 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-hover hover:-translate-y-0.5"
-          >
-            <span>Book Free Demo on WhatsApp</span>
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
-          </a>
-          <a
-            href="/admission"
-            class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-slate-700 bg-white/5 hover:bg-white/10 px-7 py-4 text-sm font-semibold text-white transition"
-          >
-            <span>View Admission & Assessment Details</span>
-          </a>
-        </div>
-        <div class="pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs text-slate-300">
-          <span class="text-slate-400">Have questions before booking?</span>
-          <!--email_off-->
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=help@npconscious.com" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-200 transition font-medium underline underline-offset-2">help@npconscious.com</a>
-          <!--/email_off-->
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Band 7: Full-Bleed Dark Sanctuary Closing CTA -->
+  <SanctuaryCta
+    heading="Start With a First Conversation"
+    description="Whether you are looking for Mathematics mentorship, exploring Computer Science, seeking free Career Guidance, or unsure where to begin, we are here to listen."
+    primaryLabel="Book Free Conversation on WhatsApp"
+    secondaryLabel="Go to Admission & Intake"
+    secondaryHref="/admission"
+  />
+</MainLayout>
 
-  <!-- Interactive Scripts for Hero Switcher and Curriculum Filtering -->
-  <script is:inline>
-    function initHomePage() {
-      // Hero Intuition Switcher
-      const btnRote = document.getElementById("btn-rote");
-      const btnIntuition = document.getElementById("btn-intuition");
-      const viewRote = document.getElementById("view-rote");
-      const viewIntuition = document.getElementById("view-intuition");
+<script>
+  function initHomeOfferingsPreview() {
+    const visualBtn = document.getElementById("math-preview-visual-btn");
+    const ruleBtn = document.getElementById("math-preview-rule-btn");
+    const visualPanel = document.getElementById("math-preview-visual");
+    const rulePanel = document.getElementById("math-preview-rule");
 
-      if (btnRote && btnIntuition && viewRote && viewIntuition) {
-        btnRote.onclick = function (e) {
-          e.preventDefault();
-          btnRote.classList.add("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-          btnRote.classList.remove("text-slate-600");
-          btnRote.setAttribute("aria-selected", "true");
+    if (!visualBtn || !ruleBtn || !visualPanel || !rulePanel) return;
 
-          btnIntuition.classList.remove("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-          btnIntuition.classList.add("text-slate-600");
-          btnIntuition.setAttribute("aria-selected", "false");
+    const setMode = (mode: "visual" | "rule") => {
+      const isVisual = mode === "visual";
+      visualBtn.setAttribute("aria-selected", String(isVisual));
+      ruleBtn.setAttribute("aria-selected", String(!isVisual));
 
-          viewRote.classList.remove("hidden");
-          viewRote.style.display = "block";
-          viewRote.classList.add("tab-panel-enter");
-          viewIntuition.classList.add("hidden");
-          viewIntuition.style.display = "none";
-          viewIntuition.classList.remove("tab-panel-enter");
+      visualBtn.classList.toggle("bg-white", isVisual);
+      visualBtn.classList.toggle("text-[var(--text-primary)]", isVisual);
+      visualBtn.classList.toggle("shadow-[var(--shadow-subtle)]", isVisual);
+      visualBtn.classList.toggle("text-[var(--text-muted)]", !isVisual);
 
-          setTimeout(() => btnRote.classList.remove("tab-spring-active"), 300);
-        };
+      ruleBtn.classList.toggle("bg-white", !isVisual);
+      ruleBtn.classList.toggle("text-[var(--text-primary)]", !isVisual);
+      ruleBtn.classList.toggle("shadow-[var(--shadow-subtle)]", !isVisual);
+      ruleBtn.classList.toggle("text-[var(--text-muted)]", isVisual);
 
-        btnIntuition.onclick = function (e) {
-          e.preventDefault();
-          btnIntuition.classList.add("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-          btnIntuition.classList.remove("text-slate-600");
-          btnIntuition.setAttribute("aria-selected", "true");
+      visualPanel.classList.toggle("hidden", !isVisual);
+      rulePanel.classList.toggle("hidden", isVisual);
+      (isVisual ? visualPanel : rulePanel).classList.add("tab-panel-enter");
+    };
 
-          btnRote.classList.remove("bg-white", "text-slate-900", "shadow-xs", "font-bold", "tab-spring-active");
-          btnRote.classList.add("text-slate-600");
-          btnRote.setAttribute("aria-selected", "false");
+    visualBtn.onclick = () => setMode("visual");
+    ruleBtn.onclick = () => setMode("rule");
+  }
 
-          viewIntuition.classList.remove("hidden");
-          viewIntuition.style.display = "block";
-          viewIntuition.classList.add("tab-panel-enter");
-          viewRote.classList.add("hidden");
-          viewRote.style.display = "none";
-          viewRote.classList.remove("tab-panel-enter");
+  function initReviewsCarousel() {
+    const stage = document.getElementById("reviews-carousel-stage");
+    const wheel = document.getElementById("reviews-wheel-control");
+    const rotor = document.getElementById("reviews-wheel-rotor");
+    const prevBtn = document.getElementById("reviews-prev-btn");
+    const nextBtn = document.getElementById("reviews-next-btn");
+    const activeLabel = document.getElementById("reviews-active-label");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-review-card]"));
 
-          setTimeout(() => btnIntuition.classList.remove("tab-spring-active"), 300);
-        };
-      }
+    if (!stage || !wheel || !rotor || cards.length === 0) return;
 
-      // Program Filter Tabs
-      const filterTabs = document.querySelectorAll(".filter-tab");
-      const programCards = document.querySelectorAll(".program-card");
+    const slideCount = cards.length; // 6 (3 real + 3 wrap clones)
+    const reviewLabels = [
+      "Sarra · Parent of Grade 8 Student",
+      "Maaz · Grade 10 Learner",
+      "Rohit · Parent of Grade 9 Student",
+    ];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const easeTransition = reducedMotion
+      ? "none"
+      : "transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.75s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.75s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.75s cubic-bezier(0.22, 1, 0.36, 1)";
+    const wheelTransition = reducedMotion
+      ? "none"
+      : "transform 0.75s cubic-bezier(0.22, 1, 0.36, 1)";
 
-      filterTabs.forEach((tab) => {
-        tab.onclick = function (e) {
-          e.preventDefault();
-          filterTabs.forEach((t) => {
-            t.classList.remove("bg-slate-900", "text-white", "shadow-xs", "tab-spring-active");
-            t.classList.add("bg-slate-100", "text-slate-700");
-          });
-          tab.classList.add("bg-slate-900", "text-white", "shadow-xs", "tab-spring-active");
-          tab.classList.remove("bg-slate-100", "text-slate-700");
-          setTimeout(() => tab.classList.remove("tab-spring-active"), 300);
+    let virtualPos = 1; // Continuous unbounded position; 1 = Maaz centered, +/- infinite
+    let dragStartPos = 1;
+    let isDragging = false;
+    let dragMode: "stage" | "wheel" | null = null;
+    let startX = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let velocityPxPerMs = 0;
+    let movedDuringDrag = false;
 
-          const filter = tab.getAttribute("data-filter");
-          programCards.forEach((card) => {
-            const category = card.getAttribute("data-category");
-            if (filter === "all" || category === filter) {
-              card.classList.remove("hidden");
-              card.style.display = "";
-              card.classList.add("tab-panel-enter");
-            } else {
-              card.classList.add("hidden");
-              card.style.display = "none";
-              card.classList.remove("tab-panel-enter");
-            }
-          });
-        };
-      });
+    const getStride = () => (window.innerWidth < 640 ? 286 : 344);
 
-      // 3. Sticky Stacking Deck Animation (Vertical momentum track)
-      function initPillarsDeck() {
-        const track = document.getElementById("pillars-deck-track");
-        if (!track) return;
-
-        const card0 = document.getElementById("deck-card-0");
-        const card1 = document.getElementById("deck-card-1");
-        const card2 = document.getElementById("deck-card-2");
-        const indicatorBtns = document.querySelectorAll(".deck-indicator-btn");
-
-        if (!card0 || !card1 || !card2) return;
-
-        let targetProgress = 0;
-        let currentProgress = 0;
-        let isAnimating = false;
-
-        function updateDeckView() {
-          if (currentProgress < 0.33) {
-            // Card 1 is primary
-            card0.style.transform = "translateY(0px) scale(1)";
-            card0.style.opacity = "1";
-            card0.style.zIndex = "10";
-
-            card1.style.transform = "translateY(115%) scale(0.95)";
-            card1.style.opacity = "0";
-            card1.style.zIndex = "20";
-
-            card2.style.transform = "translateY(115%) scale(0.95)";
-            card2.style.opacity = "0";
-            card2.style.zIndex = "30";
-
-            updateIndicators(0);
-          } else if (currentProgress < 0.66) {
-            // Transition from Card 1 to Card 2
-            const p = (currentProgress - 0.33) / 0.33;
-
-            const c0Y = -18 * p;
-            const c0Scale = 1 - 0.05 * p;
-            const c0Opacity = 1 - 0.45 * p;
-            card0.style.transform = `translateY(${c0Y}px) scale(${c0Scale})`;
-            card0.style.opacity = `${c0Opacity}`;
-            card0.style.zIndex = "10";
-
-            const c1Y = 115 * (1 - p);
-            const c1Scale = 0.95 + 0.05 * p;
-            const c1Opacity = Math.min(1, p * 2.4);
-            card1.style.transform = `translateY(${c1Y}%) scale(${c1Scale})`;
-            card1.style.opacity = `${c1Opacity}`;
-            card1.style.zIndex = "20";
-
-            card2.style.transform = "translateY(115%) scale(0.95)";
-            card2.style.opacity = "0";
-            card2.style.zIndex = "30";
-
-            updateIndicators(1);
-          } else {
-            // Transition from Card 2 to Card 3
-            const p = Math.min(1, (currentProgress - 0.66) / 0.34);
-
-            card0.style.transform = "translateY(-32px) scale(0.90)";
-            card0.style.opacity = "0.25";
-            card0.style.zIndex = "10";
-
-            const c1Y = -18 * p;
-            const c1Scale = 1 - 0.05 * p;
-            const c1Opacity = 1 - 0.45 * p;
-            card1.style.transform = `translateY(${c1Y}px) scale(${c1Scale})`;
-            card1.style.opacity = `${c1Opacity}`;
-            card1.style.zIndex = "20";
-
-            const c2Y = 115 * (1 - p);
-            const c2Scale = 0.95 + 0.05 * p;
-            const c2Opacity = Math.min(1, p * 2.4);
-            card2.style.transform = `translateY(${c2Y}%) scale(${c2Scale})`;
-            card2.style.opacity = `${c2Opacity}`;
-            card2.style.zIndex = "30";
-
-            updateIndicators(2);
-          }
-
-          // Gentle spring lerp momentum
-          const diff = targetProgress - currentProgress;
-          if (Math.abs(diff) > 0.001) {
-            currentProgress += diff * 0.14;
-            requestAnimationFrame(updateDeckView);
-          } else {
-            currentProgress = targetProgress;
-            isAnimating = false;
-          }
-        }
-
-        function updateIndicators(activeIndex) {
-          indicatorBtns.forEach((btn, idx) => {
-            if (idx === activeIndex) {
-              btn.classList.add("bg-slate-900", "text-white", "shadow-xs");
-              btn.classList.remove("bg-slate-100", "text-slate-600");
-            } else {
-              btn.classList.remove("bg-slate-900", "text-white", "shadow-xs");
-              btn.classList.add("bg-slate-100", "text-slate-600");
-            }
-          });
-        }
-
-        function onScrollDeck() {
-          const rect = track.getBoundingClientRect();
-          const stickyTop = 80;
-          const scrollDistance = track.offsetHeight - window.innerHeight;
-          if (scrollDistance <= 0) return;
-
-          const progress = Math.min(Math.max((stickyTop - rect.top) / scrollDistance, 0), 1);
-          targetProgress = progress;
-
-          if (!isAnimating) {
-            isAnimating = true;
-            requestAnimationFrame(updateDeckView);
-          }
-        }
-
-        window.removeEventListener("scroll", onScrollDeck);
-        window.addEventListener("scroll", onScrollDeck, { passive: true });
-        onScrollDeck();
-
-        // Direct click navigation for buttons
-        indicatorBtns.forEach((btn) => {
-          btn.onclick = function (e) {
-            e.preventDefault();
-            const targetCard = parseInt(btn.getAttribute("data-card") || "0", 10);
-            const scrollDistance = track.offsetHeight - window.innerHeight;
-            const trackTop = track.getBoundingClientRect().top + window.scrollY;
-
-            let targetScrollY = trackTop;
-            if (targetCard === 1) {
-              targetScrollY = trackTop + (scrollDistance * 0.48);
-            } else if (targetCard === 2) {
-              targetScrollY = trackTop + (scrollDistance * 0.92);
-            }
-
-            window.scrollTo({
-              top: targetScrollY,
-              behavior: "smooth"
-            });
-          };
-        });
-      }
-
-      initPillarsDeck();
+    function wrappedOffset(cardIdx: number, centerPos: number): number {
+      let offset = (((cardIdx - centerPos) % slideCount) + slideCount) % slideCount;
+      if (offset >= slideCount / 2) offset -= slideCount;
+      return offset;
     }
 
-    initHomePage();
-    document.addEventListener("astro:page-load", initHomePage);
-  </script>
-</MainLayout>
+    function renderCarousel(instant = false) {
+      const stride = getStride();
+      const transitionStyle = instant || isDragging ? "none" : easeTransition;
+
+      cards.forEach((card, i) => {
+        const offset = wrappedOffset(i, virtualPos);
+        const absOffset = Math.abs(offset);
+
+        const translateX = offset * stride;
+        const scale = Math.max(0.84, 1 - absOffset * 0.1);
+        const opacity = absOffset > 2.1 ? 0 : Math.max(0.25, 1 - absOffset * 0.38);
+        const blur = absOffset > 0.35 ? Math.min(1.2, absOffset * 0.55) : 0;
+        const zIndex = 30 - Math.round(absOffset * 10);
+        const isCenter = absOffset < 0.35;
+
+        card.style.transition = transitionStyle;
+        card.style.transform = `translate3d(calc(-50% + ${translateX.toFixed(1)}px), -50%, 0) scale(${scale.toFixed(3)})`;
+        card.style.opacity = opacity.toFixed(3);
+        card.style.filter = blur > 0.05 && !reducedMotion ? `blur(${blur.toFixed(2)}px)` : "none";
+        card.style.zIndex = String(zIndex);
+        card.style.boxShadow = isCenter
+          ? "0 12px 40px 0 rgba(20, 20, 20, 0.08)"
+          : "0 1px 3px rgba(20, 20, 20, 0.04)";
+        card.style.borderColor = isCenter ? "var(--border-strong)" : "var(--border-subtle)";
+        card.style.pointerEvents = absOffset > 1.8 ? "none" : "auto";
+        card.style.cursor = isCenter ? "grab" : "pointer";
+      });
+
+      const liveAngle = -virtualPos * 15; // 15deg per review lands cleanly on major sage ticks
+      rotor.style.transition = instant || isDragging ? "none" : wheelTransition;
+      rotor.style.transform = `rotate(${liveAngle.toFixed(2)}deg)`;
+
+      const snapped = Math.round(virtualPos);
+      const logical = ((snapped % 3) + 3) % 3;
+      wheel.setAttribute("aria-valuenow", String(logical + 1));
+      if (activeLabel) {
+        activeLabel.textContent = reviewLabels[logical];
+      }
+    }
+
+    function stepBy(deltaSlides: number) {
+      virtualPos = Math.round(virtualPos) + deltaSlides;
+      renderCarousel(false);
+    }
+
+    // Side-card click advances smoothly to that card
+    cards.forEach((card, i) => {
+      card.onclick = () => {
+        if (movedDuringDrag) return;
+        const delta = wrappedOffset(i, Math.round(virtualPos));
+        if (delta !== 0) stepBy(delta);
+      };
+    });
+
+    prevBtn?.addEventListener("click", () => stepBy(-1));
+    nextBtn?.addEventListener("click", () => stepBy(1));
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        stepBy(-1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        stepBy(1);
+      }
+    };
+    stage.addEventListener("keydown", onKeyDown);
+    wheel.addEventListener("keydown", onKeyDown);
+
+    const startDrag = (mode: "stage" | "wheel", clientX: number, target: HTMLElement, pointerId: number) => {
+      isDragging = true;
+      dragMode = mode;
+      dragStartPos = virtualPos;
+      startX = clientX;
+      lastX = clientX;
+      lastTime = performance.now();
+      velocityPxPerMs = 0;
+      movedDuringDrag = false;
+      try {
+        target.setPointerCapture(pointerId);
+      } catch {}
+    };
+
+    stage.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      startDrag("stage", e.clientX, stage, e.pointerId);
+    });
+
+    wheel.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      startDrag("wheel", e.clientX, wheel, e.pointerId);
+    });
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDragging || !dragMode) return;
+      const now = performance.now();
+      const dt = Math.max(1, now - lastTime);
+      velocityPxPerMs = (e.clientX - lastX) / dt;
+      lastX = e.clientX;
+      lastTime = now;
+
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 6) movedDuringDrag = true;
+
+      // Calm, lower sensitivity so continuous multi-card scrolling feels controlled
+      const sensitivity = dragMode === "wheel" ? 160 : getStride() * 1.4;
+      virtualPos = dragStartPos - dx / sensitivity;
+      renderCarousel(true);
+    };
+
+    const onPointerEnd = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const mode = dragMode;
+      dragMode = null;
+
+      const movedCards = virtualPos - dragStartPos;
+      let targetPos = Math.round(virtualPos);
+
+      // If user made a quick short flick (< 0.45 card), advance 1 card in flick direction
+      if (Math.abs(movedCards) < 0.45 && Math.abs(velocityPxPerMs) > (mode === "wheel" ? 0.25 : 0.35)) {
+        targetPos = Math.round(dragStartPos) + (velocityPxPerMs < 0 ? 1 : -1);
+      }
+
+      virtualPos = targetPos;
+      renderCarousel(false);
+      setTimeout(() => {
+        movedDuringDrag = false;
+      }, 60);
+    };
+
+    stage.addEventListener("pointermove", onPointerMove);
+    wheel.addEventListener("pointermove", onPointerMove);
+    stage.addEventListener("pointerup", onPointerEnd);
+    stage.addEventListener("pointercancel", onPointerEnd);
+    wheel.addEventListener("pointerup", onPointerEnd);
+    wheel.addEventListener("pointercancel", onPointerEnd);
+
+    window.addEventListener("resize", () => renderCarousel(true));
+    renderCarousel(true);
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initHomeOfferingsPreview();
+    initReviewsCarousel();
+  });
+</script>
